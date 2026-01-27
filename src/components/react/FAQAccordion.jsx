@@ -4,33 +4,48 @@ import { ChevronDown } from 'lucide-react';
 const faqs = [
   {
     id: 1,
-    question: "¿Cuánto tiempo lleva ver resultados concretos?",
-    answer: "Los primeros resultados suelen verse entre 30 y 60 días después de comenzar la implementación. Mejoras significativas en facturación y número de clientes se evidencian típicamente entre los 3 y 6 meses. Todo depende del punto de partida y el nivel de compromiso en la implementación."
+    question: "¿Con qué tipo de clientes trabajan?",
+    answer: "Trabajamos con clínicas veterinarias, empresas del sector pet y profesionales que buscan crecer con estrategia, tomar mejores decisiones y profesionalizar su negocio. No trabajamos con proyectos que buscan soluciones rápidas ni con pedidos de ejecución táctica aislada."
   },
   {
     id: 2,
-    question: "¿Necesito experiencia previa en marketing o gestión?",
-    answer: "No es necesario. Nuestra metodología está diseñada para veterinarios sin experiencia en marketing o gestión empresarial. Te guiamos paso a paso y nos aseguramos de que entiendas cada acción que implementamos. Todo está explicado en lenguaje claro y práctico."
+    question: "¿Trabajan solo con clínicas veterinarias?",
+    answer: "No. También acompañamos empresas del sector pet, startups, nuevos proyectos y profesionales que buscan posicionarse como referentes dentro de la industria veterinaria."
   },
   {
     id: 3,
-    question: "¿Los planes tienen permanencia mínima?",
-    answer: "Los planes Starter y Growth tienen una permanencia mínima de 3 meses para garantizar la implementación completa del método y poder medir resultados. El plan Elite se diseña a medida según objetivos y puede tener diferentes estructuras de compromiso."
+    question: "¿Ofrecen manejo de redes sociales o marketing operativo?",
+    answer: "No. Diseñamos estrategias de marketing y crecimiento alineadas al negocio, pero no realizamos ejecución operativa diaria. Trabajamos junto a equipos internos o proveedores externos cuando el proyecto lo requiere."
   },
   {
     id: 4,
-    question: "¿Qué pasa si no veo los resultados esperados?",
-    answer: "Ofrecemos una garantía de satisfacción. Si después de 90 días de implementación completa no ves mejoras medibles en tu negocio, analizamos juntos qué ajustes necesitamos hacer. Nuestro compromiso es con tu éxito real y comprobable."
+    question: "¿Cómo es el primer contacto?",
+    answer: "El primer paso es un encuentro inicial donde analizamos la situación actual del negocio, detectamos oportunidades reales y evaluamos si tiene sentido trabajar juntos. Trabajamos con cupos limitados."
   },
   {
     id: 5,
-    question: "¿Trabajás con veterinarias fuera de Argentina?",
-    answer: "Sí, trabajamos con veterinarias de toda Latinoamérica y España. Todas las sesiones se realizan de forma virtual, lo que permite trabajar sin importar la ubicación geográfica. Las estrategias se adaptan al mercado local de cada país."
+    question: "¿Cuánto dura un proceso de consultoría?",
+    answer: "Depende de los objetivos y del alcance del proyecto. Algunos acompañamientos se trabajan por etapas y otros requieren un seguimiento mensual. No utilizamos paquetes genéricos."
   },
   {
     id: 6,
-    question: "¿Cuál es la diferencia entre los planes?",
-    answer: "El plan Starter es ideal para comenzar con fundamentos de marketing y gestión. Growth incluye implementación completa de sistemas, CRM y automatizaciones con mayor acompañamiento. Elite es una consultoría integral para transformación profunda y expansión. La elección depende de tu etapa actual y objetivos."
+    question: "¿Trabajan con precios fijos?",
+    answer: "Cada propuesta es personalizada. La inversión depende del tipo de acompañamiento, la complejidad del negocio y los objetivos a trabajar."
+  },
+  {
+    id: 7,
+    question: "¿Qué resultados se pueden esperar?",
+    answer: "El foco del trabajo está puesto en mejorar la toma de decisiones, ordenar la estrategia y construir bases sólidas de crecimiento. Los resultados dependen del contexto de cada negocio y del nivel de compromiso en la implementación."
+  },
+  {
+    id: 8,
+    question: "¿Es necesario tener un equipo grande o un negocio \"ordenado\" para empezar?",
+    answer: "No. Trabajamos tanto con negocios en crecimiento como con estructuras ya consolidadas. Lo importante es estar abiertos a revisar procesos y tomar decisiones estratégicas."
+  },
+  {
+    id: 9,
+    question: "¿Trabajan solo con clientes de Argentina?",
+    answer: "No. Trabajamos con clientes de Argentina y de otros países de Latinoamérica."
   }
 ];
 

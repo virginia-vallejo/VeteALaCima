@@ -34,7 +34,7 @@ const problems = [
   {
     icon: 'bar-chart',
     title: 'Decisiones sin datos ni innovación',
-    description: 'Se gestiona por intuición, sin información, tecnología ni mirada de tendencias del mercado global. El sector avanza. La pregunta es si tu negocio avanza con él',
+    description: 'Se gestiona por intuición, sin información, tecnología ni mirada de tendencias del mercado global.',
     color: 'from-blue-500/10 to-cyan-500/10',
     accentColor: 'border-blue-500'
   },
@@ -115,6 +115,38 @@ const problems = [
           <ProblemCard {...problem} index={index} />
         </div>
       ))}
+    </div>
+
+    <!-- Frase impactante de reflexión -->
+    <div class="mt-12 md:mt-16 lg:mt-20 max-w-5xl mx-auto px-4 md:px-6">
+      <div class="relative bg-gradient-to-br from-red-50/95 via-orange-50/95 to-amber-50/95 backdrop-blur-xl rounded-2xl md:rounded-3xl shadow-2xl border-2 border-red-200/60 overflow-hidden group hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+        <!-- Efecto de alerta sutil -->
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-500 via-orange-500 to-red-500 animate-pulse"></div>
+        
+        <!-- Icono de alerta flotante -->
+        <div class="absolute top-4 right-4 md:top-6 md:right-6">
+          <svg class="w-8 h-8 md:w-10 md:h-10 text-red-500/30 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+          </svg>
+        </div>
+        
+        <!-- Contenido -->
+        <div class="relative p-8 md:p-10 lg:p-12 text-center">
+          <p class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+            <span class="block text-gray-800 mb-2">El sector avanza.</span>
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-600 to-red-600 drop-shadow-sm">
+              La pregunta es si <span class="underline decoration-red-500/40 decoration-4">tu negocio</span> avanza con él
+            </span>
+          </p>
+          
+          <!-- Línea decorativa -->
+          <div class="mt-6 md:mt-8 flex justify-center gap-2">
+            <div class="h-1 w-2 rounded-full bg-red-500 animate-pulse"></div>
+            <div class="h-1 w-16 rounded-full bg-gradient-to-r from-red-500 via-orange-500 to-red-500"></div>
+            <div class="h-1 w-2 rounded-full bg-red-500 animate-pulse" style="animation-delay: 0.5s;"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- CTA card elegante con fondo sólido -->

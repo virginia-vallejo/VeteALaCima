@@ -37,7 +37,7 @@ const currentYear = getCurrentYear();
           <div class="flex items-center space-x-4 mb-4">
             <!-- Logo con glow neón -->
             <div class="relative logo-container group cursor-pointer">
-              <div class="absolute inset-0 w-20 sm:w-24 md:w-28 lg:w-32 h-20 sm:h-24 md:w-28 lg:h-32 -left-2 -top-2 bg-[#b4cfa6]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 logo-glow"></div>
+              <div class="absolute inset-0 w-36 sm:w-40 md:w-52 lg:w-60 h-36 sm:h-40 md:h-52 lg:h-60 -left-2 -top-2 bg-[#b4cfa6]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 logo-glow"></div>
               
               <img 
                 src="/images/logo/logo3d.svg" 
@@ -45,7 +45,7 @@ const currentYear = getCurrentYear();
                 width="500"
                 height="500"
                 loading="lazy"
-                class="relative w-16 sm:w-20 md:w-24 lg:w-28 h-16 sm:h-20 md:h-24 lg:h-28 object-contain transition-all duration-500 group-hover:scale-110 filter drop-shadow-[0_0_15px_rgba(180,207,166,0.5)] group-hover:drop-shadow-[0_0_25px_rgba(180,207,166,0.8)]"
+                class="relative w-32 sm:w-36 md:w-48 lg:w-56 h-32 sm:h-36 md:h-48 lg:h-56 object-contain transition-all duration-500 group-hover:scale-110 footer-logo-white"
               />
             </div>
             <div>
@@ -53,13 +53,14 @@ const currentYear = getCurrentYear();
                 VETE A LA CIMA
               </span>
               <span class="text-[#b4cfa6] text-xs sm:text-xs font-medium block mt-1 neon-text">
-                Estrategia y Crecimiento Veterinario
+                Estrategia, digitalización y crecimiento para el sector veterinario
               </span>
             </div>
           </div>
         </div>
         <p class="text-white/80 text-sm sm:text-sm leading-relaxed mb-4 sm:mb-6">
-          Consultoría estratégica especializada para veterinarios que quieren transformar sus clínicas en negocios rentables y escalables.
+          Consultoría estratégica especializada en negocios veterinarios y empresas del sector pet.
+          Acompaño a clínicas, profesionales y organizaciones a tomar mejores decisiones, lanzar nuevos proyectos y construir modelos de crecimiento sostenibles.
         </p>
         
         <!-- Social Links con efecto neón -->
@@ -358,6 +359,29 @@ const currentYear = getCurrentYear();
       transform: scale(1.2); 
       opacity: 1; 
     }
+  }
+
+  /* Logo blanco del footer con efecto similar al header */
+  .footer-logo-white {
+    filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 12px rgba(180, 207, 166, 0.4)) !important;
+    -webkit-filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 12px rgba(180, 207, 166, 0.4)) !important;
+    animation: footer-logo-pulse 2.2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  }
+
+  @keyframes footer-logo-pulse {
+    0% {
+      filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 10px #b4cfa6) drop-shadow(0 0 5px #3e6680) !important;
+      -webkit-filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 10px #b4cfa6) drop-shadow(0 0 5px #3e6680) !important;
+    }
+    100% {
+      filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 28px #b4cfa6) drop-shadow(0 0 14px #3e6680) !important;
+      -webkit-filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 28px #b4cfa6) drop-shadow(0 0 14px #3e6680) !important;
+    }
+  }
+
+  .logo-container:hover .footer-logo-white {
+    filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 20px rgba(180, 207, 166, 0.7)) drop-shadow(0 0 30px rgba(62, 102, 128, 0.5)) !important;
+    -webkit-filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 20px rgba(180, 207, 166, 0.7)) drop-shadow(0 0 30px rgba(62, 102, 128, 0.5)) !important;
   }
 
   /* Social buttons con neón */
