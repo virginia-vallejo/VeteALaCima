@@ -5,10 +5,21 @@ import PortableTextRenderer from '../../components/blog/PortableTextRenderer.tsx
 import { Calendar, Clock, User, ArrowLeft, Share2 } from 'lucide-react';
 import { examplePosts } from '../../data/examplePosts.js';
 
-// Desactivar pre-rendering para obtener datos frescos en cada request
-export const prerender = false;
+export async function getStaticPaths() {
+  try {
+    const posts = await sanityClient.fetch(`*[_type == "post"] { slug }`);
+    
+    return posts.map((post: any) => ({
+      params: { slug: post.slug.current }
+    }));
+  } catch (error) {
+    console.warn('Sanity not configured. Using example posts.');
+    return examplePosts.map((post) => ({
+      params: { slug: post.slug.current }
+    }));
+  }
+}
 
-// Obtener el slug de los parámetros de la URL
 const { slug } = Astro.params;
 
 let post: any = null;
