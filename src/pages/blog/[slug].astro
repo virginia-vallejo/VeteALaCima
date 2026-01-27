@@ -60,21 +60,8 @@ const metaDescription = post.seo?.metaDescription || post.excerpt;
 
 <Layout title={metaTitle} description={metaDescription}>
   <article>
-    <!-- Breadcrumb y Volver -->
-    <section class="bg-[#F5F7FA] pt-32 pb-6">
-      <div class="container mx-auto px-6 lg:px-8">
-        <a 
-          href="/blog" 
-          class="inline-flex items-center gap-2 text-[#3e6680] hover:text-[#b4cfa6] transition-colors font-medium"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          <span>Volver al blog</span>
-        </a>
-      </div>
-    </section>
-
     <!-- Imagen Hero -->
-    <section class="relative h-[400px] md:h-[500px] overflow-hidden">
+    <section class="relative h-[400px] md:h-[500px] overflow-hidden mt-24">
       <img 
         src={imageUrl} 
         alt={post.mainImage?.alt || post.title}
@@ -82,7 +69,16 @@ const metaDescription = post.seo?.metaDescription || post.excerpt;
       />
       <div class="absolute inset-0 bg-gradient-to-t from-[#294a5f]/80 to-transparent"></div>
       
-      <!-- Categorías sobre la imagen -->
+      <!-- Botón Volver arriba a la izquierda -->
+      <a 
+        href="/blog" 
+        class="absolute top-6 left-6 inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-[#3e6680] hover:bg-white hover:text-[#b4cfa6] transition-all px-4 py-2 rounded-full font-medium shadow-lg"
+      >
+        <ArrowLeft className="w-5 h-5" />
+        <span>Volver al blog</span>
+      </a>
+      
+      <!-- Categorías abajo a la izquierda -->
       {post.categories && post.categories.length > 0 && (
         <div class="absolute bottom-6 left-6 flex flex-wrap gap-2">
           {post.categories.map((category: any) => (
