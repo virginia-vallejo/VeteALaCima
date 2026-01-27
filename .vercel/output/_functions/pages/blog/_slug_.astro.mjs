@@ -56,19 +56,6 @@ function PortableTextRenderer({ value }) {
 }
 const $$Astro = createAstro("https://vete-a-la-cima.vercel.app");
 const prerender = false;
-async function getStaticPaths() {
-  try {
-    const posts = await sanityClient.fetch(`*[_type == "post"] { slug }`);
-    return posts.map((post) => ({
-      params: { slug: post.slug.current }
-    }));
-  } catch (error) {
-    console.warn("Sanity not configured. Using example posts.");
-    return examplePosts.map((post) => ({
-      params: { slug: post.slug.current }
-    }));
-  }
-}
 const $$slug = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$slug;
@@ -114,7 +101,6 @@ const _page = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePropert
   __proto__: null,
   default: $$slug,
   file: $$file,
-  getStaticPaths,
   prerender,
   url: $$url
 }, Symbol.toStringTag, { value: "Module" }));
