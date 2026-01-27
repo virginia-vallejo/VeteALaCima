@@ -30,9 +30,47 @@ import Button from '../components/shared/Button.astro';
 
     <div class="container-custom px-4 md:px-8 relative z-10 py-32 md:py-40">
       <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           
-          <!-- Imagen - Lado izquierdo -->
+          <!-- Contenido superior: Badge + Título + Descripción -->
+          <div class="order-1 lg:order-2 text-white animate-fade-in-right">
+            
+            <!-- Badge superior minimalista -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full mb-6 border border-white/10">
+              <div class="w-2 h-2 bg-[#b4cfa6] rounded-full"></div>
+              <span class="text-[#b4cfa6] font-semibold text-xs uppercase tracking-widest">
+                Sobre Mí
+              </span>
+            </div>
+            
+            <!-- Título principal -->
+            <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-[1.1]">
+              <span class="block text-white mb-2">Veterinaria,</span>
+              <span class="block text-white mb-2">Empresaria y</span>
+              <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#b4cfa6] via-[#a5c096] to-[#66D4FF]">
+                Consultora Estratégica
+              </span>
+              <span class="block text-white text-2xl md:text-3xl lg:text-4xl mt-4 font-light">
+                del sector veterinario
+              </span>
+            </h1>
+
+            <!-- Línea decorativa -->
+            <div class="flex items-center gap-3 mb-6">
+              <div class="h-[2px] w-16 bg-gradient-to-r from-[#b4cfa6] to-transparent"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-[#b4cfa6]"></div>
+              <div class="h-[2px] flex-1 max-w-[100px] bg-gradient-to-r from-[#b4cfa6]/50 to-transparent"></div>
+            </div>
+            
+            <!-- Descripción principal -->
+            <div class="space-y-5 mb-0 lg:mb-8">
+              <p class="text-xl md:text-2xl text-white/95 leading-relaxed font-light">
+                Acompaño a veterinarios, clínicas y empresas del sector a transformar su conocimiento profesional en negocios sólidos, rentables y con visión de futuro.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Imagen -->
           <div class="order-2 lg:order-1 animate-fade-in-left">
             <div class="relative max-w-lg mx-auto lg:mx-0">
               <!-- Contenedor principal con borde gradiente -->
@@ -59,7 +97,7 @@ import Button from '../components/shared/Button.astro';
                     <div class="flex items-center gap-2.5">
                       
                       <div>
-                        <p class="text-lg font-bold leading-none">+15 años</p>
+                        <p class="text-lg font-bold leading-none">+10 años</p>
                         <p class="text-xs font-semibold opacity-80 uppercase tracking-wide">Experiencia</p>
                       </div>
                     </div>
@@ -73,49 +111,9 @@ import Button from '../components/shared/Button.astro';
             </div>
           </div>
 
-          <!-- Contenido - Lado derecho -->
-          <div class="order-1 lg:order-2 text-white animate-fade-in-right">
-            
-            <!-- Badge superior minimalista -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full mb-6 border border-white/10">
-              <div class="w-2 h-2 bg-[#b4cfa6] rounded-full"></div>
-              <span class="text-[#b4cfa6] font-semibold text-xs uppercase tracking-widest">
-                Sobre Mí
-              </span>
-            </div>
-            
-            <!-- Título principal -->
-            <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-[1.1]">
-              <span class="block text-white mb-2">Veterinaria,</span>
-              <span class="block text-white mb-2">Empresaria y</span>
-              <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#b4cfa6] via-[#a5c096] to-[#66D4FF]">
-                Consultora
-              </span>
-            </h1>
-
-            <!-- Línea decorativa -->
-            <div class="flex items-center gap-3 mb-6">
-              <div class="h-[2px] w-16 bg-gradient-to-r from-[#b4cfa6] to-transparent"></div>
-              <div class="w-1.5 h-1.5 rounded-full bg-[#b4cfa6]"></div>
-              <div class="h-[2px] flex-1 max-w-[100px] bg-gradient-to-r from-[#b4cfa6]/50 to-transparent"></div>
-            </div>
-            
-            <!-- Descripción principal -->
-            <div class="space-y-5 mb-8">
-              <p class="text-xl md:text-2xl text-white/95 leading-relaxed font-light">
-                Mi misión es ayudar a veterinarios apasionados a construir negocios prósperos sin sacrificar su amor por la profesión.
-              </p>
-              
-              <!-- Quote destacado con diseño minimalista -->
-              <div class="relative pl-6 border-l-2 border-[#b4cfa6] bg-white/[0.03] backdrop-blur-sm py-4 pr-4 rounded-r-lg">
-                <p class="text-lg md:text-xl text-white/90 italic font-light leading-relaxed">
-                  "Transformar clínicas veterinarias en negocios exitosos es mi pasión y mi compromiso"
-                </p>
-              </div>
-            </div>
-
-            <!-- Stats cards minimalistas -->
-            <div class="grid grid-cols-2 gap-4 mb-10">
+          <!-- Stats cards (después de imagen en mobile, parte del contenido derecho en desktop) -->
+          <div class="order-3 lg:order-2 lg:col-start-2 text-white">
+            <div class="grid grid-cols-2 gap-4 mb-8 lg:mb-10 max-w-lg mx-auto lg:mx-0">
               <!-- Card 1 -->
               <div class="group relative overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-br from-[#b4cfa6]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -141,25 +139,27 @@ import Button from '../components/shared/Button.astro';
                       <span class="text-xl">📈</span>
                     </div>
                     <div>
-                      <p class="text-2xl font-bold text-white mb-0.5">15+</p>
-                      <p class="text-xs text-white/70 font-medium uppercase tracking-wide">Años experiencia</p>
+                      <p class="text-2xl font-bold text-white mb-0.5">+10</p>
+                      <p class="text-xs text-white/70 font-medium uppercase tracking-wide">Años en el sector</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- CTAs -->
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/contacto" class="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#b4cfa6] to-[#8fa886] text-[#0a1929] rounded-lg font-semibold text-base hover:shadow-[0_8px_30px_rgba(180,207,166,0.4)] transition-all duration-300 hover:scale-[1.02]">
-                <span>Trabajemos juntos</span>
+          <!-- CTAs (después de stats en mobile, parte del contenido derecho en desktop) -->
+          <div class="order-4 lg:order-2 lg:col-start-2 text-white">
+            <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto lg:mx-0">
+              <a href="https://calendly.com/virginia-vetealacima/30min" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#b4cfa6] to-[#8fa886] text-[#0a1929] rounded-lg font-semibold text-base hover:shadow-[0_8px_30px_rgba(180,207,166,0.4)] transition-all duration-300 hover:scale-[1.02]">
+                <span>👉 Trabajemos juntos</span>
                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </a>
               
-              <a href="#historia" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm text-white border border-white/20 rounded-lg font-semibold text-base hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:scale-[1.02]">
-                <span>Conocé mi historia</span>
+              <a href="#quien-soy" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm text-white border border-white/20 rounded-lg font-semibold text-base hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:scale-[1.02]">
+                <span>Conocé más</span>
               </a>
             </div>
           </div>
@@ -169,68 +169,148 @@ import Button from '../components/shared/Button.astro';
     </div>
   </section>
 
-  <!-- Biography Section -->
-  <section id="historia" class="section-padding bg-[#0a1929] scroll-mt-20 relative overflow-hidden">
+  <!-- Quién Soy Section -->
+  <section id="quien-soy" class="section-padding bg-[#0a1929] scroll-mt-20 relative overflow-hidden">
     <!-- Decorative blur accents -->
     <div class="absolute top-20 left-10 w-96 h-96 bg-[#b4cfa6]/10 rounded-full blur-3xl opacity-50 animate-float"></div>
     <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#66D4FF]/10 rounded-full blur-3xl opacity-50 animate-float-delayed"></div>
     
     <div class="container-custom px-4 md:px-8 relative z-10">
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-5xl mx-auto">
         <!-- Title -->
         <div class="text-center mb-12 animate-fade-in-up">
-          <p class="text-[#b4cfa6] uppercase tracking-wider text-sm font-semibold mb-3">De veterinaria a consultora</p>
-          <h2 class="font-heading font-bold text-4xl md:text-5xl text-white mb-4">Mi Historia</h2>
+          <p class="text-[#b4cfa6] uppercase tracking-wider text-sm font-semibold mb-3">Sobre mí</p>
+          <h2 class="font-heading font-bold text-4xl md:text-5xl text-white mb-4">Quién Soy</h2>
         </div>
         
         <div class="mt-12 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 md:p-12 shadow-2xl hover:shadow-[0_0_60px_rgba(180,207,166,0.2)] transition-all duration-500 animate-fade-in-up" style="animation-delay: 0.2s">
-          <Biography />
+          <div class="prose prose-lg prose-invert max-w-none">
+            <p class="text-xl text-white/95 leading-relaxed mb-6">
+              Soy <strong class="text-[#b4cfa6]">Virginia Vallejo</strong>.
+            </p>
+            <p class="text-lg text-white/90 leading-relaxed mb-6">
+              Médica Veterinaria, emprendedora y consultora especializada en estrategia, crecimiento y transformación de negocios veterinarios.
+            </p>
+            <p class="text-lg text-white/90 leading-relaxed">
+              Desde hace más de 10 años combino experiencia clínica, gestión empresarial y marketing digital para ayudar a profesionales del sector a ordenar sus negocios, tomar mejores decisiones y crecer sin perder la esencia de su vocación.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Timeline Section -->
+<!-- Recorrido Profesional Section -->
   <section class="section-padding bg-gradient-to-b from-[#0a1929] via-[#0f1f33] to-[#0a1929] relative overflow-hidden">
-    <!-- Grid pattern -->
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-    
-    <div class="container-custom px-4 md:px-8 relative z-10">
-      <!-- Title -->
-      <div class="text-center mb-16 animate-fade-in-up">
-        <p class="text-[#b4cfa6] uppercase tracking-wider text-sm font-semibold mb-3">Timeline profesional</p>
-        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white mb-6">Mi Trayectoria</h2>
-        <p class="text-white/70 text-lg max-w-2xl mx-auto">Desde mis inicios en 2011 hasta hoy, un camino de aprendizaje y transformación</p>
-      </div>
-
-      <div class="mt-16 max-w-6xl mx-auto">
-        <Timeline />
-      </div>
-    </div>
-  </section>
-
-  <!-- Credentials Section -->
-  <section class="section-padding bg-[#0a1929] relative overflow-hidden">
     <!-- Decorative blur accents -->
     <div class="absolute top-40 right-20 w-96 h-96 bg-[#66D4FF]/10 rounded-full blur-3xl opacity-50"></div>
     <div class="absolute bottom-20 left-20 w-96 h-96 bg-[#b4cfa6]/10 rounded-full blur-3xl opacity-50"></div>
     
     <div class="container-custom px-4 md:px-8 relative z-10">
-      <div class="max-w-6xl mx-auto">
+      <div class="max-w-5xl mx-auto">
         <!-- Title -->
         <div class="text-center mb-16 animate-fade-in-up">
-          <p class="text-[#b4cfa6] uppercase tracking-wider text-sm font-semibold mb-3">Experiencia y resultados</p>
-          <h2 class="font-heading font-bold text-4xl md:text-5xl text-white mb-4">Credenciales y Logros</h2>
+          <p class="text-[#b4cfa6] uppercase tracking-wider text-sm font-semibold mb-3">Experiencia</p>
+          <h2 class="font-heading font-bold text-4xl md:text-5xl text-white mb-4">Mi Recorrido Profesional</h2>
         </div>
         
-        <div class="mt-16">
-          <Credentials />
+        <div class="space-y-6">
+          <!-- Item 1 -->
+          <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6 md:p-8 hover:bg-white/15 hover:border-[#b4cfa6]/50 transition-all duration-500 animate-fade-in-up">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#b4cfa6]/20 to-[#b4cfa6]/5 flex items-center justify-center flex-shrink-0">
+                <span class="text-2xl">🏨</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-heading font-semibold text-xl text-white mb-2">Fundadora de Hoteles de Gatos Mishmosos</h3>
+                <p class="text-[#b4cfa6] text-sm font-medium mb-3">2013 - Presente</p>
+                <p class="text-white/80 leading-relaxed">
+                  Un negocio pet premium enfocado en experiencia del cliente, procesos eficientes y rentabilidad.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6 md:p-8 hover:bg-white/15 hover:border-[#66D4FF]/50 transition-all duration-500 animate-fade-in-up" style="animation-delay: 0.1s">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#66D4FF]/20 to-[#66D4FF]/5 flex items-center justify-center flex-shrink-0">
+                <span class="text-2xl">🏢</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-heading font-semibold text-xl text-white mb-2">Experiencia Corporativa</h3>
+                <p class="text-[#66D4FF] text-sm font-medium mb-3">Empresas líderes del sector</p>
+                <p class="text-white/80 leading-relaxed">
+                  Eukanuba, Royal Canin, IDEXX y Zoetis, trabajando en desarrollo de negocios, diagnóstico veterinario y estrategia comercial.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6 md:p-8 hover:bg-white/15 hover:border-[#b4cfa6]/50 transition-all duration-500 animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#b4cfa6]/20 to-[#b4cfa6]/5 flex items-center justify-center flex-shrink-0">
+                <span class="text-2xl">🚀</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-heading font-semibold text-xl text-white mb-2">Liderazgo en Innovación y Tecnología</h3>
+                <p class="text-[#b4cfa6] text-sm font-medium mb-3">Startups y proyectos disruptivos</p>
+                <p class="text-white/80 leading-relaxed">
+                  CEO de Id Animal (startup de trazabilidad con IA) y Chief Marketing Officer de Mascoters (marketplace de cuidadores de mascotas).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6 md:p-8 hover:bg-white/15 hover:border-[#66D4FF]/50 transition-all duration-500 animate-fade-in-up" style="animation-delay: 0.3s">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#66D4FF]/20 to-[#66D4FF]/5 flex items-center justify-center flex-shrink-0">
+                <span class="text-2xl">🎤</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-heading font-semibold text-xl text-white mb-2">Comunicadora y Panelista</h3>
+                <p class="text-[#66D4FF] text-sm font-medium mb-3">Medios y audiencia amplia</p>
+                <p class="text-white/80 leading-relaxed">
+                  Acercando la salud animal, la prevención y la mirada empresarial a una audiencia amplia.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Values Section -->
+  <!-- Formación Section -->
+  <section class="section-padding bg-[#0a1929] relative overflow-hidden">
+    <!-- Grid pattern -->
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    
+    <div class="container-custom px-4 md:px-8 relative z-10">
+      <div class="max-w-5xl mx-auto">
+        <!-- Title -->
+        <div class="text-center mb-12 animate-fade-in-up">
+          <p class="text-[#b4cfa6] uppercase tracking-wider text-sm font-semibold mb-3">Educación</p>
+          <h2 class="font-heading font-bold text-4xl md:text-5xl text-white mb-4">Formación</h2>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 md:p-12 shadow-2xl hover:shadow-[0_0_60px_rgba(180,207,166,0.2)] transition-all duration-500 animate-fade-in-up" style="animation-delay: 0.2s">
+          <div class="space-y-6">
+            <p class="text-lg text-white/90 leading-relaxed">
+              Me gradué como <strong class="text-[#b4cfa6]">Médica Veterinaria</strong> en la Universidad de Buenos Aires y complementé mi perfil con una fuerte formación en negocios y estrategia.
+            </p>
+            <p class="text-lg text-white/90 leading-relaxed">
+              Soy <strong class="text-[#b4cfa6]">Magíster en Negocios Digitales</strong> por la Universidad de San Andrés (UdeSA) y realicé la <strong class="text-[#b4cfa6]">Especialización en Dirección y Gestión de PyMÉs (UBA)</strong>, integrando herramientas de gestión, marketing, liderazgo y toma de decisiones aplicadas al mundo real de los negocios.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Misión y Metodología Section -->
   <section class="section-padding bg-gradient-to-b from-[#0a1929] to-[#0f1f33] relative overflow-hidden">
     <!-- Grid pattern -->
     <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
@@ -238,40 +318,49 @@ import Button from '../components/shared/Button.astro';
     <div class="container-custom px-4 md:px-8 relative z-10">
       <!-- Title -->
       <div class="text-center mb-16 animate-fade-in-up">
-        <p class="text-[#b4cfa6] uppercase tracking-wider text-sm font-semibold mb-3">En qué creo</p>
-        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white mb-6">Mis Valores</h2>
-        <p class="text-white/70 text-lg max-w-2xl mx-auto">Los principios que guían mi trabajo y mi consultoría</p>
+        <p class="text-[#b4cfa6] uppercase tracking-wider text-sm font-semibold mb-3">Mi enfoque</p>
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-white mb-6">Misión y Metodología</h2>
       </div>
 
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Misión -->
         <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-8 text-center hover:bg-white/15 hover:border-[#b4cfa6]/50 hover:scale-105 hover:shadow-[0_0_40px_rgba(180,207,166,0.3)] transition-all duration-500 group animate-fade-in-up">
-          <div class="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">💡</div>
-          <h3 class="font-heading font-semibold text-xl text-white mb-4">
-            Transparencia
+          <div class="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🎯</div>
+          <h3 class="font-heading font-semibold text-2xl text-white mb-4">
+            Mi Misión
           </h3>
-          <p class="text-white/80 leading-relaxed">
-            Sin promesas mágicas. Solo resultados reales basados en trabajo y estrategia.
+          <p class="text-white/80 leading-relaxed text-lg">
+            Ayudar a veterinarios y empresas del sector a construir negocios prósperos, sostenibles y alineados con sus valores, sin resignar calidad profesional ni bienestar personal.
           </p>
         </div>
 
+        <!-- Metodología -->
         <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-8 text-center hover:bg-white/15 hover:border-[#66D4FF]/50 hover:scale-105 hover:shadow-[0_0_40px_rgba(102,212,255,0.3)] transition-all duration-500 group animate-fade-in-up" style="animation-delay: 0.1s">
-          <div class="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🤝</div>
-          <h3 class="font-heading font-semibold text-xl text-white mb-4">
-            Compromiso
+          <div class="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🛠️</div>
+          <h3 class="font-heading font-semibold text-2xl text-white mb-4">
+            Mi Metodología
           </h3>
-          <p class="text-white/80 leading-relaxed">
-            Tu éxito es mi éxito. Trabajo codo a codo hasta lograr los resultados.
+          <p class="text-white/80 leading-relaxed text-lg">
+            Trabajo con un enfoque estratégico, personalizado y orientado a resultados. No aplico fórmulas genéricas: analizo cada caso en profundidad, diseño soluciones a medida y acompaño la implementación con criterio, métricas y visión de crecimiento.
           </p>
         </div>
-
-        <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-8 text-center hover:bg-white/15 hover:border-[#b4cfa6]/50 hover:scale-105 hover:shadow-[0_0_40px_rgba(180,207,166,0.3)] transition-all duration-500 group animate-fade-in-up" style="animation-delay: 0.2s">
-          <div class="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">📈</div>
-          <h3 class="font-heading font-semibold text-xl text-white mb-4">
-            Resultados
-          </h3>
-          <p class="text-white/80 leading-relaxed">
-            Foco absoluto en métricas y objetivos medibles. Lo que no se mide, no se mejora.
-          </p>
+      </div>
+      
+      <!-- Bloque de Valor (Badges) -->
+      <div class="mt-16 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 p-6 text-center hover:bg-white/15 hover:border-[#b4cfa6]/50 transition-all duration-300">
+            <div class="text-3xl mb-3">🎯</div>
+            <p class="text-white font-semibold text-lg">100% enfoque personalizado</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 p-6 text-center hover:bg-white/15 hover:border-[#66D4FF]/50 transition-all duration-300">
+            <div class="text-3xl mb-3">📈</div>
+            <p class="text-white font-semibold text-lg">+10 años en el sector</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 p-6 text-center hover:bg-white/15 hover:border-[#b4cfa6]/50 transition-all duration-300">
+            <div class="text-3xl mb-3">💡</div>
+            <p class="text-white font-semibold text-lg">Visión estratégica de negocio</p>
+          </div>
         </div>
       </div>
     </div>
@@ -295,24 +384,24 @@ import Button from '../components/shared/Button.astro';
         </div>
         
         <h2 class="font-heading font-bold text-3xl md:text-4xl lg:text-5xl mb-6 animate-fade-in-up" style="animation-delay: 0.1s">
-          <span class="inline-block">¿Te identificás</span> <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#b4cfa6] to-[#66D4FF]">con mi historia?</span>
+          <span class="inline-block">Listos para dar el</span> <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#b4cfa6] to-[#66D4FF]">siguiente paso?</span>
         </h2>
         
         <p class="text-xl text-white/80 mb-8 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
-          Si sentís que tu clínica puede dar más y estás buscando alguien que entienda tu realidad, hablemos.
+          Si sos veterinario o liderás un negocio del sector y sentís que hay mucho más potencial por desarrollar, estoy acá para ayudarte a dar ese salto con estrategia, claridad y acompañamiento profesional.
         </p>
         
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s">
-          <a href="/contacto" class="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#b4cfa6] to-[#8fa886] text-[#0a1929] rounded-xl font-semibold text-lg hover:shadow-[0_0_30px_rgba(180,207,166,0.5)] transition-all duration-300 hover:scale-105 overflow-hidden">
+          <a href="https://calendly.com/virginia-vetealacima/30min" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#b4cfa6] to-[#8fa886] text-[#0a1929] rounded-xl font-semibold text-lg hover:shadow-[0_0_30px_rgba(180,207,166,0.5)] transition-all duration-300 hover:scale-105 overflow-hidden">
             <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></span>
-            <span class="relative">Agenda una llamada</span>
+            <span class="relative">👉 Trabajemos juntos</span>
             <svg class="relative w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>
           
-          <a href="/servicios" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 rounded-xl font-semibold text-lg hover:bg-white hover:text-[#0a1929] hover:border-white transition-all duration-300 hover:scale-105">
-            Ver servicios
+          <a href="https://calendly.com/virginia-vetealacima/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/40 rounded-xl font-semibold text-lg hover:bg-white hover:text-[#0a1929] hover:border-white transition-all duration-300 hover:scale-105">
+            👉 Agendar conversación estratégica
           </a>
         </div>
       </div>

@@ -12,11 +12,11 @@ import logoImage from '/public/images/logo/logo.webp';
   </div>
   
   <!-- Overlay minimalista para legibilidad -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/40 z-[2]"></div>
-  <div class="absolute inset-0 z-[3]" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 25, 41, 0.3) 100%);"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/50 md:to-black/60 z-[2]"></div>
+  <div class="absolute inset-0 z-[3] hidden md:block" style="background: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(10, 25, 41, 0.4) 100%);"></div>
 
   <div class="container-custom px-4 md:px-8 relative z-30 w-full">
-    <div class="max-w-7xl mx-auto min-h-screen flex flex-col justify-end pb-12 md:pb-16 lg:pb-20">
+    <div class="max-w-7xl mx-auto min-h-screen md:min-h-[120vh] lg:min-h-[130vh] flex flex-col justify-end pb-12 md:pb-24 lg:pb-32">
       
       <!-- Contenido principal -->
       <div class="space-y-8 md:space-y-10 lg:space-y-12 text-center content-wrapper">
@@ -75,20 +75,6 @@ import logoImage from '/public/images/logo/logo.webp';
 
     </div>
   </div>
-
-  <!-- Logo marca de agua -->
-  <div class="absolute z-10 watermark-container">
-    <Image 
-      src={logoImage} 
-      alt="Logo Virginia Vallejo" 
-      class="watermark-logo"
-      widths={[320, 480, 640, 960, 1024]}
-      sizes="(max-width: 767px) 160px, (max-width: 1023px) 144px, (max-width: 1279px) 176px, 1024px"
-      loading="eager"
-      decoding="async"
-      quality={85}
-    />
-  </div>
 </section>
 
 <style>
@@ -105,14 +91,22 @@ import logoImage from '/public/images/logo/logo.webp';
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center -20%;
+    background-position: center 20%;
     background-repeat: no-repeat;
     background-color: #0a1929;
   }
 
-  @media (max-width: 768px) {
+  /* Desktop: posición optimizada para mostrar la cara */
+  @media (min-width: 769px) {
     .hero-image {
-      background-position: center 20%;
+      background-position: center 15%;
+      background-size: cover;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-image {
+      background-position: center 10%;
     }
   }
 
@@ -349,65 +343,6 @@ import logoImage from '/public/images/logo/logo.webp';
 
   .trust-item span {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-  }
-
-  /* ============================================
-     LOGO MARCA DE AGUA - PNG TRANSLÚCIDO
-     ============================================ */
-  
-  .watermark-container {
-    top: 25rem;
-    left: -5.5rem;
-    right: -10rem;
-    bottom: auto;
-    transform: none;
-  }
-
-  .watermark-logo {
-    width: -10rem;
-    opacity: 0.03;
-    filter: brightness(10);
-    animation: fadeIn 1.2s ease-out 1s both;
-  }
-
-  /* Posicionamiento desktop - arriba a la derecha, más abajo del header */
-  @media (min-width: 768px) {
-    .watermark-container {
-      top: 6rem;
-      left: auto;
-      right: 2rem;
-    }
-
-    .watermark-logo {
-      width: 9rem;
-      opacity: 0.03;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .watermark-container {
-      top: 7rem;
-      right: 28rem;
-    }
-
-    .watermark-logo {
-      width: 11rem;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .watermark-container {
-      top: 22rem;
-    }
-
-    .watermark-logo {
-      width: 64rem;
-    }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: inherit; }
   }
 
   /* ============================================
