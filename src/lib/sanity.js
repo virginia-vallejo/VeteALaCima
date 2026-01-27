@@ -17,7 +17,7 @@ const SANITY_DATASET = getEnvValue('PUBLIC_SANITY_DATASET', 'production');
 export const sanityClient = createClient({
   projectId: SANITY_PROJECT_ID,
   dataset: SANITY_DATASET,
-  useCdn: true, // `false` si quieres datos siempre actualizados
+  useCdn: false, // false para obtener siempre los datos más recientes
   apiVersion: '2024-01-01',
   ignoreBrowserTokenWarning: true
 })
