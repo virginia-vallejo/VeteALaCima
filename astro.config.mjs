@@ -2,10 +2,11 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://vetealacima.vercel.app',
+  site: 'https://vete-a-la-cima.vercel.app',
   integrations: [
     react({
       // Optimización de React para reducir bundle
@@ -75,7 +76,7 @@ export default defineConfig({
       exclude: ['lucide-react']
     }
   },
-  output: 'static',
+  adapter: vercel(),
   build: {
     inlineStylesheets: 'always',
     cssCodeSplit: true

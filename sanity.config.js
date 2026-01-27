@@ -10,6 +10,9 @@ export default defineConfig({
   projectId: 'yjqtxju3',
   dataset: 'production',
   
+  // Configura la base path para cuando esté embebido en tu sitio
+  basePath: '/studio',
+  
   plugins: [
     structureTool(),
     visionTool()
