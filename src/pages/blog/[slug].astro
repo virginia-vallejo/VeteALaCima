@@ -40,7 +40,7 @@ if (!post) {
 const getImageUrl = (image: any) => {
   if (!image) return '/images/placeholders/blog-placeholder.svg';
   try {
-    return urlFor(image).width(1200).height(600).url();
+    return urlFor(image).width(1200).height(500).fit('crop').crop('center').url();
   } catch {
     return '/images/placeholders/blog-placeholder.svg';
   }
@@ -86,12 +86,11 @@ const metaDescription = post.seo?.metaDescription || post.excerpt;
       {post.categories && post.categories.length > 0 && (
         <div class="absolute bottom-6 left-6 flex flex-wrap gap-2">
           {post.categories.map((category: any) => (
-            <a 
-              href={`/blog/categoria/${category.slug.current}`}
-              class="bg-[#b4cfa6] text-[#294a5f] px-4 py-2 rounded-full text-sm font-medium hover:bg-[#3e6680] hover:text-white transition-colors"
+            <span
+              class="bg-[#b4cfa6] text-[#294a5f] px-4 py-2 rounded-full text-sm font-medium shadow-lg"
             >
               {category.title}
-            </a>
+            </span>
           ))}
         </div>
       )}
