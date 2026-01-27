@@ -26,6 +26,26 @@
 		{
 			"src": "^/blog/?$",
 			"dest": "_render"
+		},
+		{
+			"src": "^/callback/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/contacto/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/servicios/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/sobre-mi/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
 		}
 	]
 }

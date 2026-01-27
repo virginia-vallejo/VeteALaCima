@@ -76,6 +76,7 @@ export default defineConfig({
       exclude: ['lucide-react']
     }
   },
+  output: 'server',
   adapter: vercel(),
   build: {
     inlineStylesheets: 'always',
