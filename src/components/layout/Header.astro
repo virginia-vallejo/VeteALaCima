@@ -1,0 +1,402 @@
+---
+import { NAVIGATION_LINKS } from '../../utils/constants';
+import { siteConfig } from '../../data/siteConfig';
+import Button from '../shared/Button.astro';
+import MobileMenu from '../react/MobileMenu.jsx';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header id="main-header" class="fixed top-0 left-0 right-0 z-40 header-glass transition-all duration-300">
+  <!-- Línea superior con gradiente neón -->
+  <div class="absolute top-0 left-0 right-0 h-[2px] neon-border"></div>
+  
+  <div class="container-custom px-4 sm:px-6">
+    <nav class="flex items-center justify-between py-3 md:py-4">
+      <!-- Logo - Fully Responsive -->
+      <a href="/" class="flex items-center gap-3 sm:gap-4 lg:gap-5 group flex-shrink-0 min-w-0">
+        <!-- Logo Image -->
+        <div class="relative header-logo-wrapper flex-shrink-0">
+          <!-- Enhanced glow effect for desktop, dark blur for mobile -->
+          <div class="absolute inset-0 rounded-lg pointer-events-none 
+            bg-transparent sm:bg-transparent md:bg-[#0a1929]/60 md:blur-lg md:opacity-0 lg:opacity-0 
+            mobile-logo-contrast"></div>
+          <div class="absolute inset-0 bg-[#b4cfa6]/20 rounded-lg blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-125 neon-glow desktop-logo-glow"></div>
+          <img 
+            src="/images/logo/logo3d.svg" 
+            alt="Vete a la Cima - Consultoría Veterinaria"
+            width="500"
+            height="500"
+            loading="eager"
+            fetchpriority="high"
+            class="relative h-21 sm:h-22 md:h-20 lg:h-24 xl:h-28 w-auto transition-all duration-500 group-hover:scale-105 header-logo-img desktop-logo-animate"
+            id="header-logo"
+          />
+        </div>
+        
+        <!-- Tagline Container - Responsive visibility -->
+        <div class="hidden md:flex flex-col header-text-container min-w-0 max-w-[200px] lg:max-w-[280px]">
+          <span class="text-xs md:text-sm lg:text-base xl:text-lg font-light italic header-tagline leading-tight">
+            Estrategia y crecimiento para clínicas veterinarias
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center space-x-8">
+        {NAVIGATION_LINKS.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                "header-nav-link font-medium transition-all duration-300",
+                currentPath === link.href || currentPath.startsWith(`${link.href}/`)
+                  ? "active"
+                  : ""
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA Desktop - Hidden on mobile/tablet, visible on desktop -->
+      <div class="hidden lg:block flex-shrink-0">
+        <Button 
+          href="/contacto" 
+          variant="secondary" 
+          size="md"
+          class="header-cta-button text-sm lg:text-base whitespace-nowrap"
+        >
+          <span class="hidden xl:inline">Agenda diagnóstico</span>
+          <span class="xl:hidden">Agenda</span>
+        </Button>
+      </div>
+
+      <!-- Mobile Menu Toggle - Visible on mobile/tablet -->
+      <div class="md:hidden flex-shrink-0 ml-2">
+        <MobileMenu client:idle currentPath={currentPath} />
+      </div>
+    </nav>
+  </div>
+  
+  <!-- Línea inferior con gradiente neón -->
+  <div class="absolute bottom-0 left-0 right-0 h-[1px] neon-border-bottom"></div>
+</header>
+
+<style>
+  /* Header base styles con efecto glass */
+  #main-header {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(180, 207, 166, 0.1);
+    box-shadow: 
+      0 4px 30px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: header-entrance 0.8s ease-out;
+  }
+
+  @keyframes header-entrance {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Línea neón superior */
+  .neon-border {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(180, 207, 166, 0.6) 20%,
+      rgba(62, 102, 128, 0.8) 50%,
+      rgba(180, 207, 166, 0.6) 80%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 10px rgba(180, 207, 166, 0.5),
+      0 0 20px rgba(62, 102, 128, 0.3);
+    animation: neon-pulse 3s ease-in-out infinite;
+  }
+
+  /* Línea neón inferior más sutil */
+  .neon-border-bottom {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(180, 207, 166, 0.3) 30%,
+      rgba(62, 102, 128, 0.5) 50%,
+      rgba(180, 207, 166, 0.3) 70%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 8px rgba(180, 207, 166, 0.3),
+      0 0 15px rgba(62, 102, 128, 0.2);
+  }
+
+  @keyframes neon-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  /* Header scrolled state - más sólido */
+  #main-header.scrolled {
+    background: rgba(30, 41, 59, 0.75);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 0 40px rgba(62, 102, 128, 0.15);
+    border-bottom: 1px solid rgba(180, 207, 166, 0.2);
+  }
+
+  #main-header.scrolled .neon-border {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(180, 207, 166, 0.8) 20%,
+      rgba(62, 102, 128, 1) 50%,
+      rgba(180, 207, 166, 0.8) 80%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 15px rgba(180, 207, 166, 0.7),
+      0 0 30px rgba(62, 102, 128, 0.5);
+  }
+
+  /* Logo glow effect */
+  .neon-glow {
+    animation: logo-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes logo-glow {
+    from {
+      box-shadow: 
+        0 0 20px rgba(180, 207, 166, 0.4),
+        0 0 40px rgba(180, 207, 166, 0.2);
+    }
+    to {
+      box-shadow: 
+        0 0 30px rgba(180, 207, 166, 0.6),
+        0 0 60px rgba(180, 207, 166, 0.3);
+    }
+  }
+
+  .header-logo-img {
+    filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 8px rgba(180, 207, 166, 0.3)) !important;
+    -webkit-filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 8px rgba(180, 207, 166, 0.3)) !important;
+    transition: filter 0.3s ease;
+  }
+
+  /* Contraste detrás del logo solo en mobile */
+  @media (max-width: 767px) {
+    .mobile-logo-contrast {
+      background: rgba(10, 25, 41, 0.75);
+      filter: blur(8px);
+      opacity: 1;
+      z-index: 0;
+      transition: background 0.3s, filter 0.3s;
+    }
+    .desktop-logo-glow {
+      display: none;
+    }
+    .desktop-logo-animate {
+      animation: none !important;
+    }
+  }
+
+  /* Animación de pulso glow solo en desktop */
+  @media (min-width: 768px) {
+    .desktop-logo-glow {
+      display: block;
+    }
+    .desktop-logo-animate {
+      animation: logo-pulse-glow 2.2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+    }
+  }
+
+  @keyframes logo-pulse-glow {
+    0% {
+      filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 8px #b4cfa6) drop-shadow(0 0 0px #3e6680) !important;
+      -webkit-filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 8px #b4cfa6) drop-shadow(0 0 0px #3e6680) !important;
+    }
+    100% {
+      filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 24px #b4cfa6) drop-shadow(0 0 12px #3e6680) !important;
+      -webkit-filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 24px #b4cfa6) drop-shadow(0 0 12px #3e6680) !important;
+    }
+  }
+
+  .header-logo-wrapper:hover .header-logo-img {
+    filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 15px rgba(180, 207, 166, 0.6)) drop-shadow(0 0 25px rgba(62, 102, 128, 0.4)) !important;
+    -webkit-filter: brightness(15) saturate(0) contrast(4) drop-shadow(0 0 15px rgba(180, 207, 166, 0.6)) drop-shadow(0 0 25px rgba(62, 102, 128, 0.4)) !important;
+  }
+
+  /* Text container */
+  .header-text-container {
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: text-slide-in 0.8s ease-out 0.3s forwards;
+  }
+
+  @keyframes text-slide-in {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .header-tagline {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(180, 207, 166, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  a:has(.header-logo-wrapper):hover .header-tagline {
+    color: #b4cfa6;
+    text-shadow: 
+      0 0 20px rgba(180, 207, 166, 0.8),
+      0 0 40px rgba(180, 207, 166, 0.4);
+  }
+
+  /* Navigation links con efecto neón */
+  .header-nav-link {
+    position: relative;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 0 5px rgba(180, 207, 166, 0.1);
+    transition: all 0.3s ease;
+    padding-bottom: 4px;
+  }
+
+  .header-nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #b4cfa6, transparent);
+    box-shadow: 
+      0 0 10px rgba(180, 207, 166, 0.8),
+      0 0 20px rgba(180, 207, 166, 0.4);
+    transition: width 0.3s ease;
+  }
+
+  .header-nav-link:hover,
+  .header-nav-link.active {
+    color: #b4cfa6;
+    text-shadow: 
+      0 0 15px rgba(180, 207, 166, 0.8),
+      0 0 30px rgba(180, 207, 166, 0.4);
+  }
+
+  .header-nav-link:hover::before,
+  .header-nav-link.active::before {
+    width: 100%;
+  }
+
+  /* CTA button con glow */
+  .header-cta-button {
+    position: relative;
+    box-shadow: 
+      0 4px 15px rgba(62, 102, 128, 0.3),
+      inset 0 0 10px rgba(180, 207, 166, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .header-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 6px 25px rgba(62, 102, 128, 0.5),
+      0 0 30px rgba(180, 207, 166, 0.4),
+      inset 0 0 20px rgba(180, 207, 166, 0.2);
+  }
+
+  .header-cta-button::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #b4cfa6, #3e6680, #b4cfa6);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.3s ease;
+  }
+
+  .header-cta-button:hover::after {
+    opacity: 0.5;
+  }
+
+  /* Performance optimization */
+  #main-header,
+  .neon-border,
+  .neon-border-bottom {
+    will-change: opacity, background, box-shadow;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    #main-header {
+      background: rgba(30, 41, 59, 0.6);
+    }
+    
+    #main-header.scrolled {
+      background: rgba(30, 41, 59, 0.85);
+    }
+  }
+</style>
+
+<script>
+  function initHeaderScroll() {
+    const header = document.getElementById('main-header');
+    
+    if (!header) return;
+
+    function updateHeader() {
+      if (!header) return; // Type guard
+      
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+
+    updateHeader();
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateHeader();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderScroll);
+  } else {
+    initHeaderScroll();
+  }
+
+  document.addEventListener('astro:page-load', initHeaderScroll);
+</script>

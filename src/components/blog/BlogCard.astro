@@ -1,0 +1,103 @@
+---
+import { urlFor } from '../../lib/sanity';
+import { Calendar, Clock, User } from 'lucide-react';
+
+interface Props {
+  post: {
+    _id: string;
+    title: string;
+    slug: { current: string };
+    excerpt: string;
+    publishedAt: string;
+    readingTime?: number;
+    author: { name: string; slug: { current: string } };
+    categories?: Array<{ title: string; slug: { current: string }; color?: string }>;
+    mainImage?: any;
+  };
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+
+const imageUrl = post.mainImage 
+  ? urlFor(post.mainImage).width(800).height(500).url() 
+  : '/images/placeholders/blog-placeholder.svg';
+
+const formattedDate = new Date(post.publishedAt).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const cardClass = featured 
+  ? 'md:col-span-2 md:row-span-2' 
+  : '';
+
+// Crear atributo data-categories con los slugs de las categorías
+const categorySlug = post.categories?.map(cat => cat.slug.current).join(',') || '';
+---
+
+<article 
+  class={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ${cardClass}`}
+  data-categories={categorySlug}
+>
+  <a href={`/blog/${post.slug.current}`} class="block h-full">
+    <!-- Imagen -->
+    <div class={`relative overflow-hidden ${featured ? 'h-80' : 'h-56'}`}>
+      <img 
+        src={imageUrl} 
+        alt={post.mainImage?.alt || post.title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      {featured && (
+        <div class="absolute top-4 left-4">
+          <span class="bg-[#1FA2FF] text-white px-4 py-2 rounded-full text-sm font-semibold">
+            Destacado
+          </span>
+        </div>
+      )}
+      {post.categories && post.categories.length > 0 && (
+        <div class="absolute bottom-4 left-4 flex flex-wrap gap-2">
+          {post.categories.slice(0, 2).map((category) => (
+            <span class={`bg-[#66D4FF] text-[#0A1B2E] px-3 py-1 rounded-full text-xs font-medium`}>
+              {category.title}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- Contenido -->
+    <div class={`p-6 ${featured ? 'md:p-8' : ''}`}>
+      <!-- Meta información -->
+      <div class="flex items-center gap-4 text-sm text-[#A3B7C9] mb-3">
+        <div class="flex items-center gap-1">
+          <Calendar className="w-4 h-4" />
+          <span>{formattedDate}</span>
+        </div>
+        {post.readingTime && (
+          <div class="flex items-center gap-1">
+            <Clock className="w-4 h-4" />
+            <span>{post.readingTime} min</span>
+          </div>
+        )}
+      </div>
+
+      <!-- Título -->
+      <h3 class={`font-['Poppins'] font-bold text-[#0A1B2E] mb-3 group-hover:text-[#1FA2FF] transition-colors ${featured ? 'text-3xl md:text-4xl' : 'text-xl'}`}>
+        {post.title}
+      </h3>
+
+      <!-- Extracto -->
+      <p class={`text-[#A3B7C9] mb-4 ${featured ? 'text-lg' : 'text-base'}`}>
+        {post.excerpt}
+      </p>
+
+      <!-- Autor -->
+      <div class="flex items-center gap-2 text-sm">
+        <User className="w-4 h-4 text-[#1FA2FF]" />
+        <span class="text-[#0A1B2E] font-medium">{post.author.name}</span>
+      </div>
+    </div>
+  </a>
+</article>

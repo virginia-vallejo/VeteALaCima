@@ -1,0 +1,582 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/react/ContactForm.jsx';
+import ContactInfo from '../components/contacto/ContactInfo.astro';
+import CalendlyEmbed from '../components/contacto/CalendlyEmbed.astro';
+import Button from '../components/shared/Button.astro';
+import SectionTitle from '../components/shared/SectionTitle.astro';
+import { MessageCircle, Mail, Calendar } from 'lucide-react';
+import { siteConfig } from '../data/siteConfig';
+import { formatWhatsAppLink } from '../utils/helpers';
+
+const whatsappLink = formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsappMessage);
+---
+
+<Layout 
+  title="Contacto - Vete a la Cima"
+  description="Contactá con Virginia Vallejo para transformar tu veterinaria. Agenda tu diagnóstico gratuito de 30 minutos sin compromiso."
+>
+  <!-- Hero Section mejorado con neón -->
+  <section class="relative min-h-[60vh] flex items-center overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28 hero-contact">
+    <!-- Línea superior neón -->
+    <div class="absolute top-0 left-0 right-0 h-[2px] neon-border-top"></div>
+
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a1929] via-[#0f1f33] to-[#0a1929]"></div>
+    
+    <!-- Grid pattern neón -->
+    <div class="absolute inset-0 opacity-[0.05]">
+      <div class="absolute inset-0 bg-grid-neon"></div>
+    </div>
+
+    <!-- Scan lines -->
+    <div class="scan-lines-contact"></div>
+    
+    <!-- Acentos de color más pronunciados -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#b4cfa6]/15 rounded-full blur-[140px] animate-float-slow"></div>
+      <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#3e6680]/15 rounded-full blur-[140px] animate-float-slow-delayed"></div>
+    </div>
+    
+    <div class="container-custom px-4 md:px-8 relative z-10">
+      <div class="max-w-4xl mx-auto text-center text-white animate-fade-in-up">
+        <!-- Badge mejorado -->
+        <div class="inline-flex items-center gap-2 glass-badge-hero mb-6 animate-float">
+          <span class="w-2 h-2 bg-[#b4cfa6] rounded-full animate-pulse shadow-[0_0_12px_rgba(180,207,166,1)]"></span>
+          <span class="text-[#b4cfa6] font-semibold text-sm uppercase tracking-wider neon-text-subtle">
+            ✉️ Hablemos
+          </span>
+        </div>
+        
+        <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 hero-title">
+          Estamos acá para <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#b4cfa6] via-[#e3f9ca] to-[#b4cfa6] animate-text-shimmer">ayudarte</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+          Completá el formulario o escribinos directamente por WhatsApp. Te respondemos en menos de <span class="font-bold text-[#e3f9ca] neon-text-subtle">24 horas</span>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Línea inferior neón -->
+    <div class="absolute bottom-0 left-0 right-0 h-[1px] neon-border-bottom"></div>
+  </section>
+
+  <!-- Quick Contact Options mejorados -->
+  <section class="section-padding bg-[#0a1929] -mt-0 relative z-10">
+    <div class="container-custom px-4 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- WhatsApp -->
+        <a 
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-card-whatsapp group"
+        >
+          <!-- Glow effect -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#25D366]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+          <div class="absolute -inset-1 bg-[#25D366]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="relative z-10">
+            <div class="icon-container bg-gradient-to-br from-[#25D366] to-[#20BA5A] mx-auto mb-4">
+              <MessageCircle className="text-white" size={32} />
+            </div>
+            <h3 class="font-heading font-semibold text-xl text-white text-center mb-2 group-hover:text-[#25D366] transition-colors">
+              WhatsApp
+            </h3>
+            <p class="text-white/80 text-center text-sm font-medium">
+              Respuesta inmediata
+            </p>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a 
+          href={`mailto:${siteConfig.email}`}
+          class="contact-card-email group"
+        >
+          <div class="absolute inset-0 bg-gradient-to-br from-[#3e6680]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+          <div class="absolute -inset-1 bg-[#3e6680]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="relative z-10">
+            <div class="icon-container bg-gradient-to-br from-[#3e6680] to-[#294a5f] mx-auto mb-4">
+              <Mail className="text-white" size={32} />
+            </div>
+            <h3 class="font-heading font-semibold text-xl text-white text-center mb-2 group-hover:text-[#3e6680] transition-colors">
+              Email
+            </h3>
+            <p class="text-white/80 text-center text-sm font-medium break-all px-2">
+              {siteConfig.email}
+            </p>
+          </div>
+        </a>
+
+        <!-- Calendar -->
+        <a 
+          href="#formulario"
+          class="contact-card-calendar group"
+        >
+          <div class="absolute inset-0 bg-gradient-to-br from-[#b4cfa6]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+          <div class="absolute -inset-1 bg-[#b4cfa6]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="relative z-10">
+            <div class="icon-container bg-gradient-to-br from-[#b4cfa6] to-[#8fa886] mx-auto mb-4">
+              <Calendar className="text-[#0a1929]" size={32} />
+            </div>
+            <h3 class="font-heading font-semibold text-xl text-white text-center mb-2 group-hover:text-[#b4cfa6] transition-colors">
+              Agendar llamada
+            </h3>
+            <p class="text-white/80 text-center text-sm font-medium">
+              Diagnóstico gratuito
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Contact Section mejorado -->
+  <section id="formulario" class="section-padding bg-[#0a1929] scroll-mt-20 relative overflow-hidden">
+    <!-- Decoración de fondo -->
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute inset-0 bg-grid-neon"></div>
+    </div>
+    <div class="absolute top-1/4 right-0 w-[400px] h-[400px] bg-[#b4cfa6]/8 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#3e6680]/8 rounded-full blur-[120px]"></div>
+
+    <div class="container-custom px-4 md:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-7xl mx-auto">
+        
+        <!-- Contact Form mejorado -->
+        <div class="lg:col-span-3">
+          <div class="form-container">
+            <div class="absolute -inset-1 bg-gradient-to-br from-[#b4cfa6]/20 via-[#3e6680]/20 to-[#b4cfa6]/20 rounded-3xl blur-xl opacity-50"></div>
+            
+            <div class="relative bg-gradient-to-br from-[#0f1f33]/80 to-[#0a1929]/80 backdrop-blur-2xl rounded-3xl p-8 md:p-10 border border-white/20">
+              <!-- Header del form -->
+              <div class="mb-8">
+                <div class="inline-flex items-center gap-2 glass-badge-section mb-4">
+                  <span class="w-2 h-2 bg-[#b4cfa6] rounded-full animate-pulse"></span>
+                  <span class="text-[#b4cfa6] text-xs uppercase tracking-wider font-semibold">Formulario de contacto</span>
+                </div>
+                <h2 class="font-heading font-bold text-3xl text-white mb-2">
+                  Envíanos un mensaje
+                </h2>
+                <p class="text-white/80">
+                  Completá el formulario y te contactaremos a la brevedad para coordinar tu diagnóstico gratuito.
+                </p>
+              </div>
+              
+              <ContactForm client:visible />
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Info mejorado -->
+        <div class="lg:col-span-2">
+          <div class="sticky top-24">
+            <ContactInfo />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendly Section -->
+  <section class="section-padding bg-gradient-to-b from-[#0a1929] to-[#0f1f33] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.02]">
+      <div class="absolute inset-0 bg-grid-neon"></div>
+    </div>
+
+    <div class="container-custom px-4 md:px-8 relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <!-- Título mejorado -->
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 glass-badge-section mb-4">
+            <span class="w-2 h-2 bg-[#b4cfa6] rounded-full animate-pulse"></span>
+            <span class="text-[#b4cfa6] text-xs uppercase tracking-wider font-semibold">Agenda directa</span>
+          </div>
+          <h2 class="font-heading font-bold text-4xl text-white mb-4">
+            Elegí tu horario
+          </h2>
+          <p class="text-white/80 text-lg">
+            Reservá tu sesión de diagnóstico gratuita en el día y horario que prefieras
+          </p>
+          <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#b4cfa6] to-transparent mx-auto mt-6 rounded-full shadow-[0_0_10px_rgba(180,207,166,0.8)]"></div>
+        </div>
+
+        <CalendlyEmbed />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Preview mejorado -->
+  <section class="section-padding bg-[#0a1929] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute inset-0 bg-grid-neon"></div>
+    </div>
+    <div class="absolute top-1/2 left-0 w-96 h-96 bg-[#b4cfa6]/8 rounded-full blur-[120px]"></div>
+    
+    <div class="container-custom px-4 md:px-8 relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <!-- Título -->
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 glass-badge-section mb-4">
+            <span class="w-2 h-2 bg-[#b4cfa6] rounded-full animate-pulse"></span>
+            <span class="text-[#b4cfa6] text-xs uppercase tracking-wider font-semibold">Preguntas frecuentes</span>
+          </div>
+          <h2 class="font-heading font-bold text-4xl text-white mb-4">
+            ¿Tenés dudas antes de contactarnos?
+          </h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#b4cfa6] to-transparent mx-auto mt-6 rounded-full shadow-[0_0_10px_rgba(180,207,166,0.8)]"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div class="faq-card group">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#b4cfa6]/20 to-[#3e6680]/20 flex items-center justify-center border border-[#b4cfa6]/30">
+                <span class="text-xl">❓</span>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-lg text-white mb-2 group-hover:text-[#b4cfa6] transition-colors">
+                  ¿El diagnóstico es realmente gratis?
+                </h3>
+                <p class="text-white/80 text-sm leading-relaxed">
+                  Sí, la primera sesión de 30 minutos es completamente gratuita y sin compromiso.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card group">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#b4cfa6]/20 to-[#3e6680]/20 flex items-center justify-center border border-[#b4cfa6]/30">
+                <span class="text-xl">⏱️</span>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-lg text-white mb-2 group-hover:text-[#b4cfa6] transition-colors">
+                  ¿Cuánto tiempo demoran en responder?
+                </h3>
+                <p class="text-white/80 text-sm leading-relaxed">
+                  Por formulario: menos de 24 horas. Por WhatsApp: respuesta inmediata en horario laboral.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card group">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#b4cfa6]/20 to-[#3e6680]/20 flex items-center justify-center border border-[#b4cfa6]/30">
+                <span class="text-xl">🌎</span>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-lg text-white mb-2 group-hover:text-[#b4cfa6] transition-colors">
+                  ¿Atienden fuera de Argentina?
+                </h3>
+                <p class="text-white/80 text-sm leading-relaxed">
+                  Sí, trabajamos con veterinarias de toda Latinoamérica y España de forma 100% virtual.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card group">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#b4cfa6]/20 to-[#3e6680]/20 flex items-center justify-center border border-[#b4cfa6]/30">
+                <span class="text-xl">📋</span>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-lg text-white mb-2 group-hover:text-[#b4cfa6] transition-colors">
+                  ¿Qué pasa después del diagnóstico?
+                </h3>
+                <p class="text-white/80 text-sm leading-relaxed">
+                  Te presentamos una propuesta personalizada. Vos decidís si avanzar o no, sin presiones.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <Button href="/servicios#comparacion" variant="outline" size="lg" class="cta-faq">
+            Ver todas las preguntas frecuentes
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA mejorado -->
+  <section class="section-padding bg-gradient-to-b from-[#0f1f33] to-[#0a1929] relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-radial from-[#1a2f42]/40 via-[#0a1929] to-[#020914]"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#25D366]/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+    
+    <div class="container-custom px-4 md:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto text-center text-white">
+        <!-- Badge de estado -->
+        <div class="inline-flex items-center gap-2 glass-badge-online mb-6">
+          <div class="w-2 h-2 bg-[#25D366] rounded-full animate-pulse shadow-[0_0_12px_rgba(37,211,102,1)]"></div>
+          <span class="text-sm font-semibold text-white">Online ahora</span>
+        </div>
+        
+        <h2 class="font-heading font-bold text-3xl md:text-4xl lg:text-5xl mb-6">
+          ¿Preferís hablar <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#25D366] via-[#20BA5A] to-[#25D366] animate-text-shimmer">directamente?</span>
+        </h2>
+        <p class="text-xl text-white/90 mb-10 leading-relaxed">
+          Contactanos por WhatsApp y coordinamos una llamada en el momento que te resulte más cómodo
+        </p>
+        
+        <a 
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-whatsapp group"
+        >
+          <div class="absolute inset-0 shimmer-effect"></div>
+          <div class="absolute -inset-1 bg-[#25D366]/30 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <MessageCircle size={24} className="relative z-10" />
+          <span class="relative z-10">Escribir por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Grid neón */
+  .bg-grid-neon {
+    background-image: 
+      linear-gradient(rgba(180, 207, 166, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180, 207, 166, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Líneas neón */
+  .neon-border-top {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(180, 207, 166, 0.7) 20%,
+      rgba(62, 102, 128, 0.9) 50%,
+      rgba(180, 207, 166, 0.7) 80%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 15px rgba(180, 207, 166, 0.6),
+      0 0 30px rgba(62, 102, 128, 0.4);
+    animation: neon-pulse 3s ease-in-out infinite;
+  }
+
+  .neon-border-bottom {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(180, 207, 166, 0.5) 30%,
+      rgba(62, 102, 128, 0.7) 50%,
+      rgba(180, 207, 166, 0.5) 70%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 10px rgba(180, 207, 166, 0.4),
+      0 0 20px rgba(62, 102, 128, 0.3);
+  }
+
+  @keyframes neon-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* Scan lines */
+  .scan-lines-contact {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(180, 207, 166, 0.03) 50%,
+      transparent 100%
+    );
+    background-size: 100% 4px;
+    opacity: 0.5;
+    pointer-events: none;
+    animation: scan-contact 10s linear infinite;
+    z-index: 1;
+  }
+
+  @keyframes scan-contact {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+  }
+
+  /* Glass badges */
+  .glass-badge-hero {
+    background: rgba(180, 207, 166, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(180, 207, 166, 0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.2),
+      0 0 15px rgba(180, 207, 166, 0.2);
+  }
+
+  .glass-badge-section {
+    background: rgba(180, 207, 166, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(180, 207, 166, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+  }
+
+  .glass-badge-online {
+    background: rgba(37, 211, 102, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.2);
+  }
+
+  /* Hero title */
+  .hero-title {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Texto neón sutil */
+  .neon-text-subtle {
+    text-shadow: 
+      0 0 10px rgba(180, 207, 166, 0.6),
+      0 0 20px rgba(180, 207, 166, 0.3);
+  }
+
+  /* Contact cards */
+  .contact-card-whatsapp,
+  .contact-card-email,
+  .contact-card-calendar {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+  }
+
+  .contact-card-whatsapp:hover,
+  .contact-card-email:hover,
+  .contact-card-calendar:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(180, 207, 166, 0.4);
+  }
+
+  /* Icon container */
+  .icon-container {
+    width: 64px;
+    height: 64px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .contact-card-whatsapp:hover .icon-container,
+  .contact-card-email:hover .icon-container,
+  .contact-card-calendar:hover .icon-container {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Form container */
+  .form-container {
+    position: relative;
+  }
+
+  /* FAQ cards */
+  .faq-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .faq-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(180, 207, 166, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(180, 207, 166, 0.15);
+  }
+
+  /* CTA FAQ */
+  .cta-faq {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 2px solid rgba(180, 207, 166, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .cta-faq:hover {
+    background: rgba(180, 207, 166, 0.1);
+    border-color: rgba(180, 207, 166, 0.6);
+    box-shadow: 0 0 30px rgba(180, 207, 166, 0.3);
+  }
+
+  /* CTA WhatsApp final */
+  .cta-whatsapp {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #25D366, #20BA5A);
+    color: white;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 40px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .cta-whatsapp:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(37, 211, 102, 0.5);
+  }
+
+  /* Shimmer effect */
+  .shimmer-effect {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+  }
+
+  .cta-whatsapp:hover .shimmer-effect {
+    transform: translateX(200%);
+  }
+
+  /* Text shimmer */
+  @keyframes text-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .animate-text-shimmer {
+    background-size: 200% auto;
+    animation: text-shimmer 4s ease-in-out infinite;
+  }
+
+  /* Animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform:

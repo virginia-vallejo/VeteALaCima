@@ -1,0 +1,96 @@
+---
+const timeline = [
+  {
+    year: '2011',
+    title: 'Inicios en la Industria Veterinaria',
+    description: 'Comienzo mi carrera con Eukanuba mientras estudio Medicina Veterinaria en la UBA. Promoción de productos y participación en congresos veterinarios.'
+  },
+  {
+    year: '2013',
+    title: 'Fundación de Hoteles de Gatos Mishmosos',
+    description: 'Creo mi primer emprendimiento: un hotel 5 estrellas para gatos. Combino mi pasión por la decoración y estética con el cuidado profesional de felinos. Dirijo todas las áreas: dirección, gestión, marketing, ventas y redes sociales.'
+  },
+  {
+    year: '2016-2017',
+    title: 'Asesoramiento Nutricional - Royal Canin',
+    description: 'Trabajo en asesoramiento nutricional veterinario en Capital Federal, especializándome en nutrición animal.'
+  },
+  {
+    year: '2017-2019',
+    title: 'Territory Manager - JENCK SA (IDEXX)',
+    description: 'Asesoramiento técnico comercial para la línea de pequeños animales de IDEXX en Argentina, desarrollando relaciones clave con clínicas veterinarias.'
+  },
+  {
+    year: '2019',
+    title: 'Graduación UBA + Formación Digital',
+    description: 'Me gradúo como Médica Veterinaria (UBA). Realizo el Programa Ejecutivo de Gestión de Redes Sociales en la Universidad de Palermo.'
+  },
+  {
+    year: '2020-2022',
+    title: 'Zoetis - Territory Manager y VetScan Project Lead',
+    description: 'Lideré el desarrollo del portfolio de VetScan en Argentina. Instalación de analizadores de hematología y bioquímica en clínicas veterinarias y entrenamiento de profesionales veterinarios.'
+  },
+  {
+    year: '2020-2021',
+    title: 'Especializaciones Académicas',
+    description: 'Especialización en Diagnóstico Veterinario de Laboratorio (UNLP), Dirección y Gestión de Pymes (UBA), y Liderazgo con Perspectiva de Género (Universidad Torcuato Di Tella).'
+  },
+  {
+    year: '2022',
+    title: 'Salto al Emprendimiento Full Time',
+    description: 'Decisión estratégica: dejo la relación de dependencia para dedicarme 100% al desarrollo y escalabilidad de mis empresas y proyectos de consultoría.'
+  },
+  {
+    year: '2023',
+    title: 'Management Digital - Minders Group',
+    description: 'Realizo el programa de Management Integral de Negocios Digitales en Minders Group, profundizando en estrategias digitales con los mejores del ecosistema.'
+  },
+  {
+    year: '2024',
+    title: 'CEO y CMO en Startups Pet Tech',
+    description: 'CEO de Id Animal (agosto-diciembre 2024): Lideré una startup de trazabilidad de ganado con IA. CMO de Mascoters (abril-octubre 2024): Impulsé el crecimiento de esta plataforma de cuidadores de mascotas. Ingreso al Master in Digital Business de San Andrés.'
+  },
+  {
+    year: '2024-Actualidad',
+    title: 'Comunicadora Veterinaria y Consultora',
+    description: 'Panelista en Viva la Vida (Unife TV) desde noviembre 2024, compartiendo conocimientos sobre bienestar animal, salud, nutrición y prevención. Escritora regular para la revista Mi Negocio Veterinario, combinando experiencia veterinaria con gestión empresarial.'
+  }
+];
+---
+
+<div class="relative">
+  <!-- Timeline Line with gradient -->
+  <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#b4cfa6] via-[#66D4FF] to-[#b4cfa6] shadow-[0_0_10px_rgba(180,207,166,0.5)]"></div>
+
+  <div class="space-y-12">
+    {timeline.map((item, index) => (
+      <div class:list={[
+        "relative flex items-center",
+        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+      ]}>
+        <!-- Year Badge with glow -->
+        <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-[#b4cfa6] to-[#8fa886] text-[#0a1929] flex items-center justify-center font-heading font-bold text-lg shadow-[0_0_20px_rgba(180,207,166,0.5)] z-10 animate-pulse-slow">
+          {item.year.slice(-2)}
+        </div>
+
+        <!-- Content Card with glassmorphism -->
+        <div class:list={[
+          "ml-24 md:ml-0 md:w-5/12",
+          index % 2 === 0 ? "md:mr-auto md:pr-16" : "md:ml-auto md:pl-16"
+        ]}>
+          <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6 shadow-2xl hover:bg-white/15 hover:shadow-[0_0_40px_rgba(180,207,166,0.3)] hover:border-[#b4cfa6]/50 transition-all duration-500 hover:scale-105 group">
+            <div class="text-sm text-[#b4cfa6] font-semibold mb-2 group-hover:text-[#e3f9ca] transition-colors">
+              {item.year}
+            </div>
+            <h3 class="font-heading font-semibold text-xl text-white mb-3 group-hover:text-[#b4cfa6] transition-colors">
+              {item.title}
+            </h3>
+            <p class="text-white/80 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

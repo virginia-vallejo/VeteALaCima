@@ -1,0 +1,22 @@
+---
+import BlogCard from './BlogCard.astro';
+
+interface Props {
+  posts: any[];
+}
+
+const { posts } = Astro.props;
+
+// Separar el primer post (destacado) del resto
+const featuredPost = posts.find(post => post.featured) || posts[0];
+const regularPosts = posts.filter(post => post._id !== featuredPost._id);
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+  {featuredPost && (
+    <BlogCard post={featuredPost} featured={true} />
+  )}
+  {regularPosts.map((post) => (
+    <BlogCard post={post} />
+  ))}
+</div>

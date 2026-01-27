@@ -1,0 +1,85 @@
+---
+interface Props {
+  categories: Array<{
+    _id: string;
+    title: string;
+    slug: { current: string };
+    color?: string;
+  }>;
+  activeCategorySlug?: string;
+}
+
+const { categories, activeCategorySlug } = Astro.props;
+
+const colorClasses = {
+  'azul-electrico': 'bg-[#1FA2FF] text-white',
+  'celeste-tech': 'bg-[#66D4FF] text-[#0A1B2E]',
+  'azul-profundo': 'bg-[#0A1B2E] text-white',
+  'gris-azulado': 'bg-[#A3B7C9] text-white'
+};
+---
+
+<div class="flex flex-wrap gap-3 mb-8" id="category-filter">
+  <button 
+    data-category="all"
+    class={`category-btn px-5 py-2 rounded-full font-medium transition-all ${
+      !activeCategorySlug 
+        ? 'bg-[#1FA2FF] text-white' 
+        : 'bg-[#F5F7FA] text-[#0A1B2E] hover:bg-[#66D4FF]'
+    }`}
+  >
+    Todos
+  </button>
+  {categories.map((category) => (
+    <button 
+      data-category={category.slug.current}
+      class={`category-btn px-5 py-2 rounded-full font-medium transition-all ${
+        activeCategorySlug === category.slug.current
+          ? colorClasses[category.color || 'azul-electrico']
+          : 'bg-[#F5F7FA] text-[#0A1B2E] hover:bg-[#66D4FF]'
+      }`}
+    >
+      {category.title}
+    </button>
+  ))}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.category-btn');
+    const blogCards = document.querySelectorAll('[data-categories]');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedCategory = button.getAttribute('data-category');
+        
+        // Actualizar estado activo de los botones
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-[#1FA2FF]', 'text-white', 'bg-[#66D4FF]', 'bg-[#0A1B2E]', 'bg-[#A3B7C9]');
+          btn.classList.add('bg-[#F5F7FA]', 'text-[#0A1B2E]', 'hover:bg-[#66D4FF]');
+        });
+        
+        if (selectedCategory === 'all') {
+          button.classList.remove('bg-[#F5F7FA]', 'text-[#0A1B2E]');
+          button.classList.add('bg-[#1FA2FF]', 'text-white');
+        } else {
+          button.classList.remove('bg-[#F5F7FA]', 'text-[#0A1B2E]', 'hover:bg-[#66D4FF]');
+          button.classList.add('bg-[#1FA2FF]', 'text-white');
+        }
+        
+        // Filtrar tarjetas
+        blogCards.forEach(card => {
+          const cardCategories = card.getAttribute('data-categories')?.split(',') || [];
+          
+          if (selectedCategory === 'all' || cardCategories.includes(selectedCategory)) {
+            card.style.display = 'block';
+            card.classList.remove('hidden');
+          } else {
+            card.style.display = 'none';
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>

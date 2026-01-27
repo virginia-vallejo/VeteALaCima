@@ -1,0 +1,45 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+// Por ahora comentado - se activará cuando se configure Calendly
+const calendlyUrl = siteConfig.calendly || '';
+const isActive = false; // Cambiar a true cuando se configure
+---
+
+{isActive ? (
+  <div class="w-full h-[700px] bg-white rounded-2xl shadow-lg overflow-hidden">
+    <iframe
+      src={calendlyUrl}
+      width="100%"
+      height="100%"
+      frameborder="0"
+      title="Calendly - Agendar reunión"
+      sandbox="allow-scripts allow-popups allow-forms allow-popups-to-escape-sandbox"
+      referrerpolicy="strict-origin-when-cross-origin"
+      loading="lazy"
+    ></iframe>
+  </div>
+) : (
+  <div class="bg-gradient-to-br from-azul-electrico to-celeste-tech rounded-2xl shadow-lg p-12 text-center text-white">
+    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+      <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+      </svg>
+    </div>
+    
+    <h3 class="font-heading font-bold text-2xl mb-4">
+      Agenda tu diagnóstico gratuito
+    </h3>
+    
+    <p class="text-lg mb-8 opacity-90 max-w-md mx-auto">
+      Completa el formulario de contacto y te enviaremos un link para agendar tu sesión de 30 minutos sin compromiso
+    </p>
+
+    <div class="inline-flex items-center space-x-2 text-sm bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+      </svg>
+      <span>Respuesta en menos de 24 horas</span>
+    </div>
+  </div>
+)}

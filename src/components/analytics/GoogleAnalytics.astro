@@ -1,0 +1,41 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+const { googleAnalyticsId } = siteConfig;
+---
+
+{googleAnalyticsId && googleAnalyticsId !== 'G-XXXXXXXXXX' && (
+  <>
+    <!-- Google tag (gtag.js) - Carga diferida -->
+    <script is:inline define:vars={{ googleAnalyticsId }}>
+      // Cargar Google Analytics solo cuando el navegador esté inactivo
+      function loadGoogleAnalytics() {
+        try {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
+          script.onerror = function() {
+            // Silenciar errores de carga
+          };
+          document.head.appendChild(script);
+          
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', googleAnalyticsId, {
+            'send_page_view': true
+          });
+        } catch (e) {
+          // Silenciar errores
+        }
+      }
+      
+      // Usar requestIdleCallback si está disponible, sino setTimeout
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGoogleAnalytics, { timeout: 3000 });
+      } else {
+        setTimeout(loadGoogleAnalytics, 3000);
+      }
+    </script>
+  </>
+)}

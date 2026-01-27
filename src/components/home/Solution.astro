@@ -1,0 +1,750 @@
+---
+import SectionTitle from '../shared/SectionTitle.astro';
+import ValuePoint from './ValuePoint.astro';
+
+const valuePoints = [
+  {
+    icon: 'compass',
+    title: 'Estrategia de negocio',
+    description: 'Dirección clara y decisiones con impacto.'
+  },
+  {
+    icon: 'rocket',
+    title: 'Digitalización aplicada',
+    description: 'Procesos, sistemas y herramientas que ordenan y escalan.'
+  },
+  {
+    icon: 'chart',
+    title: 'Gestión con datos',
+    description: 'Indicadores y métricas para decidir mejor.'
+  },
+  {
+    icon: 'growth',
+    title: 'Crecimiento y marketing estratégico',
+    description: 'Propuesta de valor, captación y retención alineadas al negocio.'
+  },
+  {
+    icon: 'innovation',
+    title: 'Innovación y tendencias del sector',
+    description: 'Modelos y tecnologías que ya funcionan en mercados más avanzados.'
+  }
+];
+---
+
+<section id="solucion" class="section-padding relative overflow-hidden py-20 md:py-28 lg:py-32">
+  <!-- Background Video & Image Layer -->
+  <div class="absolute inset-0 z-0">
+    <!-- Base gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-azul-profundo via-[#0a1f3d] to-azul-electrico"></div>
+    
+    <!-- Background Video - Professional & Cinematic -->
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline
+      preload="none"
+      loading="lazy"
+      class="absolute inset-0 w-full h-full object-cover solution-background-video"
+      webkit-playsinline
+      x5-playsinline
+    >
+      <source src="/video/solucionback2.webm" type="video/webm" />
+    </video>
+    
+    <!-- Overlay cinematográfico: más fuerte en mobile, sutil en desktop -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900/45 via-azul-profundo/35 to-black/40 md:from-azul-profundo/25 md:via-black/20 md:to-azul-electrico/25"></div>
+  </div>
+  
+  <!-- Tech pattern más visible -->
+  <div class="absolute inset-0 opacity-[0.05] z-[1]">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(102,212,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
+  </div>
+  
+  <!-- Floating gradient orbs mejorados -->
+  <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-gradient-to-br from-celeste-tech/15 to-azul-electrico/10 rounded-full blur-3xl solution-orb-1 z-[1] opacity-60 md:opacity-80"></div>
+  <div class="absolute bottom-1/4 -right-20 w-[400px] h-[400px] bg-gradient-to-tl from-azul-electrico/15 to-celeste-tech/10 rounded-full blur-3xl solution-orb-2 z-[1] opacity-60 md:opacity-80"></div>
+  
+  <!-- Accent lines mejoradas -->
+  <div class="absolute top-0 right-0 w-full md:w-2/3 h-px bg-gradient-to-r from-transparent via-celeste-tech/30 to-transparent z-[1]"></div>
+  <div class="absolute bottom-0 left-0 w-full md:w-2/3 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-[1]"></div>
+  
+  <div class="container-custom relative z-10">
+    <!-- Title Section empresarial -->
+    <div class="solution-title-wrapper animate-on-scroll text-white px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Badge premium -->
+        <div class="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 mb-6 md:mb-8 bg-gradient-to-r from-celeste-tech/20 to-azul-electrico/20 backdrop-blur-xl rounded-full border border-celeste-tech/40 shadow-lg shadow-celeste-tech/20">
+          
+          <span class="text-white font-bold text-xs md:text-sm uppercase tracking-wider">Nuestras soluciones
+        </div>
+        
+        <!-- Título principal con jerarquía visual optimizada -->
+        <h2 class="font-heading text-white mb-6 md:mb-8 px-2">
+          <!-- Primera línea: Introducción -->
+          <span class="block text-xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)]">
+            En
+            <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-celeste-tech via-white to-celeste-tech font-black drop-shadow-[0_4px_16px_rgba(102,212,255,0.6)]">
+              Vete a la Cima
+            </span>
+          </span>
+          
+          <!-- Segunda línea: Propuesta de valor -->
+          <span class="block text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight drop-shadow-[0_4px_14px_rgba(0,0,0,0.85)]">
+            ofrecemos Consultoría Estratégica
+          </span>
+          
+          <!-- Tercera línea: Especialización -->
+          <span class="block text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium mt-2 md:mt-3 text-white/95 drop-shadow-[0_3px_12px_rgba(0,0,0,0.8)]">
+            para el sector Veterinario & Pet.
+          </span>
+        </h2>
+        
+        <!-- Subtítulo con énfasis -->
+        <p class="text-lg md:text-2xl lg:text-3xl text-white font-bold max-w-4xl mx-auto leading-relaxed drop-shadow-[0_3px_10px_rgba(0,0,0,0.8)] px-4">
+          <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-celeste-tech to-white drop-shadow-[0_2px_8px_rgba(102,212,255,0.4)]">
+            Estrategia, digitalización y crecimiento aplicados al negocio real.
+          </span>
+        </p>
+        
+        <!-- Línea decorativa elegante -->
+        <div class="mt-8 md:mt-10 flex items-center justify-center gap-2">
+          <div class="h-px w-12 bg-gradient-to-r from-transparent to-celeste-tech/50"></div>
+          <div class="w-2 h-2 rounded-full bg-celeste-tech shadow-lg shadow-celeste-tech/50"></div>
+          <div class="h-px w-12 bg-gradient-to-l from-transparent to-celeste-tech/50"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Value Points Section - Grid empresarial -->
+    <div class="mt-12 md:mt-20 max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
+        {valuePoints.map((point, index) => (
+          <div 
+            class="solution-point-item animate-on-scroll" 
+            style={`animation-delay: ${0.2 + index * 0.1}s`}
+          >
+            <ValuePoint {...point} index={index} isDark={true} />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Conversación Estratégica -->
+    <div class="mt-16 md:mt-24 max-w-5xl mx-auto px-4 animate-on-scroll" style="animation-delay: 0.8s">
+      <div class="relative group">
+        <!-- Background decorativo -->
+        <div class="absolute inset-0 bg-gradient-to-r from-celeste-tech/20 via-azul-electrico/25 to-celeste-tech/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
+        
+        <!-- Container principal -->
+        <div class="relative bg-gradient-to-br from-white/10 via-white/8 to-white/10 backdrop-blur-xl rounded-3xl p-8 md:p-12 lg:p-14 border border-white/20 overflow-hidden group-hover:border-celeste-tech/40 transition-all duration-700 shadow-2xl shadow-black/30">
+          
+          <!-- Patrón de fondo animado -->
+          <div class="absolute inset-0 opacity-[0.03]">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(102,212,255,0.3) 1px, transparent 0); background-size: 32px 32px;"></div>
+          </div>
+          
+          <!-- Líneas decorativas animadas -->
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-celeste-tech to-transparent opacity-60"></div>
+          <div class="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l from-transparent via-azul-electrico to-transparent opacity-60"></div>
+          
+          <!-- Corner accents -->
+          <div class="absolute -top-1 -left-1 w-20 h-20 border-t-2 border-l-2 border-celeste-tech/50 rounded-tl-3xl cta-corner"></div>
+          <div class="absolute -bottom-1 -right-1 w-20 h-20 border-b-2 border-r-2 border-celeste-tech/50 rounded-br-3xl cta-corner"></div>
+          
+          <div class="relative z-10 flex flex-col items-center text-center space-y-6 md:space-y-8">
+            <!-- Badge superior -->
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-celeste-tech/25 to-azul-electrico/25 backdrop-blur-sm rounded-full border border-celeste-tech/40 shadow-lg shadow-celeste-tech/20">
+              <svg class="w-4 h-4 text-celeste-tech animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-white font-bold text-xs uppercase tracking-wider">Siguiente paso</span>
+            </div>
+            
+            <!-- Título principal con emoji -->
+            <h3 class="font-heading text-white">
+              <span class="block text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight">
+                <span class="inline-block mr-3 text-4xl md:text-5xl lg:text-6xl animate-bounce-subtle">👉</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-celeste-tech to-white drop-shadow-[0_4px_20px_rgba(102,212,255,0.6)]">
+                  Agendá una conversación estratégica
+                </span>
+              </span>
+            </h3>
+            
+            <!-- Botón CTA -->
+            <div class="pt-4">
+              <a 
+                href="/contacto"
+                class="group/btn relative inline-flex items-center gap-3 px-10 py-5 md:px-12 md:py-6 bg-gradient-to-r from-celeste-tech to-azul-electrico hover:from-celeste-tech/90 hover:to-azul-electrico/90 text-azul-profundo font-black text-lg md:text-xl lg:text-2xl rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-celeste-tech/60 border-2 border-white/30 overflow-hidden"
+              >
+                <span class="relative z-10">Agendar ahora</span>
+                <svg class="w-6 h-6 relative z-10 group-hover/btn:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+                
+                <!-- Shine effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out"></div>
+                
+                <!-- Glow effect -->
+                <div class="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500 blur-xl"></div>
+              </a>
+            </div>
+            
+            <!-- Beneficios rápidos -->
+            <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4">
+              <div class="flex items-center gap-2 text-white/80 text-sm md:text-base">
+                <svg class="w-5 h-5 text-celeste-tech" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="font-semibold">30 minutos</span>
+              </div>
+              
+              <div class="hidden md:block w-px h-6 bg-white/20"></div>
+              
+              <div class="flex items-center gap-2 text-white/80 text-sm md:text-base">
+                <svg class="w-5 h-5 text-celeste-tech" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="font-semibold">100% online</span>
+              </div>
+              
+              <div class="hidden md:block w-px h-6 bg-white/20"></div>
+              
+              <div class="flex items-center gap-2 text-white/80 text-sm md:text-base">
+                <svg class="w-5 h-5 text-celeste-tech" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="font-semibold">Sin compromiso</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Elementos decorativos flotantes -->
+          <div class="absolute top-10 right-10 w-32 h-32 bg-celeste-tech/10 rounded-full blur-3xl animate-float-slow opacity-60"></div>
+          <div class="absolute bottom-10 left-10 w-40 h-40 bg-azul-electrico/10 rounded-full blur-3xl animate-float-slower opacity-60"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DevCraft Collaboration Section - Premium -->
+  <div class="relative z-10">
+    <div class="mt-16 md:mt-24 lg:mt-32 solution-collab-wrapper animate-on-scroll" style="animation-delay: 0.6s">
+      <!-- Divider mejorado -->
+      <div class="relative w-full mb-16 md:mb-20 px-4">
+        <div class="container-custom max-w-6xl mx-auto">
+          <div class="flex items-center gap-4">
+            <div class="flex-1 h-px bg-gradient-to-r from-transparent via-celeste-tech/40 to-celeste-tech/20"></div>
+            <div class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-celeste-tech/10 to-azul-electrico/10 rounded-full border border-celeste-tech/30">
+              <svg class="w-4 h-4 text-celeste-tech" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-white text-xs font-bold uppercase tracking-wider">Desarrollo Web</span>
+            </div>
+            <div class="flex-1 h-px bg-gradient-to-l from-transparent via-celeste-tech/40 to-celeste-tech/20"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="w-full px-4">
+        <div class="container-custom max-w-6xl mx-auto">
+          <div class="relative bg-gradient-to-br from-white/8 via-white/5 to-white/8 backdrop-blur-xl rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-14 border border-white/15 overflow-hidden group hover:border-celeste-tech/40 transition-all duration-700 devcraft-showcase shadow-2xl shadow-black/40">
+          <!-- Logo marca de agua optimizado -->
+          <div class="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none">
+            <img 
+              src="/images/logo/devcraft.webp" 
+              alt="DevCraft Background" 
+              class="w-full h-full object-contain scale-125"
+              loading="lazy"
+            />
+          </div>
+          
+          <!-- Pattern tech mejorado -->
+          <div class="absolute inset-0 opacity-[0.08]">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: linear-gradient(45deg, transparent 45%, rgba(102, 212, 255, 0.1) 50%, transparent 55%); background-size: 30px 30px; animation: tech-grid-move 25s linear infinite;"></div>
+          </div>
+          
+          <!-- Corner borders premium -->
+          <div class="absolute top-0 left-0 w-16 h-16 md:w-24 md:h-24 border-t-2 border-l-2 border-celeste-tech/30 rounded-tl-2xl corner-border-tl"></div>
+          <div class="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 border-t-2 border-r-2 border-celeste-tech/30 rounded-tr-2xl corner-border-tr"></div>
+          <div class="absolute bottom-0 left-0 w-16 h-16 md:w-24 md:h-24 border-b-2 border-l-2 border-celeste-tech/30 rounded-bl-2xl corner-border-bl"></div>
+          <div class="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 border-b-2 border-r-2 border-celeste-tech/30 rounded-br-2xl corner-border-br"></div>
+          
+          <!-- Glow hover mejorado -->
+          <div class="absolute inset-0 bg-gradient-to-br from-celeste-tech/5 via-transparent to-azul-electrico/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          
+          <div class="relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-10 sm:gap-12 lg:gap-16 max-w-7xl mx-auto">
+              <!-- Logo Section Premium -->
+              <a 
+                href="https://devcraftpablo.online/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="flex-shrink-0 relative logo-showcase group cursor-pointer transition-all duration-500 hover:scale-105"
+                aria-label="Visitar DevCraft - Soluciones Digitales"
+              >
+                <!-- Orbital rings animados -->
+                <div class="absolute inset-0 orbital-ring-1">
+                  <div class="absolute inset-0 border border-celeste-tech/20 rounded-full"></div>
+                </div>
+                <div class="absolute inset-0 scale-110 orbital-ring-2">
+                  <div class="absolute inset-0 border border-azul-electrico/10 rounded-full"></div>
+                </div>
+                
+                <!-- Logo container mejorado -->
+                <div class="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 flex items-center justify-center">
+                  <!-- Background con gradiente -->
+                  <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-3xl"></div>
+                  
+                  <!-- Borde brillante -->
+                  <div class="absolute inset-0 border-2 border-celeste-tech/30 rounded-3xl group-hover:border-celeste-tech/50 transition-colors duration-500"></div>
+                  
+                  <!-- Resplandor interno -->
+                  <div class="absolute inset-2 bg-gradient-to-br from-celeste-tech/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <!-- Logo principal -->
+                  <div class="relative w-full h-full p-6 md:p-8 flex items-center justify-center logo-container">
+                    <img 
+                      src="/images/logo/devcraft.webp" 
+                      alt="DevCraft - Soluciones Digitales Profesionales" 
+                      class="relative z-10 w-full h-full object-contain logo-image"
+                      loading="lazy"
+                    />
+                  </div>
+                  
+                  <!-- Corner accents premium -->
+                  <div class="absolute -top-1.5 -left-1.5 w-6 h-6 md:w-10 md:h-10 border-t-2 border-l-2 border-celeste-tech/50 rounded-tl-xl corner-accent-tl"></div>
+                  <div class="absolute -bottom-1.5 -right-1.5 w-6 h-6 md:w-10 md:h-10 border-b-2 border-r-2 border-celeste-tech/50 rounded-br-xl corner-accent-br"></div>
+                </div>
+                
+                <!-- Badge tecnológico -->
+                <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 px-4 py-2 md:px-5 md:py-2.5 bg-gradient-to-r from-celeste-tech/90 to-azul-electrico/90 backdrop-blur-xl rounded-full border border-white/30 shadow-xl shadow-celeste-tech/30 z-20">
+                  <span class="text-azul-profundo font-black text-xs md:text-sm uppercase tracking-wider whitespace-nowrap">Desarrollo Técnico</span>
+                </div>
+              </a>
+              
+              <!-- Content Section empresarial -->
+              <div class="flex-1 text-center lg:text-left space-y-5 sm:space-y-6">
+                <!-- Badge colaboración -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 bg-gradient-to-r from-white/15 to-white/10 backdrop-blur-xl rounded-full border border-white/30 mb-2">
+                  <svg class="w-4 h-4 text-celeste-tech" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                  </svg>
+                  <span class="text-white font-bold text-xs md:text-sm uppercase tracking-wider">En Colaboración</span>
+                </div>
+                
+                <!-- Título impactante -->
+                <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black text-white leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
+                  <span class="block mb-1">DevCraft -</span>
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-celeste-tech via-white to-celeste-tech">Soluciones Digitales</span>
+                </h3>
+                
+                <!-- Descripción mejorada -->
+                <p class="text-white/95 text-base md:text-lg lg:text-xl leading-relaxed font-medium drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">
+                  Desarrollo tu <strong class="text-celeste-tech font-bold">sitio web</strong> y la <strong class="text-celeste-tech font-bold">identidad visual</strong> de tu clínica en colaboración con DevCraft, mi equipo técnico especializado. Juntos creamos la <strong class="text-white font-bold">presencia digital profesional</strong> que tu negocio necesita para destacarse y crecer.
+                </p>
+                
+                <!-- CTA Button premium -->
+                <div class="flex justify-center lg:justify-start pt-3">
+                  <a 
+                    href="https://devcraftpablo.online/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="group relative inline-flex items-center gap-3 px-6 py-3.5 md:px-8 md:py-4 bg-gradient-to-r from-celeste-tech to-azul-electrico hover:from-celeste-tech/90 hover:to-azul-electrico/90 text-azul-profundo font-black text-base md:text-lg rounded-2xl transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-celeste-tech/60 border-2 border-white/20 overflow-hidden"
+                  >
+                    <span class="relative z-10">Conocer DevCraft</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                    <!-- Shine effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  </a>
+                </div>
+                
+                <!-- Features grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
+                  <div class="flex items-start gap-3 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-celeste-tech/40 hover:bg-white/10 transition-all duration-300 feature-card">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-celeste-tech/20 to-azul-electrico/20 rounded-lg flex items-center justify-center border border-celeste-tech/30">
+                      <svg class="w-6 h-6 text-celeste-tech" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      </svg>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="text-white font-bold text-base mb-1">Sitios de Alta Conversión</h4>
+                      <p class="text-white/70 text-sm">Diseños estratégicos que convierten visitantes en clientes</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-celeste-tech/40 hover:bg-white/10 transition-all duration-300 feature-card">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-celeste-tech/20 to-azul-electrico/20 rounded-lg flex items-center justify-center border border-celeste-tech/30">
+                      <svg class="w-6 h-6 text-celeste-tech" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                      </svg>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="text-white font-bold text-base mb-1">Identidad Visual Profesional</h4>
+                      <p class="text-white/70 text-sm">Branding coherente que posiciona tu clínica</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-celeste-tech/40 hover:bg-white/10 transition-all duration-300 feature-card">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-celeste-tech/20 to-azul-electrico/20 rounded-lg flex items-center justify-center border border-celeste-tech/30">
+                      <svg class="w-6 h-6 text-celeste-tech" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="text-white font-bold text-base mb-1">Desarrollo Ágil</h4>
+                      <p class="text-white/70 text-sm">Tu sitio en línea en 2-3 semanas</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-start gap-3 p-5 bg-white/5 rounded-xl border border-white/10 hover:border-celeste-tech/40 hover:bg-white/10 transition-all duration-300 feature-card">
+                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-celeste-tech/20 to-azul-electrico/20 rounded-lg flex items-center justify-center border border-celeste-tech/30">
+                      <svg class="w-6 h-6 text-celeste-tech" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                      </svg>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="text-white font-bold text-base mb-1">Mantenimiento Continuo</h4>
+                      <p class="text-white/70 text-sm">Soporte técnico y actualizaciones incluidas</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Video background - cinematográfico y nítido */
+  .solution-background-video {
+    object-fit: cover;
+    filter: brightness(1.1) contrast(1.08);
+  }
+  
+  @media (max-width: 768px) {
+    .solution-background-video {
+      object-position: center;
+      filter: brightness(1.05) contrast(1.05);
+    }
+  }
+  
+  /* Orb animations mejoradas */
+  @keyframes float-solution-1 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-40px, 40px, 0) scale(1.05); }
+  }
+
+  @keyframes float-solution-2 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(40px, -40px, 0) scale(1.08); }
+  }
+
+  .solution-orb-1 { animation: float-solution-1 18s ease-in-out infinite; }
+  .solution-orb-2 { animation: float-solution-2 22s ease-in-out infinite; }
+
+  /* Title entrance premium */
+  .solution-title-wrapper {
+    animation: fade-scale-in 1s ease-out;
+  }
+
+  @keyframes fade-scale-in {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* Points section con hover refinado */
+  .solution-point-item {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (hover: hover) {
+    .solution-point-item:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+  }
+
+  /* ============================================ */
+  /* CTA CONVERSACIÓN ESTRATÉGICA */
+  /* ============================================ */
+
+  /* Animación sutil para el emoji */
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-8px) scale(1.05);
+    }
+  }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+
+  /* Animaciones de elementos flotantes */
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(-20px, 20px, 0) scale(1.1);
+    }
+  }
+
+  @keyframes float-slower {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(25px, -25px, 0) scale(1.15);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-float-slower {
+    animation: float-slower 10s ease-in-out infinite;
+  }
+
+  /* Animación de esquinas del CTA */
+  @keyframes cta-corner-glow {
+    0%, 100% {
+      opacity: 0.5;
+      box-shadow: 0 0 15px rgba(102, 212, 255, 0.3);
+    }
+    50% {
+      opacity: 1;
+      box-shadow: 0 0 30px rgba(102, 212, 255, 0.7);
+    }
+  }
+
+  .cta-corner {
+    animation: cta-corner-glow 3s ease-in-out infinite;
+  }
+
+  /* ============================================ */
+  /* DEVCRAFT COLLABORATION - DISEÑO EMPRESARIAL */
+  /* ============================================ */
+
+  /* Tech grid optimizado */
+  @keyframes tech-grid-move {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(100px, 100px, 0); }
+  }
+
+  /* Corner borders con glow */
+  @keyframes corner-glow {
+    0%, 100% { opacity: 0.4; box-shadow: 0 0 10px rgba(102, 212, 255, 0.3); }
+    50% { opacity: 1; box-shadow: 0 0 20px rgba(102, 212, 255, 0.6); }
+  }
+
+  .corner-border-tl { animation: corner-glow 3s ease-in-out infinite; }
+  .corner-border-tr { animation: corner-glow 3s ease-in-out 0.75s infinite; }
+  .corner-border-bl { animation: corner-glow 3s ease-in-out 1.5s infinite; }
+  .corner-border-br { animation: corner-glow 3s ease-in-out 2.25s infinite; }
+
+  /* Logo showcase premium */
+  .logo-showcase {
+    animation: logo-entrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes logo-entrance {
+    from { 
+      opacity: 0; 
+      transform: scale3d(0.85, 0.85, 1) rotate(-8deg);
+    }
+    to { 
+      opacity: 1; 
+      transform: scale3d(1, 1, 1) rotate(0deg);
+    }
+  }
+
+  /* Orbital rings animados */
+  @keyframes orbital-rotate-1 {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(360deg) scale(1.03); }
+  }
+
+  @keyframes orbital-rotate-2 {
+    from { transform: rotate(360deg) scale(1.1); }
+    to { transform: rotate(0deg) scale(1.15); }
+  }
+
+  .orbital-ring-1 { 
+    animation: orbital-rotate-1 25s linear infinite;
+  }
+
+  .orbital-ring-2 {
+    animation: orbital-rotate-2 30s linear infinite;
+  }
+
+  /* Logo container con efectos premium */
+  .logo-container {
+    filter: drop-shadow(0 0 25px rgba(102, 212, 255, 0.4));
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .devcraft-showcase:hover .logo-container {
+    filter: drop-shadow(0 0 40px rgba(102, 212, 255, 0.7)) drop-shadow(0 0 60px rgba(31, 162, 255, 0.5));
+    transform: scale(1.08) translateY(-8px) rotate(2deg);
+  }
+
+  /* Logo image con brillo */
+  .logo-image {
+    filter: brightness(1.05) contrast(1.1);
+    transition: all 0.6s ease;
+  }
+
+  .devcraft-showcase:hover .logo-image {
+    filter: brightness(1.25) contrast(1.25) drop-shadow(0 0 35px rgba(102, 212, 255, 0.9));
+  }
+
+  /* Corner accents pulsantes */
+  @keyframes corner-accent-pulse {
+    0%, 100% { 
+      opacity: 0.5; 
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(102, 212, 255, 0.4);
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1.15);
+      box-shadow: 0 0 20px rgba(102, 212, 255, 0.8);
+    }
+  }
+
+  .corner-accent-tl { animation: corner-accent-pulse 2.5s ease-in-out infinite; }
+  .corner-accent-br { animation: corner-accent-pulse 2.5s ease-in-out 1.25s infinite; }
+
+  /* Feature card con efecto shine */
+  .feature-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 212, 255, 0.25), transparent);
+    transition: left 0.6s ease;
+  }
+
+  @media (hover: hover) {
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 212, 255, 0.2);
+    }
+
+    .feature-card:hover::before {
+      left: 100%;
+    }
+  }
+
+  /* Showcase entrance cinematográfico */
+  .devcraft-showcase {
+    animation: showcase-entrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes showcase-entrance {
+    from {
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Hover state premium para showcase */
+  .devcraft-showcase {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (hover: hover) {
+    .devcraft-showcase:hover {
+      box-shadow: 
+        0 25px 70px rgba(102, 212, 255, 0.35),
+        0 0 120px rgba(31, 162, 255, 0.25),
+        inset 0 0 80px rgba(102, 212, 255, 0.08);
+      transform: translateY(-8px) scale(1.01);
+    }
+  }
+
+  /* Responsive optimizations */
+  @media (max-width: 1024px) {
+    .logo-showcase {
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .devcraft-showcase {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+  }
+</style>
+
+<script>
+  // Video optimization
+  const videoElement = document.querySelector('.solution-background-video') as HTMLVideoElement;
+  
+  if (videoElement) {
+    // Forzar reproducción en mobile
+    const forcePlay = () => {
+      videoElement.play().catch(() => {
+        // Reintentar después de un breve delay
+        setTimeout(() => {
+          videoElement.play().catch(() => {});
+        }, 500);
+      });
+    };
+
+    // Intentar reproducir inmediatamente
+    forcePlay();
+
+    // Reproducir cuando la sección sea visible
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          forcePlay();
+        } else {
+          // Solo pausar en desktop, no en mobile
+          if (window.innerWidth > 768) {
+            videoElement.pause();
+          }
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    videoObserver.observe(videoElement);
+
+    // Reproducir en cualquier interacción del usuario (mobile)
+    const playOnInteraction = () => {
+      forcePlay();
+      document.removeEventListener('touchstart', playOnInteraction);
+      document.removeEventListener('click', playOnInteraction);
+      document.removeEventListener('scroll', playOnInteraction);
+    };
+
+    document.addEventListener('touchstart', playOnInteraction, { passive: true, once: true });
+    document.addEventListener('click', playOnInteraction, { once: true });
+    document.addEventListener('scroll', playOnInteraction, { passive: true, once: true });
+  }
+</script>

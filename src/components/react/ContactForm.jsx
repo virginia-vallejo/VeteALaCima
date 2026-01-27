@@ -1,0 +1,251 @@
+import { useState } from 'react';
+import { Send, Loader2 } from 'lucide-react';
+
+export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    plan: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'El nombre es requerido';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'El email es requerido';
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Email inválido';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'El mensaje es requerido';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Enviar a Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'f29abf36-f700-446c-b8d6-38dc4e0db7a3',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          plan: formData.plan,
+          subject: `Nuevo contacto desde Vete a la Cima - ${formData.name}`,
+          from_name: 'Vete a la Cima Website'
+        })
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+          plan: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Name */}
+      <div>
+        <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
+          Nombre completo *
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className={`w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#b4cfa6]/50 text-white placeholder-white/50 ${
+            errors.name ? 'border-red-400/60' : 'border-white/20 hover:border-white/30'
+          }`}
+          placeholder="Tu nombre"
+        />
+        {errors.name && (
+          <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+        )}
+      </div>
+
+      {/* Email */}
+      <div>
+        <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
+          Email *
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className={`w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#b4cfa6]/50 text-white placeholder-white/50 ${
+            errors.email ? 'border-red-400/60' : 'border-white/20 hover:border-white/30'
+          }`}
+          placeholder="tumail@ejemplo.com"
+        />
+        {errors.email && (
+          <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+        )}
+      </div>
+
+      {/* Phone */}
+      <div>
+        <label htmlFor="phone" className="block text-sm font-semibold text-white mb-2">
+          Teléfono <span className="text-white/60 font-normal">(opcional)</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:border-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#b4cfa6]/50 text-white placeholder-white/50"
+          placeholder="+54 9 11 1234-5678"
+        />
+      </div>
+
+      {/* Plan Selection */}
+      <div>
+        <label htmlFor="plan" className="block text-sm font-semibold text-white mb-2">
+          Plan de interés <span className="text-white/60 font-normal">(opcional)</span>
+        </label>
+        <select
+          id="plan"
+          name="plan"
+          value={formData.plan}
+          onChange={handleChange}
+          className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:border-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#b4cfa6]/50 text-white"
+          style={{ backgroundImage: 'none' }}
+        >
+          <option value="" className="bg-[#0a1929] text-white">Seleccionar un plan</option>
+          <option value="starter" className="bg-[#0a1929] text-white">Plan Starter</option>
+          <option value="growth" className="bg-[#0a1929] text-white">Plan Growth</option>
+          <option value="elite" className="bg-[#0a1929] text-white">Plan Elite</option>
+          <option value="diagnostico" className="bg-[#0a1929] text-white">Solo diagnóstico gratuito</option>
+        </select>
+      </div>
+
+      {/* Message */}
+      <div>
+        <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
+          Mensaje *
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          rows="5"
+          className={`w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#b4cfa6]/50 resize-none text-white placeholder-white/50 ${
+            errors.message ? 'border-red-400/60' : 'border-white/20 hover:border-white/30'
+          }`}
+          placeholder="Contanos sobre tu veterinaria y tus objetivos..."
+        />
+        {errors.message && (
+          <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+        )}
+      </div>
+
+      {/* Submit Status */}
+      {submitStatus === 'success' && (
+        <div className="p-4 bg-[#b4cfa6]/20 backdrop-blur-sm border border-[#b4cfa6]/40 text-[#e3f9ca] rounded-xl animate-fade-in">
+          ✅ ¡Mensaje enviado con éxito! Te contactaremos pronto.
+        </div>
+      )}
+      {submitStatus === 'error' && (
+        <div className="p-4 bg-red-500/20 backdrop-blur-sm border border-red-400/40 text-red-300 rounded-xl animate-fade-in">
+          ⚠️ Hubo un error al enviar el mensaje. Por favor, intentá nuevamente.
+        </div>
+      )}
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#b4cfa6] to-[#8fa886] text-[#0a1929] font-button font-bold rounded-xl hover:shadow-[0_0_30px_rgba(180,207,166,0.5)] transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 group relative overflow-hidden"
+      >
+        {/* Shine effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+        
+        {isSubmitting ? (
+          <>
+            <Loader2 size={20} className="animate-spin relative z-10" />
+            <span className="relative z-10">Enviando...</span>
+          </>
+        ) : (
+          <>
+            <Send size={20} className="relative z-10" />
+            <span className="relative z-10">Enviar mensaje</span>
+          </>
+        )}
+      </button>
+
+      <p className="text-sm text-white/60 text-center">
+        Al enviar este formulario, aceptás que te contactemos para brindarte información sobre nuestros servicios.
+      </p>
+    </form>
+  );
+}

@@ -1,0 +1,58 @@
+---
+const bioData = {
+  intro: "Hola, soy Virginia Vallejo. Médica Veterinaria, emprendedora, comunicadora en TV y especialista en transformación de clínicas veterinarias en negocios exitosos.",
+  story: [
+    "Soy originaria de Trelew, Chubut. A los 17 años di el salto más grande de mi vida: me mudé sola a Buenos Aires para perseguir mi pasión por la medicina veterinaria en la UBA. Durante la carrera, combiné mi pasión por la decoración y la estética con el amor por los animales, y así nació mi primer emprendimiento: Hoteles de Gatos Mishmosos, que fundé en 2013 y hoy ofrece un servicio 5 estrellas a familias que buscan lo mejor para sus felinos.",
+    "Me gradué como Médica Veterinaria en la Universidad de Buenos Aires y complementé mi especialización en Diagnóstico Veterinario de Laboratorio en la UNLP, acreditada por CONEAU. Esta formación me otorgó un profundo conocimiento en microbiología, bioquímica clínica, histopatología, inmunología y genética molecular, pilares fundamentales para mi práctica profesional.",
+    "Consciente de que el éxito requiere más que conocimientos técnicos, ampié mi perfil con formación en gestión empresarial, marketing digital y liderazgo. Cursé la Especialización en Dirección y Gestión de Pymes en la Facultad de Ciencias Económicas UBA, el programa Management Integral de Negocios Digitales en Minders-Group, y actualmente soy candidata al Master in Digital Business en la Escuela de Negocios de San Andrés. También me formé en Liderazgo con Perspectiva de Género en la Universidad Torcuato Di Tella.",
+    "Trabajé en empresas líderes como Eukanuba (2011-2015), Royal Canin (2016-2017), JENCK SA asesorando la línea IDEXX (2017-2019), y Zoetis (2020-2022) donde lideré el desarrollo del portfolio de VetScan y la instalación de analizadores en clínicas veterinarias. A fines de 2022, dejé la relación de dependencia para dedicarme 100% a desarrollar mis empresas y proyectos de consultoría.",
+    "Entre 2024 ocupé posiciones de liderazgo: CEO de Id Animal (startup de trazabilidad de ganado con IA) y Chief Marketing Officer de Mascoters (marketplace de cuidadores de mascotas), experiencias que me dieron una visión integral del ecosistema pet tech. Desde noviembre de 2024 soy panelista en Viva la Vida (Unife TV), donde comparto conocimientos sobre salud, nutrición y prevención de enfermedades en perros y gatos. Escribo regularmente para la revista 'Mi Negocio Veterinario', compartiendo insights sobre gestión empresarial y tendencias del mercado pet."
+  ],
+  mission: "Mi misión es ayudar a veterinarios apasionados a construir negocios prósperos sin sacrificar su amor por la profesión. Combino mi experiencia clínica de más de 15 años con mi expertise en gestión empresarial, marketing digital y desarrollo de negocios para transformar clínicas veterinarias en empresas exitosas y escalables.",
+  expertise: "Trabajo con metodologías ágiles, design thinking, PNL y neuroventas para ofrecer soluciones innovadoras. Mi enfoque combina el conocimiento técnico-veterinario con estrategias probadas en el mundo real de los negocios digitales y el emprendimiento.",
+  approach: "Trabajo de forma personalizada porque sé que cada clínica es única. No vendo fórmulas mágicas: ofrezco estrategias probadas, acompañamiento constante y un método que equilibra el amor por los animales con la visión empresarial sólida. Soy apasionada del aprendizaje continuo y la innovación, aplicando nuevas metodologías en cada proyecto que emprendo.",
+};
+---
+
+<div class="prose prose-lg max-w-none">
+  <div class="text-xl md:text-2xl font-medium text-white mb-8 leading-relaxed">
+    {bioData.intro}
+  </div>
+
+  {bioData.story.map((paragraph) => (
+    <p class="text-lg text-white/80 leading-relaxed mb-6">
+      {paragraph}
+    </p>
+  ))}
+
+  <div class="my-12 p-8 bg-gradient-to-r from-[#b4cfa6]/20 to-[#66D4FF]/20 backdrop-blur-sm rounded-2xl border-l-4 border-[#b4cfa6]">
+    <h3 class="font-heading font-bold text-2xl text-white mb-4">
+      Mi Misión
+    </h3>
+    <p class="text-lg text-white/90 leading-relaxed">
+      {bioData.mission}
+    </p>
+  </div>
+
+  <div class="my-8 p-8 bg-gradient-to-r from-[#66D4FF]/20 to-[#b4cfa6]/20 backdrop-blur-sm rounded-2xl border-l-4 border-[#66D4FF]">
+    <h3 class="font-heading font-bold text-2xl text-white mb-4">
+      Mi Metodología
+    </h3>
+    <p class="text-lg text-white/90 leading-relaxed">
+      {bioData.expertise}
+    </p>
+  </div>
+
+  <p class="text-lg text-white/80 leading-relaxed mb-6">
+    {bioData.approach}
+  </p>
+
+  <div class="mt-12 p-8 bg-gradient-to-r from-[#b4cfa6]/10 to-[#66D4FF]/10 backdrop-blur-sm text-white rounded-2xl border border-white/20">
+    <p class="text-xl font-semibold mb-4">
+      Si sos veterinario y sentís que tu clínica puede dar mucho más...
+    </p>
+    <p class="text-lg opacity-90">
+      Estoy acá para ayudarte a construir el negocio que siempre soñaste, sin perder la esencia de lo que amás hacer.
+    </p>
+  </div>
+</div>

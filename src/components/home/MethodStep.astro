@@ -1,0 +1,347 @@
+---
+interface Props {
+  step: {
+    id: number;
+    number: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    deliverables: string[];
+  };
+  index: number;
+}
+
+const { step, index } = Astro.props;
+const isEven = index % 2 === 0;
+---
+
+<div 
+  class="flex items-start space-x-6 md:space-x-8 group relative method-step-card opacity-0"
+  data-animation-delay={index * 150}
+  style={`animation-delay: ${index * 150}ms;`}
+>
+  <!-- Connecting line for mobile -->
+  <div class="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-celeste-tech/30 to-transparent md:hidden method-line"></div>
+  
+  <!-- Number Badge - Enhanced -->
+  <div class="flex-shrink-0 relative z-10 method-badge">
+    <!-- Glow effect -->
+    <div class="absolute inset-0 bg-gradient-to-br from-azul-electrico to-celeste-tech rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+    
+    <!-- Main badge -->
+    <div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-azul-electrico to-celeste-tech text-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300">
+      <div class="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent"></div>
+      <span class="font-heading font-bold text-2xl md:text-3xl relative z-10">
+        {step.number}
+      </span>
+    </div>
+    
+    <!-- Pulse ring on hover -->
+    <div class="absolute inset-0 rounded-full border-2 border-celeste-tech opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500"></div>
+  </div>
+
+  <!-- Content Card - Enhanced -->
+  <div class="flex-1 relative method-content">
+    <!-- Decorative corner accent -->
+    <div class="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-celeste-tech/20 to-transparent rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    
+    <!-- Main card -->
+    <div class="relative bg-white rounded-xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-transparent group-hover:border-celeste-tech/20 overflow-hidden transform hover:-translate-y-1">
+      <!-- Subtle gradient overlay -->
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-azul-electrico via-celeste-tech to-azul-electrico"></div>
+      
+      <div class="relative z-10">
+        <h3 class="font-heading font-bold text-2xl md:text-3xl text-azul-profundo mb-2 group-hover:text-azul-electrico transition-colors duration-300 method-title">
+          {step.title}
+        </h3>
+        <p class="text-celeste-tech font-semibold mb-4 text-lg method-subtitle">
+          {step.subtitle}
+        </p>
+        <p class="text-gris-azulado leading-relaxed mb-6 text-base method-description">
+          {step.description}
+        </p>
+
+        <!-- Deliverables -->
+        <div class="border-t border-gradient-to-r from-transparent via-gris-claro to-transparent pt-4 mt-6">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-6 h-6 rounded-md bg-gradient-to-br from-celeste-tech/20 to-azul-electrico/20 flex items-center justify-center">
+              <svg class="w-4 h-4 text-azul-electrico" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <p class="font-semibold text-azul-profundo text-sm uppercase tracking-wide">
+              Entregables:
+            </p>
+          </div>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {step.deliverables.map((item) => (
+              <li class="flex items-center space-x-2 text-sm text-gris-azulado group/item hover:text-azul-profundo transition-colors">
+                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-celeste-tech to-azul-electrico flex-shrink-0 group-hover/item:scale-125 transition-transform"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Animaciones de entrada escalonadas */
+  .method-step-card {
+    animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animación específica para el badge con bounce */
+  .method-badge {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation-delay: inherit;
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) rotate(-10deg);
+    }
+    50% {
+      transform: scale(1.05) rotate(2deg);
+    }
+    70% {
+      transform: scale(0.95) rotate(-1deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  }
+
+  /* Animación para el contenido con fade + slide */
+  .method-content {
+    animation: fadeSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(inherit + 100ms);
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Animaciones escalonadas para elementos internos */
+  .method-title {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: calc(inherit + 200ms);
+  }
+
+  .method-subtitle {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: calc(inherit + 300ms);
+  }
+
+  .method-description {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: calc(inherit + 400ms);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Animación para los items de la lista */
+  .method-step-card li {
+    opacity: 0;
+    animation: listItemFadeIn 0.5s ease-out forwards;
+  }
+
+  .method-step-card li:nth-child(1) { animation-delay: calc(inherit + 400ms); }
+  .method-step-card li:nth-child(2) { animation-delay: calc(inherit + 500ms); }
+  .method-step-card li:nth-child(3) { animation-delay: calc(inherit + 600ms); }
+  .method-step-card li:nth-child(4) { animation-delay: calc(inherit + 700ms); }
+
+  @keyframes listItemFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Mejoras responsive para mobile */
+  @media (max-width: 768px) {
+    .method-step-card {
+      padding: 0.5rem 0;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Efectos táctiles para mobile */
+    .method-step-card:active .method-content > div {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+
+    /* Badge más pequeño pero visible en mobile */
+    .method-badge > div:first-child {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Mejorar legibilidad en mobile */
+    .method-content h3 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .method-content p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  }
+
+  /* Mejoras de hover para desktop */
+  @media (min-width: 769px) {
+    .method-step-card:hover .method-badge > div:first-child {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .method-step-card:hover .method-content {
+      transform: translateX(10px);
+    }
+
+    /* Efecto de brillo en el gradient superior al hacer hover */
+    .method-step-card:hover .method-content > div:nth-child(2) > div:first-child {
+      background: linear-gradient(to right, #0066cc 0%, #00d4ff 50%, #0066cc 100%);
+      background-size: 200% 100%;
+      animation: shimmer 2s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% {
+        background-position: 200% 0;
+      }
+      50% {
+        background-position: -200% 0;
+      }
+    }
+
+    /* Efecto de elevación más pronunciado */
+    .method-step-card:hover .method-content > div:nth-child(2) {
+      box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15);
+    }
+
+    /* Animación del pulse ring */
+    .method-step-card:hover .method-badge > div:last-child {
+      animation: pulseRing 1.5s ease-out infinite;
+    }
+
+    @keyframes pulseRing {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+  }
+
+  /* Estado inicial sin animación para cuando no está visible */
+  .method-step-card:not(.animate-in) {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  /* Clase para activar animación cuando entra en viewport */
+  .method-step-card.animate-in {
+    animation-play-state: running;
+  }
+
+  /* Animación para la línea conectora en mobile */
+  .method-line {
+    opacity: 0;
+    animation: growLine 0.6s ease-out forwards;
+    animation-delay: inherit;
+    will-change: transform, opacity;
+  }
+
+  @keyframes growLine {
+    from {
+      opacity: 0;
+      transform: scale3d(1, 0, 1);
+    }
+    to {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  /* Mejora de transiciones suaves */
+  .method-step-card * {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Efecto de glow en el borde superior de la card */
+  .method-content > div:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #00d4ff, transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .method-step-card:hover .method-content > div:nth-child(2)::before {
+    opacity: 1;
+  }
+</style>

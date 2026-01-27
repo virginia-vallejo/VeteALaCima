@@ -1,0 +1,112 @@
+---
+import BaseHead from '../components/layout/BaseHead.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhatsAppFloat from '../components/shared/WhatsAppFloat.astro';
+import '../styles/global.css';
+import '../styles/animations.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+}
+
+const { title, description, image, type } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <BaseHead 
+      title={title} 
+      description={description} 
+      image={image}
+      type={type}
+    />
+    
+    <!-- Protecci贸n global contra errores de extensiones del navegador -->
+    <script is:inline>
+      // Suprimir errores molestos de extensiones del navegador
+      (function() {
+        // Capturar errores no manejados
+        window.addEventListener('error', function(event) {
+          const message = event.message || '';
+          // Ignorar errores de extensiones
+          if (message.includes('Extension context') || 
+              message.includes('chrome-extension://') ||
+              message.includes('moz-extension://')) {
+            event.preventDefault();
+            return true;
+          }
+        }, true);
+        
+        // Capturar rechazos de promesas
+        window.addEventListener('unhandledrejection', function(event) {
+          const message = event.reason?.message || String(event.reason) || '';
+          if (message.includes('Extension') || 
+              message.includes('runtime.lastError') ||
+              message.includes('Receiving end does not exist')) {
+            event.preventDefault();
+          }
+        });
+        
+        // Filtrar console.error para runtime.lastError
+        const originalError = console.error;
+        console.error = function(...args) {
+          const message = args.join(' ');
+          if (message.includes('runtime.lastError') || 
+              message.includes('Receiving end does not exist') ||
+              message.includes('Extension context invalidated') ||
+              message.includes('chrome-extension://') ||
+              message.includes('moz-extension://')) {
+            return;
+          }
+          originalError.apply(console, args);
+        };
+        
+        // Filtrar console.warn para advertencias de sandbox de iframes de extensiones
+        const originalWarn = console.warn;
+        console.warn = function(...args) {
+          const message = args.join(' ');
+          // Ignorar advertencias de sandbox de iframes externos (extensiones, Meta Pixel, etc.)
+          if (message.includes('iframe') && 
+              message.includes('sandbox') && 
+              (message.includes('allow-scripts') || message.includes('allow-same-origin'))) {
+            return;
+          }
+          originalWarn.apply(console, args);
+        };
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-white relative">
+    <Header />
+    
+    <main class="flex-grow relative" style="z-index: 1;">
+      <slot />
+    </main>
+    
+    <Footer />
+    <WhatsAppFloat />
+    
+    <!-- Scroll animations script - Optimized to defer execution -->
+    <script>
+      import { initScrollAnimations } from '../utils/scrollAnimations';
+      
+      // Defer initialization until after first paint to avoid blocking
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          requestIdleCallback(() => {
+            initScrollAnimations();
+          }, { timeout: 2000 });
+        });
+      } else {
+        requestIdleCallback(() => {
+          initScrollAnimations();
+        }, { timeout: 2000 });
+      }
+    </script>
+  </body>
+</html>

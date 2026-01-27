@@ -1,0 +1,153 @@
+---
+import Badge from '../shared/Badge.astro';
+import Button from '../shared/Button.astro';
+import { Check } from 'lucide-react';
+import { siteConfig } from '../../data/siteConfig';
+import { formatWhatsAppLink } from '../../utils/helpers';
+
+interface Props {
+  plan: any;
+}
+
+const { plan } = Astro.props;
+
+// Crear mensaje de WhatsApp específico para cada plan
+const whatsappMessage = `Hola! Me interesa contratar el Plan ${plan.name}. ¿Podrían brindarme más información?`;
+const whatsappLink = formatWhatsAppLink(siteConfig.whatsapp, whatsappMessage);
+---
+
+<div id={plan.id} class="scroll-mt-24">
+  <div class="group bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-white/20 hover:border-white/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(180,207,166,0.3)]">
+    <!-- Header -->
+    <div class:list={[
+      "relative p-8 md:p-12 text-white overflow-hidden",
+      plan.highlighted ? 'bg-gradient-to-br from-[#b4cfa6] to-[#8fa886]' : 'bg-gradient-to-br from-[#1a2f42] to-[#0a1929]'
+    ]}>
+      <!-- Efecto de brillo -->
+      <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+      </div>
+      
+      <div class="relative z-10">
+        {plan.badge && (
+          <div class="mb-4">
+            <Badge text={plan.badge} variant="secondary" />
+          </div>
+        )}
+        
+        <h2 class:list={[
+          "font-heading font-bold text-4xl md:text-5xl mb-4",
+          plan.highlighted ? 'text-[#0a1929]' : 'text-white'
+        ]}>
+          Plan {plan.name}
+        </h2>
+        
+        <p class:list={[
+          "text-xl mb-6",
+          plan.highlighted ? 'text-[#0a1929]/90' : 'text-white/90'
+        ]}>
+          {plan.description}
+        </p>
+
+        <div class="mb-6">
+          {plan.price !== null ? (
+            <div>
+              <span class:list={[
+                "text-6xl font-heading font-bold",
+                plan.highlighted ? 'text-[#0a1929]' : 'text-white'
+              ]}>
+                ${plan.price}
+              </span>
+              <span class:list={[
+                "text-2xl ml-2",
+                plan.highlighted ? 'text-[#0a1929]/80' : 'text-white/80'
+              ]}>
+                {plan.currency}/{plan.billing}
+              </span>
+            </div>
+          ) : (
+            <div class:list={[
+              "text-6xl font-heading font-bold",
+              plan.highlighted ? 'text-[#0a1929]' : 'text-white'
+            ]}>
+              {plan.priceLabel || 'A medida'}
+            </div>
+          )}
+        </div>
+
+        <p class:list={[
+          "text-lg mb-8",
+          plan.highlighted ? 'text-[#0a1929]/90' : 'text-white/90'
+        ]}>
+          {plan.targetAudience}
+        </p>
+
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class:list={[
+            "inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-button font-bold transition-all duration-300 hover:scale-105 shadow-lg group/btn relative overflow-hidden",
+            plan.highlighted 
+              ? 'bg-gradient-to-r from-[#66D4FF] to-[#4A738A] text-white hover:shadow-[0_0_30px_rgba(102,212,255,0.5)]' 
+              : 'bg-gradient-to-r from-[#b4cfa6] to-[#8fa886] text-[#0a1929] hover:shadow-[0_0_30px_rgba(180,207,166,0.5)]'
+          ]}
+        >
+          <span class="relative z-10">{plan.cta}</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-700"></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Detailed Features -->
+    <div class="p-8 md:p-12 bg-white/5 backdrop-blur-sm">
+      <h3 class="font-heading font-bold text-2xl text-white mb-8">
+        Incluye:
+      </h3>
+
+      <div class="space-y-8">
+        {Object.entries(plan.detailedFeatures).map(([category, items]) => (
+          <div>
+            <h4 class="font-heading font-semibold text-lg text-[#b4cfa6] mb-4 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-[#b4cfa6] rounded-full"></span>
+              {category}
+            </h4>
+            <ul class="space-y-3">
+              {items.map((item) => (
+                <li class="flex items-start space-x-3 group/item">
+                  <Check className="text-[#66D4FF] flex-shrink-0 mt-1 group-hover/item:scale-110 transition-transform" size={20} />
+                  <span class="text-white/80 group-hover/item:text-white transition-colors">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Footer -->
+    <div class="p-8 md:p-12 bg-white/5 backdrop-blur-sm border-t border-white/10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="font-semibold text-white text-lg mb-1">
+            ¿Te interesa este plan?
+          </p>
+          <p class="text-white/70">
+            Agenda una llamada gratuita para resolver tus dudas
+          </p>
+        </div>
+        <div class="flex-shrink-0">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#b4cfa6] to-[#8fa886] text-[#0a1929] rounded-xl font-button font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(180,207,166,0.5)] shadow-lg group/cta relative overflow-hidden"
+          >
+            <span class="relative z-10">Contactar por WhatsApp</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/cta:translate-x-[200%] transition-transform duration-700"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

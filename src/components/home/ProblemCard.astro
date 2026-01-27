@@ -1,0 +1,121 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  index?: number;
+  color?: string;
+  accentColor?: string;
+}
+
+const { icon, title, description, index = 0, color = 'from-azul-electrico/10 to-celeste-tech/10', accentColor = 'border-azul-electrico' } = Astro.props;
+
+// Map de iconos (usando emojis para simplificar)
+const iconMap: Record<string, string> = {
+  'trending-down': '📉',
+  'dollar-sign': '💸',
+  'bar-chart': '📊',
+  'message-circle': '💬',
+  'user': '👤'
+};
+---
+
+<div class="problem-card bg-gradient-to-br from-white via-white to-gray-50/30 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 relative overflow-hidden group border border-gray-200/40 hover:border-azul-electrico/50 transition-all duration-400 h-full flex flex-col shadow-lg hover:shadow-2xl">
+  
+  <!-- Efecto de brillo en hover -->
+  <div class="absolute inset-0 bg-gradient-to-br from-azul-electrico/0 via-transparent to-celeste-tech/0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+  
+  <!-- Top accent line con animación fluida -->
+  <div class={`absolute top-0 left-0 w-0 h-1.5 ${accentColor} group-hover:w-full transition-all duration-700 ease-out shadow-lg`}></div>
+  
+  <!-- Decoración lateral sutil -->
+  <div class="absolute -right-8 -top-8 w-24 h-24 bg-gradient-to-br from-azul-electrico/5 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col h-full">
+    <!-- Icon con diseño premium y efecto flotante -->
+    <div class="relative inline-block mb-5 md:mb-6">
+      <div class="absolute inset-0 bg-gradient-to-br from-azul-electrico/20 to-celeste-tech/20 rounded-2xl blur-md group-hover:blur-lg transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+      <div class={`relative w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-400 shadow-md group-hover:shadow-xl`}>
+        <span class="text-3xl md:text-4xl transform group-hover:scale-110 transition-transform duration-300">{iconMap[icon] || '⚠️'}</span>
+      </div>
+    </div>
+    
+    <!-- Title con animación de color -->
+    <h3 class="font-heading font-bold text-lg md:text-xl text-azul-profundo mb-3 md:mb-4 group-hover:text-azul-electrico transition-colors duration-400 leading-tight tracking-tight">
+      {title}
+    </h3>
+    
+    <!-- Description con mejor contraste -->
+    <p class="text-gray-700 leading-relaxed text-sm md:text-base flex-grow font-medium">
+      {description}
+    </p>
+    
+    <!-- Bottom indicator con diseño mejorado -->
+    <div class="mt-5 md:mt-6 pt-4 md:pt-5 border-t border-gray-200/60 group-hover:border-azul-electrico/30 transition-colors duration-400">
+      <a href="#solucion" class="text-xs md:text-sm font-bold text-azul-electrico opacity-0 group-hover:opacity-100 transition-all duration-400 inline-flex items-center gap-2 hover:gap-3 group/link">
+        <span class="relative">
+          Conocé la solución
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-azul-electrico group-hover/link:w-full transition-all duration-300"></span>
+        </span>
+        <svg class="w-4 h-4 transition-all duration-300 group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Card: diseño premium con profundidad */
+  .problem-card {
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      0 2px 4px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  /* Hover cinematográfico con elevación */
+  @media (hover: hover) {
+    .problem-card:hover {
+      box-shadow: 
+        0 20px 40px rgba(31, 162, 255, 0.15),
+        0 10px 20px rgba(31, 162, 255, 0.1),
+        0 5px 10px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .problem-card:active {
+      transform: translateY(-4px) scale(1.01);
+    }
+  }
+
+  /* Mobile: sombras más sutiles */
+  @media (max-width: 768px) {
+    .problem-card {
+      box-shadow: 
+        0 3px 10px rgba(0, 0, 0, 0.06),
+        0 1px 3px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+  }
+  
+  /* Animación suave para el icono */
+  @keyframes float-icon {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+  
+  @media (hover: hover) {
+    .problem-card:hover .relative.inline-block > div {
+      animation: float-icon 2s ease-in-out infinite;
+    }
+  }
+</style>

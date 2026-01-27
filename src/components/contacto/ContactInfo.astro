@@ -1,0 +1,128 @@
+---
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { siteConfig } from '../../data/siteConfig';
+---
+
+<div class="bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 md:p-10 border border-white/20 hover:border-white/30 transition-all duration-300">
+  <h3 class="font-heading font-bold text-2xl text-white mb-8">
+    Información de Contacto
+  </h3>
+
+  <div class="space-y-6">
+    <!-- Email -->
+    <div class="group flex items-start space-x-4">
+      <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[#66D4FF]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-[0_0_20px_rgba(102,212,255,0.4)]">
+        <Mail className="text-[#66D4FF]" size={20} />
+      </div>
+      <div>
+        <h4 class="font-semibold text-white mb-1">Email</h4>
+        <a 
+          href={`mailto:${siteConfig.email}`}
+          class="text-white/70 hover:text-[#66D4FF] transition-colors"
+        >
+          {siteConfig.email}
+        </a>
+      </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="group flex items-start space-x-4">
+      <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[#b4cfa6]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-[0_0_20px_rgba(180,207,166,0.4)]">
+        <Phone className="text-[#b4cfa6]" size={20} />
+      </div>
+      <div>
+        <h4 class="font-semibold text-white mb-1">Teléfono</h4>
+        <a 
+          href={`tel:${siteConfig.phone}`}
+          class="text-white/70 hover:text-[#b4cfa6] transition-colors"
+        >
+          {siteConfig.phone}
+        </a>
+      </div>
+    </div>
+
+    <!-- Location -->
+    <div class="group flex items-start space-x-4">
+      <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[#66D4FF]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-[0_0_20px_rgba(102,212,255,0.4)]">
+        <MapPin className="text-[#66D4FF]" size={20} />
+      </div>
+      <div>
+        <h4 class="font-semibold text-white mb-1">Ubicación</h4>
+        <p class="text-white/70">
+          Buenos Aires, Argentina<br />
+          <span class="text-sm">Atención virtual en toda Latinoamérica</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Hours -->
+    <div class="group flex items-start space-x-4">
+      <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[#b4cfa6]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-[0_0_20px_rgba(180,207,166,0.4)]">
+        <Clock className="text-[#b4cfa6]" size={20} />
+      </div>
+      <div>
+        <h4 class="font-semibold text-white mb-1">Horarios</h4>
+        <p class="text-white/70">
+          Lunes a Viernes: 9:00 - 18:00<br />
+          <span class="text-sm">Horario Argentina (GMT-3)</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Media -->
+  <div class="mt-8 pt-8 border-t border-white/20">
+    <h4 class="font-semibold text-white mb-4">Seguinos en redes</h4>
+    <div class="flex space-x-4">
+      <a 
+        href={siteConfig.social.instagram} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="group w-12 h-12 rounded-xl bg-white/10 hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 text-white flex items-center justify-center transition-all hover:scale-110 border border-white/20 hover:border-transparent hover:shadow-[0_0_25px_rgba(219,39,119,0.5)]"
+        aria-label="Instagram"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+        </svg>
+      </a>
+      <a 
+        href={siteConfig.social.linkedin} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="group w-12 h-12 rounded-xl bg-white/10 hover:bg-[#0077B5] text-white flex items-center justify-center transition-all hover:scale-110 border border-white/20 hover:border-transparent hover:shadow-[0_0_25px_rgba(0,119,181,0.5)]"
+        aria-label="LinkedIn"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect width="4" height="12" x="2" y="9"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+      <a 
+        href={siteConfig.social.facebook} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="group w-12 h-12 rounded-xl bg-white/10 hover:bg-[#1877F2] text-white flex items-center justify-center transition-all hover:scale-110 border border-white/20 hover:border-transparent hover:shadow-[0_0_25px_rgba(24,119,242,0.5)]"
+        aria-label="Facebook"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        </svg>
+      </a>
+      <a 
+        href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, '')}`}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="group w-12 h-12 rounded-xl bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition-all hover:scale-110 border border-white/20 hover:border-transparent hover:shadow-[0_0_25px_rgba(37,211,102,0.5)]"
+        aria-label="WhatsApp"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path>
+          <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>

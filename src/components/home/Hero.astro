@@ -1,0 +1,544 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '/public/images/logo/logo.webp';
+---
+
+<section class="min-h-screen flex items-center gradient-bg-primary relative overflow-hidden">
+  <!-- Imagen de fondo -->
+  <div class="hero-background absolute inset-0 z-0">
+    <div class="hero-image" 
+         data-mobile-img="/images/about/vir8.webp"
+         data-desktop-img="/images/about/vir10.webp"></div>
+  </div>
+  
+  <!-- Overlay minimalista para legibilidad -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/40 z-[2]"></div>
+  <div class="absolute inset-0 z-[3]" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 25, 41, 0.3) 100%);"></div>
+
+  <div class="container-custom px-4 md:px-8 relative z-30 w-full">
+    <div class="max-w-7xl mx-auto min-h-screen flex flex-col justify-end pb-12 md:pb-16 lg:pb-20">
+      
+      <!-- Contenido principal -->
+      <div class="space-y-8 md:space-y-10 lg:space-y-12 text-center content-wrapper">
+        
+        <!-- Título principal -->
+        <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-bold leading-[1.1] tracking-tight max-w-5xl mx-auto px-4">
+          Estrategia y crecimiento para negocios veterinarios que quieren ir un paso más allá
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="hero-subtitle hero-subtitle-green text-base sm:text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto leading-relaxed px-4" style="will-change: auto;">
+          Consultoría estratégica, digitalización y marketing para clínicas, empresas y profesionales del sector veterinario
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 px-4 pt-4">
+          <a href="/contacto" class="hero-cta-primary font-button font-semibold rounded-lg transition-all duration-300 inline-flex items-center justify-center px-8 py-4 text-lg w-full sm:w-auto">
+            <span class="font-semibold text-base md:text-lg px-8">Agendá una conversación estratégica</span>
+          </a>
+          
+          <a href="#planes" class="hero-cta-secondary font-button font-semibold rounded-lg transition-all duration-300 inline-flex items-center justify-center px-8 py-4 text-lg w-full sm:w-auto">
+            <span class="font-semibold text-base md:text-lg px-8">Ver propuestas</span>
+          </a>
+        </div>
+
+        <!-- Trust indicators minimalistas -->
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-8 pt-6 md:pt-8">
+          
+          <div class="trust-item flex items-center gap-2.5">
+            <svg class="w-5 h-5 text-[#b4cfa6] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span class="text-sm md:text-base text-white/90 font-medium">Foco en decisiones estratégicas</span>
+          </div>
+          
+          <div class="hidden sm:block w-px h-4 bg-white/20"></div>
+          
+          <div class="trust-item flex items-center gap-2.5">
+            <svg class="w-5 h-5 text-[#b4cfa6] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm md:text-base text-white/90 font-medium">Metodología estratégica validada</span>
+          </div>
+          
+          <div class="hidden sm:block w-px h-4 bg-white/20"></div>
+          
+          <div class="trust-item flex items-center gap-2.5">
+            <svg class="w-5 h-5 text-[#b4cfa6] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+            </svg>
+            <span class="text-sm md:text-base text-white/90 font-medium">Acompañamiento personalizado 1:1</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Logo marca de agua -->
+  <div class="absolute z-10 watermark-container">
+    <Image 
+      src={logoImage} 
+      alt="Logo Virginia Vallejo" 
+      class="watermark-logo"
+      widths={[320, 480, 640, 960, 1024]}
+      sizes="(max-width: 767px) 160px, (max-width: 1023px) 144px, (max-width: 1279px) 176px, 1024px"
+      loading="eager"
+      decoding="async"
+      quality={85}
+    />
+  </div>
+</section>
+
+<style>
+  /* ============================================
+     IMAGEN DE FONDO
+     ============================================ */
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center -20%;
+    background-repeat: no-repeat;
+    background-color: #0a1929;
+  }
+
+  @media (max-width: 768px) {
+    .hero-image {
+      background-position: center 20%;
+    }
+  }
+
+  /* ============================================
+     ANIMACIONES MINIMALISTAS
+     ============================================ */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ============================================
+     TÍTULO Y SUBTÍTULO
+     ============================================ */
+  .hero-title {
+    animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
+    text-shadow: 
+      0 2px 20px rgba(0, 0, 0, 0.9),
+      0 4px 40px rgba(0, 0, 0, 0.6);
+    letter-spacing: -0.03em;
+
+  }
+
+  .hero-subtitle {
+
+    animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
+    text-shadow: 
+      0 2px 15px rgba(0, 0, 0, 0.8),
+      0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-subtitle-green {
+    color: #fafafa;
+    text-shadow: 
+      0 0 20px rgba(180, 207, 166, 0.6),
+      0 0 40px rgba(180, 207, 166, 0.4),
+      0 2px 15px rgba(0, 0, 0, 0.95),
+      0 4px 30px rgba(0, 0, 0, 0.8),
+      0 0 2px rgba(0, 0, 0, 1),
+      1px 1px 3px rgba(0, 0, 0, 0.9),
+      -1px -1px 3px rgba(0, 0, 0, 0.9);
+    animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.15s both;
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+    will-change: transform, opacity;
+  }
+  
+  .hero-subtitle-green.animated {
+    will-change: auto;
+  }
+
+  /* Glow estatico - no animado para mejor rendimiento */
+  @keyframes subtle-glow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.95;
+    }
+  }
+
+  /* ============================================
+     BOTONES CTA CON EFECTO 3D ELEVACIÓN
+     ============================================ */
+  .hero-ctas {
+    animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0.6s both;
+    perspective: 1000px;
+  }
+
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    background: rgba(10, 25, 41, 0.75) !important;
+    border: 2px solid rgba(180, 207, 166, 0.8) !important;
+    color: #ffffff !important;
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.3),
+      0 8px 25px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(25px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(140%) !important;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  }
+
+  /* Capa de profundidad 3D */
+  .hero-cta-primary::before,
+  .hero-cta-secondary::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      135deg,
+      rgba(180, 207, 166, 0.3) 0%,
+      transparent 50%,
+      rgba(180, 207, 166, 0.2) 100%
+    );
+    border-radius: inherit;
+    opacity: 4;
+    transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Reflejo superior 3D */
+  .hero-cta-primary::after,
+  .hero-cta-secondary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      180deg,
+      rgba(41, 233, 70, 0.15) 0%,
+      transparent 100%
+    );
+    border-radius: inherit;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Estado hover - Elevación 3D */
+  .hero-cta-primary:hover,
+  .hero-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(180, 207, 166, 0.9) !important;
+    color: #b4cfa6 !important;
+    transform: translateZ(40px) translateY(-12px) rotateX(8deg) scale(1.02) !important;
+    box-shadow: 
+      0 0 40px rgba(180, 207, 166, 0.5),
+      0 0 80px rgba(180, 207, 166, 0.3),
+      0 25px 60px rgba(0, 0, 0, 0.4),
+      0 35px 80px rgba(0, 0, 0, 0.3),
+      0 45px 100px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 0 30px rgba(180, 207, 166, 0.15) !important;
+    backdrop-filter: blur(20px) saturate(150%) brightness(1.15) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) brightness(1.15) !important;
+    text-shadow: 
+      0 0 20px rgba(180, 207, 166, 0.7),
+      0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-cta-primary:hover::before,
+  .hero-cta-secondary:hover::before {
+    opacity: 1;
+  }
+
+  .hero-cta-primary:hover::after,
+  .hero-cta-secondary:hover::after {
+    opacity: 0.8;
+  }
+
+  /* Estado active - Presión 3D */
+  .hero-cta-primary:active,
+  .hero-cta-secondary:active {
+    background: rgba(180, 207, 166, 0.2) !important;
+    border-color: #b4cfa6 !important;
+    color: #e3f9ca !important;
+    transform: translateZ(10px) translateY(-3px) rotateX(2deg) scale(0.98) !important;
+    box-shadow: 
+      0 0 60px rgba(180, 207, 166, 0.8),
+      0 0 100px rgba(180, 207, 166, 0.6),
+      0 8px 25px rgba(0, 0, 0, 0.5),
+      0 12px 35px rgba(0, 0, 0, 0.4),
+      inset 0 0 50px rgba(180, 207, 166, 0.4),
+      inset 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(25px) saturate(180%) brightness(1.25) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) brightness(1.25) !important;
+    text-shadow: 
+      0 0 30px rgba(227, 249, 202, 1),
+      0 0 50px rgba(180, 207, 166, 0.8),
+      0 2px 5px rgba(0, 0, 0, 0.6);
+    animation: depth-pulse 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Animación de pulso con profundidad */
+  @keyframes depth-pulse {
+    0% {
+      transform: translateZ(10px) translateY(-3px) rotateX(2deg) scale(0.98);
+    }
+    50% {
+      transform: translateZ(50px) translateY(-15px) rotateX(10deg) scale(1.03);
+      box-shadow: 
+        0 0 80px rgba(180, 207, 166, 1),
+        0 0 120px rgba(180, 207, 166, 0.8),
+        0 40px 80px rgba(0, 0, 0, 0.5),
+        0 50px 100px rgba(0, 0, 0, 0.4),
+        inset 0 0 60px rgba(180, 207, 166, 0.6);
+    }
+    100% {
+      transform: translateZ(10px) translateY(-3px) rotateX(2deg) scale(0.98);
+    }
+  }
+
+  /* Soporte para dispositivos móviles */
+  @media (max-width: 768px) {
+    .hero-ctas {
+      perspective: 800px;
+    }
+    
+    .hero-cta-primary:hover,
+    .hero-cta-secondary:hover {
+      transform: translateZ(20px) translateY(-8px) rotateX(5deg) scale(1.01) !important;
+    }
+  }
+
+  /* ============================================
+     TRUST INDICATORS MINIMALISTAS
+     ============================================ */
+  .trust-item {
+    animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) 0.8s both;
+    transition: all 0.3s ease;
+  }
+
+  .trust-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .trust-item svg {
+    filter: drop-shadow(0 0 10px rgba(180, 207, 166, 0.5));
+  }
+
+  .trust-item span {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  /* ============================================
+     LOGO MARCA DE AGUA - PNG TRANSLÚCIDO
+     ============================================ */
+  
+  .watermark-container {
+    top: 25rem;
+    left: -5.5rem;
+    right: -10rem;
+    bottom: auto;
+    transform: none;
+  }
+
+  .watermark-logo {
+    width: -10rem;
+    opacity: 0.03;
+    filter: brightness(10);
+    animation: fadeIn 1.2s ease-out 1s both;
+  }
+
+  /* Posicionamiento desktop - arriba a la derecha, más abajo del header */
+  @media (min-width: 768px) {
+    .watermark-container {
+      top: 6rem;
+      left: auto;
+      right: 2rem;
+    }
+
+    .watermark-logo {
+      width: 9rem;
+      opacity: 0.03;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .watermark-container {
+      top: 7rem;
+      right: 28rem;
+    }
+
+    .watermark-logo {
+      width: 11rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .watermark-container {
+      top: 22rem;
+    }
+
+    .watermark-logo {
+      width: 64rem;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: inherit; }
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 640px) {
+    /* Posicionar contenido más abajo para no tapar la cara */
+    .content-wrapper {
+      transform: translateY(0);
+      gap: 1rem !important;
+    }
+
+    /* Reducir espaciado entre elementos */
+    .hero-title {
+      font-size: 1.5rem;
+      line-height: 1.2;
+      max-width: 90%;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      max-width: 90%;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Reducir espacio de los CTAs */
+    .hero-ctas {
+      padding-top: 0.5rem !important;
+      gap: 0.75rem !important;
+    }
+
+    .trust-item span {
+      font-size: 0.875rem;
+    }
+
+    /* Ajustar botones en mobile - misma altura */
+    .hero-cta-primary,
+    .hero-cta-secondary {
+      padding: 0.875rem 1.5rem !important;
+      min-height: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-cta-primary span,
+    .hero-cta-secondary span {
+      font-size: 0.875rem !important;
+      padding: 0 0.5rem !important;
+      line-height: 1.3;
+      display: block;
+      white-space: normal;
+    }
+
+    /* Reducir espacio de trust indicators */
+    .flex-wrap.items-center.justify-center {
+      padding-top: 1rem !important;
+      gap: 1rem !important;
+    }
+
+    /* Reducir padding inferior del contenedor */
+    .max-w-7xl {
+      padding-bottom: 2rem !important;
+    }
+
+    /* Reducir espaciado general en mobile */
+    .space-y-8 {
+      gap: 1rem !important;
+    }
+  }
+
+  /* Ajustes adicionales para pantallas muy pequeñas */
+  @media (max-width: 380px) {
+    .content-wrapper {
+      transform: translateY(0);
+      gap: 0.875rem !important;
+    }
+
+    .hero-title {
+      font-size: 1.375rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      margin-bottom: 0.375rem;
+    }
+
+    .hero-ctas {
+      padding-top: 0.375rem !important;
+      gap: 0.625rem !important;
+    }
+
+    .hero-cta-primary span,
+    .hero-cta-secondary span {
+      font-size: 0.8rem !important;
+    }
+
+    .flex-wrap.items-center.justify-center {
+      padding-top: 0.75rem !important;
+      gap: 0.875rem !important;
+    }
+
+    .max-w-7xl {
+      padding-bottom: 1.5rem !important;
+    }
+  }
+</style>
+
+<script>
+  function loadResponsiveImage() {
+    const imageDiv = document.querySelector('.hero-image') as HTMLElement;
+    if (!imageDiv) return;
+    
+    const isMobile = window.innerWidth <= 768;
+    const mobileImg = imageDiv.getAttribute('data-mobile-img');
+    const desktopImg = imageDiv.getAttribute('data-desktop-img');
+    const imgToUse = isMobile ? mobileImg : desktopImg;
+    
+    if (imgToUse) {
+      imageDiv.style.backgroundImage = `url('${imgToUse}')`;
+    }
+  }
+
+  loadResponsiveImage();
+
+  let resizeTimer: ReturnType<typeof setTimeout>;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(loadResponsiveImage, 250);
+  });
+</script>

@@ -1,0 +1,330 @@
+---
+import SectionTitle from '../shared/SectionTitle.astro';
+import ProblemCard from './ProblemCard.astro';
+
+const problems = [
+  {
+    icon: 'message-circle',
+    title: 'Comunicación y presencia digital desalineadas',
+    description: 'Lo que comunicás no refleja el valor real de tu servicio ni potencia tu posicionamiento.',
+    color: 'from-purple-500/10 to-pink-500/10',
+    accentColor: 'border-purple-500'
+  },  
+  {
+    icon: 'user',
+    title: 'Un negocio que depende del dueño',
+    description: 'La operación y las decisiones no escalan sin tu presencia constante.',
+    color: 'from-emerald-500/10 to-teal-500/10',
+    accentColor: 'border-emerald-500'
+  },
+  {
+    icon: 'trending-down',
+    title: 'Falta de procesos y gestión digital',
+    description: 'No hay sistemas, estructura ni indicadores claros para crecer con orden.',
+    color: 'from-red-500/10 to-orange-500/10',
+    accentColor: 'border-red-500'
+  },
+  {
+    icon: 'dollar-sign',
+    title: 'Rentabilidad estancada',
+    description: 'Mucho trabajo, poco impacto en los números.',
+    color: 'from-amber-500/10 to-yellow-500/10',
+    accentColor: 'border-amber-500'
+  },
+  {
+    icon: 'bar-chart',
+    title: 'Decisiones sin datos ni innovación',
+    description: 'Se gestiona por intuición, sin información, tecnología ni mirada de tendencias del mercado global. El sector avanza. La pregunta es si tu negocio avanza con él',
+    color: 'from-blue-500/10 to-cyan-500/10',
+    accentColor: 'border-blue-500'
+  },
+];
+---
+
+<section class="section-padding relative overflow-hidden py-16 md:py-24 lg:py-32">
+  <!-- Video de fondo protagonista -->
+  <div class="absolute inset-0 z-0">
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline
+      webkit-playsinline
+      x5-playsinline
+      preload="none"
+      loading="lazy"
+      class="w-full h-full object-cover problem-video"
+    >
+      <source src="/video/fondoproblem1.webm" type="video/webm" />
+    </video>
+    <!-- Overlay oscuro elegante: más fuerte en mobile, sutil en desktop -->
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/35 to-gray-900/40 md:from-black/25 md:via-black/20 md:to-black/25"></div>
+  </div>
+  
+  <!-- Elementos decorativos sutiles: menos visibles en mobile -->
+  <div class="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-br from-azul-electrico/5 to-transparent rounded-full blur-3xl animate-pulse-slow opacity-40 md:opacity-70"></div>
+  <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-tr from-celeste-tech/5 to-transparent rounded-full blur-3xl animate-pulse-slow opacity-40 md:opacity-70" style="animation-delay: 2s;"></div>
+  
+  <div class="container-custom relative z-10">
+    <!-- Título con contraste optimizado -->
+    <div class="text-center mb-12 md:mb-20 lg:mb-24">
+      <!-- Badge compacto con fondo sólido para legibilidad -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 md:mb-8 bg-white/95 backdrop-blur-sm rounded-full border border-red-500/30 shadow-lg">
+        <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <span class="text-red-600 font-semibold text-xs md:text-sm tracking-wide uppercase">Desafíos de Crecimiento</span>
+      </div>
+
+      <!-- Título con diseño alternativo -->
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+          <span class="inline-block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Los </span>
+          <span class="inline-block relative">
+            <span class="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-celeste-tech via-azul-electrico to-azul-profundo text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black drop-shadow-[0_4px_16px_rgba(31,162,255,0.6)]">
+              5 desafíos
+            </span>
+            <span class="absolute inset-0 blur-xl bg-gradient-to-r from-celeste-tech/40 via-azul-electrico/40 to-azul-profundo/40"></span>
+          </span>
+          <br class="block md:hidden" />
+          <span class="block mt-3 md:mt-2 text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] font-semibold">
+            que hoy frenan el crecimiento de
+          </span>
+          <span class="block mt-2 text-white font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-[0_3px_12px_rgba(0,0,0,0.9)] 
+            [text-shadow:_0_0_30px_rgb(31_162_255_/_60%)]">
+            los negocios veterinarios
+          </span>
+        </h2>
+        
+        <!-- Línea decorativa con efecto glow -->
+        <div class="mt-8 md:mt-10 flex justify-center gap-1.5">
+          <div class="h-1 w-1 rounded-full bg-azul-electrico shadow-[0_0_10px_rgba(31,162,255,0.8)]"></div>
+          <div class="h-1 w-8 rounded-full bg-gradient-to-r from-celeste-tech via-azul-electrico to-celeste-tech shadow-[0_0_15px_rgba(31,162,255,0.6)]"></div>
+          <div class="h-1 w-1 rounded-full bg-azul-electrico shadow-[0_0_10px_rgba(31,162,255,0.8)]"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid de cards: estilo SaaS premium -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 max-w-7xl mx-auto px-4 md:px-0">
+      {problems.map((problem, index) => (
+        <div 
+          class="problem-card-wrapper animate-on-scroll" 
+          style={`animation-delay: ${index * 0.08}s;`}
+        >
+          <ProblemCard {...problem} index={index} />
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA card elegante con fondo sólido -->
+    <div class="mt-16 md:mt-24 lg:mt-28 max-w-4xl mx-auto px-4 md:px-0">
+      <div class="relative bg-white/95 backdrop-blur-xl rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/80 overflow-hidden group hover:shadow-2xl transition-all duration-500">
+        <!-- Efecto hover cinematográfico -->
+        <div class="absolute inset-0 bg-gradient-to-br from-azul-electrico/5 via-transparent to-celeste-tech/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+        
+        <!-- Contenido -->
+        <div class="relative p-8 md:p-12 lg:p-14 text-center">
+          <img 
+            src="/images/logo/logo3d1.svg" 
+            alt="Vete a la Cima Logo" 
+            loading="lazy"
+            class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-5 md:mb-6 object-contain transform transition-transform duration-500 group-hover:scale-105"
+          />
+          <h3 class="text-xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-5 text-transparent bg-clip-text bg-gradient-to-r from-azul-profundo to-azul-electrico">
+            ¿Te identificás con alguno de estos desafíos?
+          </h3>
+          <p class="text-gray-800 text-sm md:text-lg lg:text-xl mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+            No estás solo. Muchos <strong class="text-azul-electrico font-semibold">negocios veterinarios</strong> ya ordenaron su crecimiento con una mirada estratégica, digital y basada en datos.
+          </p>
+          
+          <!-- Badges modernos y compactos -->
+          <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+            <div class="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-white rounded-full border border-green-200/60 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+              <span class="text-base md:text-xl">✅</span>
+              <span class="text-green-700 font-semibold text-xs md:text-base">Método probado</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-white rounded-full border border-blue-200/60 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+              <span class="text-base md:text-xl">📊</span>
+              <span class="text-blue-700 font-semibold text-xs md:text-base">Resultados medibles</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 bg-white rounded-full border border-purple-200/60 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+              <span class="text-base md:text-xl">🤝</span>
+              <span class="text-purple-700 font-semibold text-xs md:text-base">Acompañamiento personalizado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Optimización de video: nítido y protagonista */
+  .problem-video {
+    filter: brightness(1.1) contrast(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .problem-video {
+      object-position: center;
+      filter: brightness(1.05) contrast(1.03);
+    }
+  }
+  
+  /* Animación suave para decorativos */
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.03);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 10s ease-in-out infinite;
+  }
+
+  /* Animación de entrada: más rápida en mobile */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-on-scroll {
+    animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (min-width: 768px) {
+    .animate-on-scroll {
+      animation-duration: 0.8s;
+    }
+  }
+
+  /* Cards: estilo SaaS premium con alturas uniformes */
+  .problem-card-wrapper {
+    display: flex;
+    height: 290px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  @media (min-width: 640px) {
+    .problem-card-wrapper {
+      height: 310px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .problem-card-wrapper {
+      height: 320px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .problem-card-wrapper {
+      height: 340px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .problem-card-wrapper {
+      height: 360px;
+    }
+  }
+
+  /* Hover: sutil en mobile, refinado en desktop */
+  @media (hover: hover) {
+    .problem-card-wrapper:hover {
+      transform: translateY(-6px);
+    }
+  }
+
+  .problem-card-wrapper > * {
+    width: 100%;
+  }
+
+  /* Suavizado de fuentes */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+
+<script>
+  // Optimización de video
+  const videoElement = document.querySelector('.problem-video') as HTMLVideoElement;
+  
+  if (videoElement) {
+    const forcePlay = () => {
+      videoElement.play().catch(() => {
+        setTimeout(() => {
+          videoElement.play().catch(() => {});
+        }, 500);
+      });
+    };
+
+    forcePlay();
+
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          forcePlay();
+        } else {
+          if (window.innerWidth > 768) {
+            videoElement.pause();
+          }
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '50px'
+    });
+
+    videoObserver.observe(videoElement);
+
+    const playOnInteraction = () => {
+      forcePlay();
+      document.removeEventListener('touchstart', playOnInteraction);
+      document.removeEventListener('click', playOnInteraction);
+      document.removeEventListener('scroll', playOnInteraction);
+    };
+
+    document.addEventListener('touchstart', playOnInteraction, { passive: true, once: true });
+    document.addEventListener('click', playOnInteraction, { once: true });
+    document.addEventListener('scroll', playOnInteraction, { passive: true, once: true });
+  }
+
+  // Animación de cards al entrar en viewport
+  const observeCards = () => {
+    const cards = document.querySelectorAll('.animate-on-scroll');
+    
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    cards.forEach(card => cardObserver.observe(card));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observeCards);
+  } else {
+    observeCards();
+  }
+</script>
