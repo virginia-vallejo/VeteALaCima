@@ -149,44 +149,41 @@ const currentYear = getCurrentYear();
       </div>
     </div>
     
-    <!-- Desktop Grid - Sin cambios -->
-    <div class="hidden lg:grid grid-cols-5 gap-10 items-start">
+    <!-- Desktop Grid - Mejorado y balanceado -->
+    <div class="hidden lg:grid grid-cols-12 gap-8 xl:gap-12 items-start">
       
       <!-- Brand - Desktop -->
-      <div class="col-span-2">
+      <div class="col-span-5">
         <div class="mb-8">
-          <div class="flex flex-col items-start mb-8">
-            
-            <div class="flex items-start gap-6 mb-6 w-full">
-              <div class="relative logo-container group flex-shrink-0">
-                <div class="absolute inset-0 bg-[#b4cfa6]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                
-                <img 
-                  src="/images/logo/logo3d.svg" 
-                  alt="Vete a la Cima Logo"
-                  width="500"
-                  height="500"
-                  loading="lazy"
-                  class="relative w-32 h-32 object-contain transition-all duration-500 group-hover:scale-105 footer-logo"
-                />
-              </div>
+          <div class="flex items-start gap-5 mb-6">
+            <div class="relative logo-container group flex-shrink-0">
+              <div class="absolute inset-0 bg-[#b4cfa6]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               
-              <div class="text-left flex-1">
-                <h3 class="font-heading font-bold text-2xl block leading-tight text-white mb-2">
-                  VETE A LA CIMA
-                </h3>
-                <p class="text-[#b4cfa6] text-base font-semibold block leading-relaxed">
-                  Estrategia, digitalización y crecimiento para el sector veterinario
-                </p>
-              </div>
+              <img 
+                src="/images/logo/logo3d.svg" 
+                alt="Vete a la Cima Logo"
+                width="500"
+                height="500"
+                loading="lazy"
+                class="relative w-24 h-24 object-contain transition-all duration-500 group-hover:scale-105 footer-logo"
+              />
             </div>
             
-            <div class="w-full text-left">
-              <p class="text-white/80 text-base leading-relaxed">
-                Consultoría estratégica especializada en negocios veterinarios y empresas del sector pet.
-                Acompaño a clínicas, profesionales y organizaciones a tomar mejores decisiones, lanzar nuevos proyectos y construir modelos de crecimiento sostenibles.
+            <div class="text-left flex-1 pt-1">
+              <h3 class="font-heading font-bold text-xl block leading-tight text-white mb-2">
+                VETE A LA CIMA
+              </h3>
+              <p class="text-[#b4cfa6] text-sm font-semibold block leading-relaxed">
+                Estrategia, digitalización y crecimiento para el sector veterinario
               </p>
             </div>
+          </div>
+          
+          <div class="w-full text-left mb-6">
+            <p class="text-white/80 text-sm leading-relaxed">
+              Consultoría estratégica especializada en negocios veterinarios y empresas del sector pet.
+              Acompaño a clínicas, profesionales y organizaciones a tomar mejores decisiones, lanzar nuevos proyectos y construir modelos de crecimiento sostenibles.
+            </p>
           </div>
         </div>
         
@@ -231,8 +228,69 @@ const currentYear = getCurrentYear();
         </div>
       </div>
 
+      <!-- Links Rápidos Desktop -->
+      <div class="col-span-2 text-left">
+        <h3 class="footer-heading">
+          Links Rápidos
+          <span class="heading-underline"></span>
+        </h3>
+        <ul class="space-y-3 flex flex-col items-start">
+          {NAVIGATION_LINKS.map((link) => (
+            <li>
+              <a 
+                href={link.href}
+                class="footer-link"
+              >
+                <span class="link-bar"></span>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Servicios Desktop -->
+      <div class="col-span-3 text-left">
+        <h3 class="footer-heading">
+          Servicios
+          <span class="heading-underline"></span>
+        </h3>
+        <ul class="space-y-3">
+          <li>
+            <a href="/servicios" class="footer-link">
+              <span class="link-bar"></span>
+              Negocios veterinarios
+            </a>
+          </li>
+          <li>
+            <a href="/servicios" class="footer-link">
+              <span class="link-bar"></span>
+              Nuevos proyectos
+            </a>
+          </li>
+          <li>
+            <a href="/servicios" class="footer-link">
+              <span class="link-bar"></span>
+              Key opinion leaders
+            </a>
+          </li>
+          <li>
+            <a href="/servicios" class="footer-link">
+              <span class="link-bar"></span>
+              Empresas del sector pet
+            </a>
+          </li>
+          <li>
+            <a href="/contacto" class="footer-link">
+              <span class="link-bar"></span>
+              Consulta general
+            </a>
+          </li>
+        </ul>
+      </div>
+
       <!-- Contacto Desktop -->
-      <div class="text-left">
+      <div class="col-span-2 text-left min-w-0">
         <h3 class="footer-heading">
           Contacto
           <span class="heading-underline"></span>
@@ -267,61 +325,6 @@ const currentYear = getCurrentYear();
             <span class="text-white/80 text-sm">
               Argentina & Latinoamérica
             </span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Links Rápidos Desktop -->
-      <div class="text-left">
-        <h3 class="footer-heading">
-          Links Rápidos
-          <span class="heading-underline"></span>
-        </h3>
-        <ul class="space-y-3 flex flex-col items-start">
-          {NAVIGATION_LINKS.map((link) => (
-            <li>
-              <a 
-                href={link.href}
-                class="footer-link"
-              >
-                <span class="link-bar"></span>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Servicios Desktop -->
-      <div class="text-left">
-        <h3 class="footer-heading">
-          Servicios
-          <span class="heading-underline"></span>
-        </h3>
-        <ul class="space-y-3">
-          <li>
-            <a href="/servicios#starter" class="footer-link">
-              <span class="link-bar"></span>
-              Plan Starter
-            </a>
-          </li>
-          <li>
-            <a href="/servicios#growth" class="footer-link">
-              <span class="link-bar"></span>
-              Plan Growth
-            </a>
-          </li>
-          <li>
-            <a href="/servicios#elite" class="footer-link">
-              <span class="link-bar"></span>
-              Plan Elite
-            </a>
-          </li>
-          <li>
-            <a href="/contacto" class="footer-link">
-              <span class="link-bar"></span>
-              Diagnóstico Gratuito
-            </a>
           </li>
         </ul>
       </div>
@@ -550,6 +553,12 @@ const currentYear = getCurrentYear();
     display: flex;
     align-items: start;
     gap: 0.75rem;
+    flex-wrap: nowrap;
+  }
+
+  .contact-item a,
+  .contact-item span {
+    white-space: nowrap;
   }
 
   .contact-icon {
