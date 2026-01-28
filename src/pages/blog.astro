@@ -35,79 +35,117 @@ try {
   title="Blog - Vete a la Cima" 
   description="Recursos y artículos sobre gestión, digitalización, IA y marketing para clínicas veterinarias."
 >
-  <!-- Hero del Blog -->
-  <section class="pt-[22rem] md:pt-[24rem] lg:pt-[28rem] bg-gradient-to-br from-[#294a5f] via-[#3e6680] to-[#b4cfa6] py-20 lg:py-28 relative overflow-hidden">
+  <!-- Hero del Blog - Rediseñado -->
+  <section class="min-h-[75vh] md:min-h-[85vh] pt-24 md:pt-28 lg:pt-32 flex items-end md:items-center relative overflow-hidden bg-[#0a1929]">
+    <!-- Background con imagen -->
     <div class="absolute inset-0 z-0">
-      <img src="/images/about/vir2.webp" alt="Hero Blog" class="w-full h-full object-cover object-center opacity-70" />
-      <div class="absolute inset-0 bg-gradient-to-br from-[#294a5f]/80 via-[#3e6680]/80 to-[#b4cfa6]/80"></div>
+      <div class="absolute inset-0 bg-[#0a1929]"></div>
+      
+      <!-- Imagen Mobile: vir11.webp -->
+      <img 
+        src="/images/about/vir11.webp" 
+        alt="Blog Vete a la Cima" 
+        class="md:hidden w-full h-full object-cover opacity-60"
+        style="object-position: center 35%;"
+      />
+      
+      <!-- Imagen Desktop: 8.webp -->
+      <img 
+        src="/images/hero/carruselhero/8.webp" 
+        alt="Blog Vete a la Cima" 
+        class="hidden md:block w-full h-full object-cover opacity-60"
+        style="object-position: center -50%;"
+      />
+      
+      <!-- Overlays graduales muy suaves -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0a1929]/20 via-transparent to-[#0a1929]/30"></div>
     </div>
-    <div class="container mx-auto px-6 lg:px-8 relative z-10">
+
+    <!-- Grid pattern sutil -->
+    <div class="absolute inset-0 opacity-[0.02] z-[1]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 48px 48px;"></div>
+
+    <!-- Floating gradient orbs -->
+    <div class="absolute top-20 -left-20 w-96 h-96 bg-[#b4cfa6]/10 rounded-full blur-3xl opacity-60 animate-float"></div>
+    <div class="absolute bottom-20 -right-20 w-96 h-96 bg-[#66D4FF]/10 rounded-full blur-3xl opacity-60 animate-float-delayed"></div>
+
+    <div class="container-custom px-4 md:px-8 relative z-10 pb-12 pt-0 md:py-32">
       <div class="max-w-4xl mx-auto text-center text-white">
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-          <BookOpen className="w-5 h-5" />
-          <span class="text-sm font-medium">Recursos y conocimiento</span>
-        </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-['Poppins'] mb-6">
-          Blog Vete a la Cima
+
+        <!-- Título principal -->
+        <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 md:mb-8 leading-tight">
+          <span class="block text-white mb-2">Blog</span>
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#b4cfa6] via-[#a5c096] to-[#66D4FF]">
+            Vete a la Cima
+          </span>
         </h1>
-        <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
+
+        <!-- Línea decorativa -->
+        <div class="flex items-center justify-center gap-3 mb-6 md:mb-8">
+          <div class="h-[2px] w-16 bg-gradient-to-r from-transparent to-[#b4cfa6]"></div>
+          <div class="w-2 h-2 rounded-full bg-[#b4cfa6]"></div>
+          <div class="h-[2px] w-16 bg-gradient-to-l from-transparent to-[#b4cfa6]"></div>
+        </div>
+
+        <!-- Descripción -->
+        <p class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light">
           Artículos sobre gestión, digitalización, inteligencia artificial y marketing para clínicas veterinarias que quieren crecer.
         </p>
+
       </div>
     </div>
   </section>
 
-  <!-- Filtro de Categorías -->
-  <section class="py-12 bg-[#F5F7FA]">
-    <div class="container mx-auto px-6 lg:px-8">
+  <!-- Filtro de Categorías - Mejorado -->
+  <section class="py-8 md:py-12 bg-[#0a1929] border-b border-white/10">
+    <div class="container-custom px-4 md:px-8">
       <CategoryFilter categories={categories} />
     </div>
   </section>
 
-  <!-- Grid de Artículos -->
-  <section class="py-16 bg-[#F5F7FA]">
-    <div class="container mx-auto px-6 lg:px-8">
+  <!-- Grid de Artículos - Mejorado -->
+  <section class="py-12 md:py-20 bg-gradient-to-b from-[#0a1929] to-[#0f1f33] relative overflow-hidden">
+    <!-- Decorative blur accents -->
+    <div class="absolute top-40 right-20 w-96 h-96 bg-[#66D4FF]/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-96 h-96 bg-[#b4cfa6]/5 rounded-full blur-3xl"></div>
+    
+    <div class="container-custom px-4 md:px-8 relative z-10">
       {posts.length > 0 ? (
         <BlogGrid posts={posts} />
       ) : (
         <div class="text-center py-20">
-          <BookOpen className="w-16 h-16 text-[#A3B7C9] mx-auto mb-4" />
-          <h3 class="text-2xl font-bold text-[#0A1B2E] mb-2">
-            No hay artículos aún
-          </h3>
-          <p class="text-[#A3B7C9]">
-            Pronto comenzaremos a publicar contenido valioso para ti.
-          </p>
+          <div class="max-w-md mx-auto">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+              <BookOpen className="w-10 h-10 text-[#b4cfa6]" />
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 font-heading">
+              No hay artículos aún
+            </h3>
+            <p class="text-lg text-white/70">
+              Pronto comenzaremos a publicar contenido valioso para ti.
+            </p>
+          </div>
         </div>
       )}
     </div>
   </section>
-
-  <!-- CTA Newsletter (Opcional) -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto bg-gradient-to-r from-[#3e6680] to-[#b4cfa6] rounded-3xl p-8 md:p-12 text-center text-white">
-        <h2 class="text-3xl md:text-4xl font-bold font-['Poppins'] mb-4">
-          Recibe los mejores consejos en tu inbox
-        </h2>
-        <p class="text-lg mb-8 text-white/90">
-          Suscríbete para recibir artículos exclusivos sobre cómo hacer crecer tu clínica veterinaria.
-        </p>
-        <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-          <input 
-            type="email" 
-            placeholder="Tu correo electrónico"
-            class="flex-1 px-6 py-4 rounded-full text-[#0A1B2E] focus:outline-none focus:ring-2 focus:ring-white"
-            required
-          />
-          <button 
-            type="submit"
-            class="bg-[#0A1B2E] text-white px-8 py-4 rounded-full font-['Montserrat'] font-semibold hover:bg-[#0A1B2E]/90 transition-colors"
-          >
-            Suscribirme
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
 </Layout>
+
+<style>
+  /* Animaciones */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 3s;
+  }
+</style>
