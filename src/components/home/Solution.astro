@@ -32,12 +32,57 @@ const valuePoints = [
 ---
 
 <section id="solucion" class="section-padding relative overflow-hidden py-20 md:py-28 lg:py-32">
-  <!-- Background Video & Image Layer -->
+  <!-- Background Layers -->
   <div class="absolute inset-0 z-0">
-    <!-- Base gradient background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-azul-profundo via-[#0a1f3d] to-azul-electrico"></div>
+    <!-- Base gradient background - Mejorado para mobile -->
+    <div class="absolute inset-0 bg-gradient-to-br from-azul-profundo via-[#0a1f3d] to-azul-electrico md:from-azul-profundo md:via-[#0a1f3d] md:to-azul-electrico"></div>
     
-    <!-- Background Video - Professional & Cinematic -->
+    <!-- Mobile Radial Burst Background - Opción 4 -->
+    <div class="absolute inset-0 md:hidden mobile-radial-bg">
+      <!-- Base gradient oscuro -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#081220] via-[#0a1f3d] to-[#0d2847]"></div>
+      
+      <!-- Gradiente radial principal desde el centro -->
+      <div class="absolute inset-0 radial-center-burst"></div>
+      
+      <!-- Gradiente radial secundario más suave -->
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 50%, rgba(102,212,255,0.25) 0%, rgba(31,162,255,0.15) 25%, transparent 50%);"></div>
+      
+      <!-- Rayos de luz 1 - Superior izquierda -->
+      <div class="absolute top-0 left-0 w-full h-full light-ray-1"></div>
+      
+      <!-- Rayos de luz 2 - Superior derecha -->
+      <div class="absolute top-0 left-0 w-full h-full light-ray-2"></div>
+      
+      <!-- Rayos de luz 3 - Inferior -->
+      <div class="absolute top-0 left-0 w-full h-full light-ray-3"></div>
+      
+      <!-- Rayos de luz 4 - Centro diagonal -->
+      <div class="absolute top-0 left-0 w-full h-full light-ray-4"></div>
+      
+      <!-- Anillos concéntricos animados -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] radial-ring-1"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] radial-ring-2"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] radial-ring-3"></div>
+      
+      <!-- Partículas de luz brillante -->
+      <div class="absolute top-[30%] left-[25%] w-2 h-2 bg-celeste-tech rounded-full particle-glow-1 shadow-[0_0_15px_rgba(102,212,255,0.9)]"></div>
+      <div class="absolute top-[45%] right-[30%] w-1.5 h-1.5 bg-white rounded-full particle-glow-2 shadow-[0_0_12px_rgba(255,255,255,0.9)]"></div>
+      <div class="absolute bottom-[35%] left-[35%] w-2.5 h-2.5 bg-azul-electrico rounded-full particle-glow-3 shadow-[0_0_18px_rgba(31,162,255,0.9)]"></div>
+      <div class="absolute top-[55%] left-[60%] w-1.5 h-1.5 bg-celeste-tech rounded-full particle-glow-4 shadow-[0_0_10px_rgba(102,212,255,0.8)]"></div>
+      <div class="absolute bottom-[50%] right-[20%] w-2 h-2 bg-white rounded-full particle-glow-5 shadow-[0_0_14px_rgba(255,255,255,0.9)]"></div>
+      
+      <!-- Burst lines (líneas de explosión) -->
+      <div class="absolute inset-0 burst-lines"></div>
+      
+      <!-- Glow central pulsante -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-celeste-tech/20 rounded-full blur-3xl central-glow"></div>
+      
+      <!-- Overlay de profundidad -->
+      <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-azul-profundo/30"></div>
+    </div>
+    
+    <!-- Background Video - Desktop Only -->
     <video 
       autoplay 
       loop 
@@ -45,15 +90,15 @@ const valuePoints = [
       playsinline
       preload="none"
       loading="lazy"
-      class="absolute inset-0 w-full h-full object-cover solution-background-video"
+      class="hidden md:block absolute inset-0 w-full h-full object-cover solution-background-video"
       webkit-playsinline
       x5-playsinline
     >
       <source src="/video/solucionback1.webm" type="video/webm" />
     </video>
     
-    <!-- Overlay cinematográfico: más fuerte en mobile, sutil en desktop -->
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-900/45 via-azul-profundo/35 to-black/40 md:from-azul-profundo/25 md:via-black/20 md:to-azul-electrico/25"></div>
+    <!-- Overlay cinematográfico: más suave en mobile, sutil en desktop -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900/25 via-azul-profundo/20 to-black/25 md:from-azul-profundo/25 md:via-black/20 md:to-azul-electrico/25"></div>
   </div>
   
   <!-- Tech pattern más visible -->
@@ -411,17 +456,246 @@ const valuePoints = [
 </section>
 
 <style>
-  /* Video background - cinematográfico y nítido */
+  /* Mobile Radial Burst Background - Opción 4 */
+  .mobile-radial-bg {
+    animation: radial-pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes radial-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.95; }
+  }
+
+  /* Gradiente radial principal desde el centro */
+  .radial-center-burst {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(102, 212, 255, 0.35) 0%,
+      rgba(31, 162, 255, 0.25) 15%,
+      rgba(102, 212, 255, 0.15) 30%,
+      rgba(31, 162, 255, 0.08) 45%,
+      transparent 65%
+    );
+    animation: burst-expand 10s ease-in-out infinite;
+  }
+
+  @keyframes burst-expand {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+  }
+
+  /* Rayos de luz sutiles */
+  .light-ray-1 {
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(102, 212, 255, 0.08) 50%,
+      transparent 55%,
+      transparent 100%
+    );
+    transform-origin: center;
+    animation: ray-rotate-1 20s linear infinite;
+  }
+
+  .light-ray-2 {
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(31, 162, 255, 0.06) 50%,
+      transparent 55%,
+      transparent 100%
+    );
+    transform-origin: center;
+    animation: ray-rotate-2 25s linear infinite;
+  }
+
+  .light-ray-3 {
+    background: linear-gradient(
+      225deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(102, 212, 255, 0.07) 50%,
+      transparent 55%,
+      transparent 100%
+    );
+    transform-origin: center;
+    animation: ray-rotate-3 30s linear infinite;
+  }
+
+  .light-ray-4 {
+    background: linear-gradient(
+      315deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(255, 255, 255, 0.04) 50%,
+      transparent 55%,
+      transparent 100%
+    );
+    transform-origin: center;
+    animation: ray-rotate-4 22s linear infinite;
+  }
+
+  @keyframes ray-rotate-1 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes ray-rotate-2 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+
+  @keyframes ray-rotate-3 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes ray-rotate-4 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+
+  /* Anillos concéntricos animados */
+  .radial-ring-1 {
+    border: 2px solid rgba(102, 212, 255, 0.2);
+    border-radius: 50%;
+    animation: ring-pulse-1 4s ease-in-out infinite;
+  }
+
+  .radial-ring-2 {
+    border: 1.5px solid rgba(31, 162, 255, 0.15);
+    border-radius: 50%;
+    animation: ring-pulse-2 5s ease-in-out infinite;
+  }
+
+  .radial-ring-3 {
+    border: 1px solid rgba(102, 212, 255, 0.1);
+    border-radius: 50%;
+    animation: ring-pulse-3 6s ease-in-out infinite;
+  }
+
+  @keyframes ring-pulse-1 {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.3);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes ring-pulse-2 {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.4);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes ring-pulse-3 {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0.2;
+    }
+  }
+
+  /* Partículas de luz brillante */
+  @keyframes particle-float-1 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-15px, -20px) scale(1.5);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes particle-float-2 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translate(20px, -15px) scale(1.8);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes particle-float-3 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-10px, 25px) scale(1.6);
+      opacity: 0.4;
+    }
+  }
+
+  .particle-glow-1 { animation: particle-float-1 3s ease-in-out infinite; }
+  .particle-glow-2 { animation: particle-float-2 3.5s ease-in-out infinite 0.5s; }
+  .particle-glow-3 { animation: particle-float-3 4s ease-in-out infinite 1s; }
+  .particle-glow-4 { animation: particle-float-1 3.2s ease-in-out infinite 1.5s; }
+  .particle-glow-5 { animation: particle-float-2 3.8s ease-in-out infinite 0.8s; }
+
+  /* Burst lines (líneas de explosión desde el centro) */
+  .burst-lines {
+    background-image: 
+      repeating-conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        transparent 8deg,
+        rgba(102, 212, 255, 0.08) 9deg,
+        transparent 10deg,
+        transparent 18deg
+      );
+    animation: burst-rotate 40s linear infinite;
+  }
+
+  @keyframes burst-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Glow central pulsante */
+  .central-glow {
+    animation: central-pulse 6s ease-in-out infinite;
+  }
+
+  @keyframes central-pulse {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.6;
+      box-shadow: 0 0 80px 40px rgba(102, 212, 255, 0.4);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.3);
+      opacity: 1;
+      box-shadow: 0 0 120px 60px rgba(102, 212, 255, 0.6);
+    }
+  }
+  
+  /* Video background - Desktop Only */
   .solution-background-video {
     object-fit: cover;
     filter: brightness(1.1) contrast(1.08);
-  }
-  
-  @media (max-width: 768px) {
-    .solution-background-video {
-      object-position: center;
-      filter: brightness(1.05) contrast(1.05);
-    }
   }
   
   /* Orb animations mejoradas */
@@ -690,11 +964,12 @@ const valuePoints = [
 </style>
 
 <script>
-  // Video optimization
+  // Video optimization - Desktop Only
   const videoElement = document.querySelector('.solution-background-video') as HTMLVideoElement;
   
-  if (videoElement) {
-    // Forzar reproducción en mobile
+  // Solo ejecutar si el video existe (desktop)
+  if (videoElement && window.innerWidth > 768) {
+    // Forzar reproducción
     const forcePlay = () => {
       videoElement.play().catch(() => {
         // Reintentar después de un breve delay
@@ -713,10 +988,7 @@ const valuePoints = [
         if (entry.isIntersecting) {
           forcePlay();
         } else {
-          // Solo pausar en desktop, no en mobile
-          if (window.innerWidth > 768) {
-            videoElement.pause();
-          }
+          videoElement.pause();
         }
       });
     }, {
@@ -724,17 +996,5 @@ const valuePoints = [
     });
 
     videoObserver.observe(videoElement);
-
-    // Reproducir en cualquier interacción del usuario (mobile)
-    const playOnInteraction = () => {
-      forcePlay();
-      document.removeEventListener('touchstart', playOnInteraction);
-      document.removeEventListener('click', playOnInteraction);
-      document.removeEventListener('scroll', playOnInteraction);
-    };
-
-    document.addEventListener('touchstart', playOnInteraction, { passive: true, once: true });
-    document.addEventListener('click', playOnInteraction, { once: true });
-    document.addEventListener('scroll', playOnInteraction, { passive: true, once: true });
   }
 </script>
