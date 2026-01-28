@@ -167,10 +167,10 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Plan Selection */}
+      {/* Service Interest Selection */}
       <div>
         <label htmlFor="plan" className="block text-sm font-semibold text-white mb-2">
-          Plan de interés <span className="text-white/60 font-normal">(opcional)</span>
+          ¿En qué te puedo ayudar? <span className="text-white/60 font-normal">(opcional)</span>
         </label>
         <select
           id="plan"
@@ -180,11 +180,12 @@ export default function ContactForm() {
           className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:border-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#b4cfa6]/50 text-white"
           style={{ backgroundImage: 'none' }}
         >
-          <option value="" className="bg-[#0a1929] text-white">Seleccionar un plan</option>
-          <option value="starter" className="bg-[#0a1929] text-white">Plan Starter</option>
-          <option value="growth" className="bg-[#0a1929] text-white">Plan Growth</option>
-          <option value="elite" className="bg-[#0a1929] text-white">Plan Elite</option>
-          <option value="diagnostico" className="bg-[#0a1929] text-white">Solo diagnóstico gratuito</option>
+          <option value="" className="bg-[#0a1929] text-white">Seleccionar una opción</option>
+          <option value="negocio-veterinario" className="bg-[#0a1929] text-white">Soy dueño/a de un negocio veterinario</option>
+          <option value="nuevo-proyecto" className="bg-[#0a1929] text-white">Estoy desarrollando un nuevo proyecto</option>
+          <option value="kol" className="bg-[#0a1929] text-white">Soy key opinion leader (o quiero serlo)</option>
+          <option value="empresa-pet" className="bg-[#0a1929] text-white">Soy una empresa del sector pet</option>
+          <option value="consulta-general" className="bg-[#0a1929] text-white">Consulta general</option>
         </select>
       </div>
 
@@ -202,7 +203,7 @@ export default function ContactForm() {
           className={`w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#b4cfa6]/50 resize-none text-white placeholder-white/50 ${
             errors.message ? 'border-red-400/60' : 'border-white/20 hover:border-white/30'
           }`}
-          placeholder="Contanos sobre tu veterinaria y tus objetivos..."
+          placeholder="Contanos sobre tu situación actual y qué te gustaría lograr..."
         />
         {errors.message && (
           <p className="mt-1 text-sm text-red-400">{errors.message}</p>

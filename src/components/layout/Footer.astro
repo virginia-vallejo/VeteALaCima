@@ -28,18 +28,136 @@ const currentYear = getCurrentYear();
   </div>
   
 
-  <div class="container-custom px-4 md:px-8 py-12 sm:py-16 relative z-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-10">
+  <div class="container-custom px-4 md:px-8 py-6 sm:py-12 lg:py-16 relative z-10">
+    
+    <!-- Mobile Layout - Más compacto y organizado -->
+    <div class="lg:hidden space-y-6">
       
-      <!-- Columna 1: Brand - Primero en mobile, 2 columnas en desktop -->
-      <div class="lg:col-span-2 order-1">
-        <div class="mb-8">
-          <!-- Logo y textos reorganizados -->
-          <div class="flex flex-col items-center sm:items-start mb-8">
+      <!-- Brand Section Mobile - Compacta -->
+      <div class="text-center mb-6">
+        <div class="flex items-center justify-center gap-3 mb-3">
+          <!-- Logo más pequeño -->
+          <div class="relative logo-container group flex-shrink-0">
+            <div class="absolute inset-0 bg-[#b4cfa6]/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             
-            <!-- Fila superior: Logo + Títulos -->
-            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6 w-full">
-              <!-- Logo a la izquierda -->
+            <img 
+              src="/images/logo/logo3d.svg" 
+              alt="Vete a la Cima Logo"
+              width="500"
+              height="500"
+              loading="lazy"
+              class="relative w-12 h-12 object-contain transition-all duration-500 group-hover:scale-105 footer-logo"
+            />
+          </div>
+          
+          <!-- Títulos compactos -->
+          <div class="text-left">
+            <h3 class="font-heading font-bold text-xs leading-tight text-white mb-0.5">
+              VETE A LA CIMA
+            </h3>
+            <p class="text-[#b4cfa6] text-[10px] font-semibold leading-tight">
+              Estrategia, digitalización y crecimiento para el sector veterinario
+            </p>
+          </div>
+        </div>
+        
+        <!-- Descripción más corta en mobile -->
+        <p class="text-white/70 text-[11px] leading-relaxed mb-4 max-w-md mx-auto">
+          Consultoría estratégica especializada en negocios veterinarios y empresas del sector pet.
+          Acompaño a clínicas, profesionales y organizaciones a tomar mejores decisiones, lanzar nuevos proyectos y construir modelos de crecimiento sostenibles.
+        </p>
+        
+        <!-- Social Links compactos -->
+        <div class="flex justify-center gap-2">
+          <a 
+            href="https://www.instagram.com/vir.veterinaria/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="social-btn-mobile group"
+            aria-label="Instagram"
+          >
+            <svg class="w-4 h-4 text-white transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+            </svg>
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/virginiavallejo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="social-btn-mobile group"
+            aria-label="LinkedIn"
+          >
+            <svg class="w-4 h-4 text-white transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect width="4" height="12" x="2" y="9"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a 
+            href={`https://wa.me/${siteConfig.whatsapp}`}
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="social-btn-mobile group"
+            aria-label="WhatsApp"
+          >
+            <svg class="w-4 h-4 text-white transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contacto Mobile - Compacto -->
+      <div class="text-center">
+        <h3 class="footer-heading-mobile mb-3">
+          Contacto
+        </h3>
+        <ul class="space-y-2 flex flex-col items-center">
+          <li class="contact-item-mobile">
+            <div class="contact-icon-mobile">
+              <Mail size={12} stroke="white" class="!text-white relative z-10" />
+            </div>
+            <a 
+              href={`mailto:${siteConfig.email}`}
+              class="text-white/80 hover:text-[#b4cfa6] transition-colors duration-300 text-[11px]"
+            >
+              {siteConfig.email}
+            </a>
+          </li>
+          <li class="contact-item-mobile">
+            <div class="contact-icon-mobile">
+              <Phone size={12} stroke="white" class="!text-white relative z-10" />
+            </div>
+            <a 
+              href={`tel:${siteConfig.phone}`}
+              class="text-white/80 hover:text-[#b4cfa6] transition-colors duration-300 text-[11px]"
+            >
+              {siteConfig.phone}
+            </a>
+          </li>
+          <li class="contact-item-mobile">
+            <div class="contact-icon-mobile">
+              <MapPin size={12} stroke="white" class="!text-white relative z-10" />
+            </div>
+            <span class="text-white/80 text-[11px]">
+              Argentina & Latinoamérica
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Desktop Grid - Sin cambios -->
+    <div class="hidden lg:grid grid-cols-5 gap-10 items-start">
+      
+      <!-- Brand - Desktop -->
+      <div class="col-span-2">
+        <div class="mb-8">
+          <div class="flex flex-col items-start mb-8">
+            
+            <div class="flex items-start gap-6 mb-6 w-full">
               <div class="relative logo-container group flex-shrink-0">
                 <div class="absolute inset-0 bg-[#b4cfa6]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 
@@ -49,24 +167,22 @@ const currentYear = getCurrentYear();
                   width="500"
                   height="500"
                   loading="lazy"
-                  class="relative w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 object-contain transition-all duration-500 group-hover:scale-105 footer-logo"
+                  class="relative w-32 h-32 object-contain transition-all duration-500 group-hover:scale-105 footer-logo"
                 />
               </div>
               
-              <!-- Títulos a la derecha del logo -->
-              <div class="text-center sm:text-left flex-1">
-                <h3 class="font-heading font-bold text-lg sm:text-xl md:text-2xl block leading-tight text-white mb-2">
+              <div class="text-left flex-1">
+                <h3 class="font-heading font-bold text-2xl block leading-tight text-white mb-2">
                   VETE A LA CIMA
                 </h3>
-                <p class="text-[#b4cfa6] text-sm sm:text-base font-semibold block leading-relaxed">
+                <p class="text-[#b4cfa6] text-base font-semibold block leading-relaxed">
                   Estrategia, digitalización y crecimiento para el sector veterinario
                 </p>
               </div>
             </div>
             
-            <!-- Descripción larga debajo, ocupando todo el ancho -->
-            <div class="w-full text-center sm:text-left">
-              <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+            <div class="w-full text-left">
+              <p class="text-white/80 text-base leading-relaxed">
                 Consultoría estratégica especializada en negocios veterinarios y empresas del sector pet.
                 Acompaño a clínicas, profesionales y organizaciones a tomar mejores decisiones, lanzar nuevos proyectos y construir modelos de crecimiento sostenibles.
               </p>
@@ -74,8 +190,7 @@ const currentYear = getCurrentYear();
           </div>
         </div>
         
-        <!-- Social Links con estilo limpio -->
-        <div class="flex justify-center sm:justify-start gap-3">
+        <div class="flex justify-start gap-3">
           <a 
             href="https://www.instagram.com/vir.veterinaria/" 
             target="_blank" 
@@ -116,13 +231,53 @@ const currentYear = getCurrentYear();
         </div>
       </div>
 
-      <!-- Columna 2: Links Rápidos - Segundo en mobile -->
-      <div class="text-center sm:text-left order-2">
+      <!-- Contacto Desktop -->
+      <div class="text-left">
+        <h3 class="footer-heading">
+          Contacto
+          <span class="heading-underline"></span>
+        </h3>
+        <ul class="space-y-4 flex flex-col items-start">
+          <li class="contact-item">
+            <div class="contact-icon">
+              <Mail size={14} stroke="white" class="!text-white relative z-10" />
+            </div>
+            <a 
+              href={`mailto:${siteConfig.email}`}
+              class="text-white/80 hover:text-[#b4cfa6] transition-colors duration-300 text-sm break-all"
+            >
+              {siteConfig.email}
+            </a>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">
+              <Phone size={14} stroke="white" class="!text-white relative z-10" />
+            </div>
+            <a 
+              href={`tel:${siteConfig.phone}`}
+              class="text-white/80 hover:text-[#b4cfa6] transition-colors duration-300 text-sm"
+            >
+              {siteConfig.phone}
+            </a>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon">
+              <MapPin size={14} stroke="white" class="!text-white relative z-10" />
+            </div>
+            <span class="text-white/80 text-sm">
+              Argentina & Latinoamérica
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Links Rápidos Desktop -->
+      <div class="text-left">
         <h3 class="footer-heading">
           Links Rápidos
           <span class="heading-underline"></span>
         </h3>
-        <ul class="space-y-3">
+        <ul class="space-y-3 flex flex-col items-start">
           {NAVIGATION_LINKS.map((link) => (
             <li>
               <a 
@@ -137,8 +292,8 @@ const currentYear = getCurrentYear();
         </ul>
       </div>
 
-      <!-- Columna 3: Servicios - Oculto en mobile, cuarto en tablet/desktop -->
-      <div class="hidden lg:block text-center lg:text-left order-4 sm:order-3">
+      <!-- Servicios Desktop -->
+      <div class="text-left">
         <h3 class="footer-heading">
           Servicios
           <span class="heading-underline"></span>
@@ -170,81 +325,41 @@ const currentYear = getCurrentYear();
           </li>
         </ul>
       </div>
-
-      <!-- Columna 4: Contacto - Tercero en mobile -->
-      <div class="text-center sm:text-left order-3 sm:order-4">
-        <h3 class="footer-heading">
-          Contacto
-          <span class="heading-underline"></span>
-        </h3>
-        <ul class="space-y-4 flex flex-col items-center sm:items-start">
-          <li class="contact-item">
-            <div class="contact-icon">
-              <Mail size={16} stroke="white" class="!text-white relative z-10" />
-            </div>
-            <a 
-              href={`mailto:${siteConfig.email}`}
-              class="text-white/80 hover:text-[#b4cfa6] transition-colors duration-300 text-sm break-all"
-            >
-              {siteConfig.email}
-            </a>
-          </li>
-          <li class="contact-item">
-            <div class="contact-icon">
-              <Phone size={16} stroke="white" class="!text-white relative z-10" />
-            </div>
-            <a 
-              href={`tel:${siteConfig.phone}`}
-              class="text-white/80 hover:text-[#b4cfa6] transition-colors duration-300 text-sm"
-            >
-              {siteConfig.phone}
-            </a>
-          </li>
-          <li class="contact-item">
-            <div class="contact-icon">
-              <MapPin size={16} stroke="white" class="!text-white relative z-10" />
-            </div>
-            <span class="text-white/80 text-sm">
-              Argentina & Latinoamérica
-            </span>
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 
-  <!-- Bottom Bar con glass effect -->
+  <!-- Bottom Bar -->
   <div class="border-t border-white/10 relative z-10 bottom-bar">
-    <div class="container-custom px-4 md:px-8 py-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
-        <p class="text-white/70 text-sm text-center md:text-left">
+    <div class="container-custom px-4 md:px-8 py-4 md:py-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-4">
+        <p class="text-white/70 text-[11px] md:text-sm text-center md:text-left order-2 md:order-1">
           © {currentYear} {siteConfig.name}. Todos los derechos reservados.
         </p>
         
-        <!-- Developer Credit limpio y profesional -->
+        <!-- Developer Credit -->
         <a 
           href="https://devcraftpablo.online/" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="devcraft-badge group"
+          class="devcraft-badge group order-1 md:order-2"
         >
-          <span class="text-white/70 text-xs sm:text-sm font-medium">Desarrollado por</span>
+          <span class="text-white/70 text-[10px] md:text-sm font-medium">Desarrollado por</span>
           <img 
             src="/images/logo/devcraft.webp" 
             alt="DevCraft Logo" 
             width="150"
             height="50"
             loading="lazy"
-            class="h-5 sm:h-6 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+            class="h-4 md:h-6 w-auto object-contain transition-all duration-300 group-hover:scale-105"
           />
-          <span class="font-bold text-base sm:text-lg devcraft-text">DevCraft</span>
+          <span class="font-bold text-sm md:text-lg devcraft-text">DevCraft</span>
         </a>
         
-        <div class="flex gap-6">
-          <a href="/privacidad" class="text-white/70 hover:text-[#b4cfa6] transition-colors duration-300 text-sm">
+        <div class="flex gap-4 md:gap-6 order-3">
+          <a href="/privacidad" class="text-white/70 hover:text-[#b4cfa6] transition-colors duration-300 text-[11px] md:text-sm">
             Privacidad
           </a>
-          <a href="/terminos" class="text-white/70 hover:text-[#b4cfa6] transition-colors duration-300 text-sm">
+          <a href="/terminos" class="text-white/70 hover:text-[#b4cfa6] transition-colors duration-300 text-[11px] md:text-sm">
             Términos
           </a>
         </div>
@@ -309,7 +424,7 @@ const currentYear = getCurrentYear();
     animation: float-delayed 15s ease-in-out infinite;
   }
 
-  /* Logo mejorado con mejor legibilidad */
+  /* Logo mejorado */
   .footer-logo {
     filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(180, 207, 166, 0.3));
     -webkit-filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(180, 207, 166, 0.3));
@@ -321,7 +436,7 @@ const currentYear = getCurrentYear();
     -webkit-filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(180, 207, 166, 0.6));
   }
 
-  /* Social buttons limpios */
+  /* Social buttons Desktop */
   .social-btn {
     width: 44px;
     height: 44px;
@@ -342,7 +457,28 @@ const currentYear = getCurrentYear();
     box-shadow: 0 4px 12px rgba(180, 207, 166, 0.2);
   }
 
-  /* Footer headings limpios */
+  /* Social buttons Mobile - Más pequeños */
+  .social-btn-mobile {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .social-btn-mobile:hover {
+    background: rgba(180, 207, 166, 0.1);
+    border-color: rgba(180, 207, 166, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(180, 207, 166, 0.2);
+  }
+
+  /* Footer headings Desktop */
   .footer-heading {
     font-weight: 600;
     font-size: 1.125rem;
@@ -361,7 +497,27 @@ const currentYear = getCurrentYear();
     background: linear-gradient(90deg, #b4cfa6, transparent);
   }
 
-  /* Footer links con transición suave */
+  /* Footer heading Mobile - Más pequeño */
+  .footer-heading-mobile {
+    font-weight: 600;
+    font-size: 0.813rem;
+    color: white;
+    position: relative;
+    display: inline-block;
+  }
+
+  .footer-heading-mobile::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #b4cfa6, transparent);
+  }
+
+  /* Footer links Desktop */
   .footer-link {
     color: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease;
@@ -389,7 +545,7 @@ const currentYear = getCurrentYear();
     margin-right: 8px;
   }
 
-  /* Contact items */
+  /* Contact items Desktop */
   .contact-item {
     display: flex;
     align-items: start;
@@ -415,21 +571,47 @@ const currentYear = getCurrentYear();
     border-color: rgba(180, 207, 166, 0.3);
   }
 
+  /* Contact items Mobile - Más compactos */
+  .contact-item-mobile {
+    display: flex;
+    align-items: start;
+    gap: 0.5rem;
+  }
+
+  .contact-icon-mobile {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .contact-item-mobile:hover .contact-icon-mobile {
+    background: rgba(180, 207, 166, 0.1);
+    border-color: rgba(180, 207, 166, 0.3);
+  }
+
   /* Bottom bar */
   .bottom-bar {
     background: rgba(10, 25, 41, 0.5);
     backdrop-filter: blur(10px);
   }
 
-  /* DevCraft badge limpio */
+  /* DevCraft badge */
   .devcraft-badge {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    gap: 0.375rem;
+    padding: 0.5rem 0.875rem;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
   }
@@ -447,20 +629,11 @@ const currentYear = getCurrentYear();
     -webkit-text-fill-color: transparent;
   }
 
-  @media (max-width: 640px) {
-    .social-btn {
-      width: 40px;
-      height: 40px;
-    }
-    
+  @media (min-width: 768px) {
     .devcraft-badge {
-      padding: 0.625rem 1rem;
-      gap: 0.375rem;
-    }
-    
-    .contact-icon {
-      width: 32px;
-      height: 32px;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
     }
   }
 </style>
