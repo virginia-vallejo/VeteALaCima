@@ -37,46 +37,13 @@ const valuePoints = [
     <!-- Base gradient background - Mejorado para mobile -->
     <div class="absolute inset-0 bg-gradient-to-br from-azul-profundo via-[#0a1f3d] to-azul-electrico md:from-azul-profundo md:via-[#0a1f3d] md:to-azul-electrico"></div>
     
-    <!-- Mobile Radial Burst Background - Opción 4 -->
-    <div class="absolute inset-0 md:hidden mobile-radial-bg">
+    <!-- Mobile Optimized Background - Sin animaciones pesadas -->
+    <div class="absolute inset-0 md:hidden mobile-static-bg">
       <!-- Base gradient oscuro -->
       <div class="absolute inset-0 bg-gradient-to-br from-[#081220] via-[#0a1f3d] to-[#0d2847]"></div>
       
-      <!-- Gradiente radial principal desde el centro -->
-      <div class="absolute inset-0 radial-center-burst"></div>
-      
-      <!-- Gradiente radial secundario más suave -->
-      <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 50%, rgba(102,212,255,0.25) 0%, rgba(31,162,255,0.15) 25%, transparent 50%);"></div>
-      
-      <!-- Rayos de luz 1 - Superior izquierda -->
-      <div class="absolute top-0 left-0 w-full h-full light-ray-1"></div>
-      
-      <!-- Rayos de luz 2 - Superior derecha -->
-      <div class="absolute top-0 left-0 w-full h-full light-ray-2"></div>
-      
-      <!-- Rayos de luz 3 - Inferior -->
-      <div class="absolute top-0 left-0 w-full h-full light-ray-3"></div>
-      
-      <!-- Rayos de luz 4 - Centro diagonal -->
-      <div class="absolute top-0 left-0 w-full h-full light-ray-4"></div>
-      
-      <!-- Anillos concéntricos animados -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] radial-ring-1"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] radial-ring-2"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] radial-ring-3"></div>
-      
-      <!-- Partículas de luz brillante -->
-      <div class="absolute top-[30%] left-[25%] w-2 h-2 bg-celeste-tech rounded-full particle-glow-1 shadow-[0_0_15px_rgba(102,212,255,0.9)]"></div>
-      <div class="absolute top-[45%] right-[30%] w-1.5 h-1.5 bg-white rounded-full particle-glow-2 shadow-[0_0_12px_rgba(255,255,255,0.9)]"></div>
-      <div class="absolute bottom-[35%] left-[35%] w-2.5 h-2.5 bg-azul-electrico rounded-full particle-glow-3 shadow-[0_0_18px_rgba(31,162,255,0.9)]"></div>
-      <div class="absolute top-[55%] left-[60%] w-1.5 h-1.5 bg-celeste-tech rounded-full particle-glow-4 shadow-[0_0_10px_rgba(102,212,255,0.8)]"></div>
-      <div class="absolute bottom-[50%] right-[20%] w-2 h-2 bg-white rounded-full particle-glow-5 shadow-[0_0_14px_rgba(255,255,255,0.9)]"></div>
-      
-      <!-- Burst lines (líneas de explosión) -->
-      <div class="absolute inset-0 burst-lines"></div>
-      
-      <!-- Glow central pulsante -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-celeste-tech/20 rounded-full blur-3xl central-glow"></div>
+      <!-- Gradiente radial estático (sin animación) -->
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 50%, rgba(102,212,255,0.2) 0%, rgba(31,162,255,0.12) 25%, rgba(102,212,255,0.06) 40%, transparent 60%);"></div>
       
       <!-- Overlay de profundidad -->
       <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-azul-profundo/30"></div>
@@ -106,9 +73,9 @@ const valuePoints = [
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(102,212,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
   </div>
   
-  <!-- Floating gradient orbs mejorados -->
-  <div class="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-gradient-to-br from-celeste-tech/15 to-azul-electrico/10 rounded-full blur-3xl solution-orb-1 z-[1] opacity-60 md:opacity-80"></div>
-  <div class="absolute bottom-1/4 -right-20 w-[400px] h-[400px] bg-gradient-to-tl from-azul-electrico/15 to-celeste-tech/10 rounded-full blur-3xl solution-orb-2 z-[1] opacity-60 md:opacity-80"></div>
+  <!-- Floating gradient orbs - Sin animación en mobile -->
+  <div class="hidden md:block absolute top-1/4 -left-20 w-[500px] h-[500px] bg-gradient-to-br from-celeste-tech/15 to-azul-electrico/10 rounded-full blur-3xl solution-orb-1 z-[1] opacity-80"></div>
+  <div class="hidden md:block absolute bottom-1/4 -right-20 w-[400px] h-[400px] bg-gradient-to-tl from-azul-electrico/15 to-celeste-tech/10 rounded-full blur-3xl solution-orb-2 z-[1] opacity-80"></div>
   
   <!-- Accent lines mejoradas -->
   <div class="absolute top-0 right-0 w-full md:w-2/3 h-px bg-gradient-to-r from-transparent via-celeste-tech/30 to-transparent z-[1]"></div>
@@ -116,7 +83,7 @@ const valuePoints = [
   
   <div class="container-custom relative z-10">
     <!-- Title Section empresarial -->
-    <div class="solution-title-wrapper animate-on-scroll text-white px-4">
+    <div class="solution-title-wrapper md:animate-on-scroll text-white px-4">
       <div class="max-w-4xl mx-auto text-center">
         <!-- Badge premium -->
         <div class="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 mb-6 md:mb-8 bg-gradient-to-r from-celeste-tech/20 to-azul-electrico/20 backdrop-blur-xl rounded-full border border-celeste-tech/40 shadow-lg shadow-celeste-tech/20">
@@ -156,7 +123,7 @@ const valuePoints = [
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
         {valuePoints.map((point, index) => (
           <div 
-            class="solution-point-item animate-on-scroll" 
+            class="solution-point-item md:animate-on-scroll" 
             style={`animation-delay: ${0.2 + index * 0.1}s`}
           >
             <ValuePoint {...point} index={index} isDark={true} />
@@ -166,7 +133,7 @@ const valuePoints = [
     </div>
 
     <!-- CTA Conversación Estratégica -->
-    <div class="mt-16 md:mt-24 max-w-5xl mx-auto px-4 animate-on-scroll" style="animation-delay: 0.8s">
+    <div class="mt-16 md:mt-24 max-w-5xl mx-auto px-4 md:animate-on-scroll" style="animation-delay: 0.8s">
       <div class="relative group">
         <!-- Background decorativo -->
         <div class="absolute inset-0 bg-gradient-to-r from-celeste-tech/20 via-azul-electrico/25 to-celeste-tech/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -199,7 +166,7 @@ const valuePoints = [
             <!-- Título principal con emoji -->
             <h3 class="font-heading text-white">
               <span class="block text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight">
-                <span class="inline-block mr-3 text-4xl md:text-5xl lg:text-6xl animate-bounce-subtle">👉</span>
+                <span class="inline-block mr-3 text-4xl md:text-5xl lg:text-6xl md:animate-bounce-subtle">👉</span>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-celeste-tech to-white drop-shadow-[0_4px_20px_rgba(102,212,255,0.6)]">
                   Agendá una conversación estratégica
                 </span>
@@ -264,7 +231,7 @@ const valuePoints = [
 
   <!-- DevCraft Collaboration Section - Premium -->
   <div class="relative z-10">
-    <div class="mt-16 md:mt-24 lg:mt-32 solution-collab-wrapper animate-on-scroll" style="animation-delay: 0.6s">
+    <div class="mt-16 md:mt-24 lg:mt-32 solution-collab-wrapper md:animate-on-scroll" style="animation-delay: 0.6s">
       <!-- Divider mejorado -->
       <div class="relative w-full mb-16 md:mb-20 px-4">
         <div class="container-custom max-w-6xl mx-auto">
@@ -456,240 +423,9 @@ const valuePoints = [
 </section>
 
 <style>
-  /* Mobile Radial Burst Background - Opción 4 */
-  .mobile-radial-bg {
-    animation: radial-pulse 8s ease-in-out infinite;
-  }
-
-  @keyframes radial-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.95; }
-  }
-
-  /* Gradiente radial principal desde el centro */
-  .radial-center-burst {
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(102, 212, 255, 0.35) 0%,
-      rgba(31, 162, 255, 0.25) 15%,
-      rgba(102, 212, 255, 0.15) 30%,
-      rgba(31, 162, 255, 0.08) 45%,
-      transparent 65%
-    );
-    animation: burst-expand 10s ease-in-out infinite;
-  }
-
-  @keyframes burst-expand {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.2);
-      opacity: 0.8;
-    }
-  }
-
-  /* Rayos de luz sutiles */
-  .light-ray-1 {
-    background: linear-gradient(
-      135deg,
-      transparent 0%,
-      transparent 45%,
-      rgba(102, 212, 255, 0.08) 50%,
-      transparent 55%,
-      transparent 100%
-    );
-    transform-origin: center;
-    animation: ray-rotate-1 20s linear infinite;
-  }
-
-  .light-ray-2 {
-    background: linear-gradient(
-      45deg,
-      transparent 0%,
-      transparent 45%,
-      rgba(31, 162, 255, 0.06) 50%,
-      transparent 55%,
-      transparent 100%
-    );
-    transform-origin: center;
-    animation: ray-rotate-2 25s linear infinite;
-  }
-
-  .light-ray-3 {
-    background: linear-gradient(
-      225deg,
-      transparent 0%,
-      transparent 45%,
-      rgba(102, 212, 255, 0.07) 50%,
-      transparent 55%,
-      transparent 100%
-    );
-    transform-origin: center;
-    animation: ray-rotate-3 30s linear infinite;
-  }
-
-  .light-ray-4 {
-    background: linear-gradient(
-      315deg,
-      transparent 0%,
-      transparent 45%,
-      rgba(255, 255, 255, 0.04) 50%,
-      transparent 55%,
-      transparent 100%
-    );
-    transform-origin: center;
-    animation: ray-rotate-4 22s linear infinite;
-  }
-
-  @keyframes ray-rotate-1 {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes ray-rotate-2 {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
-  }
-
-  @keyframes ray-rotate-3 {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes ray-rotate-4 {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
-  }
-
-  /* Anillos concéntricos animados */
-  .radial-ring-1 {
-    border: 2px solid rgba(102, 212, 255, 0.2);
-    border-radius: 50%;
-    animation: ring-pulse-1 4s ease-in-out infinite;
-  }
-
-  .radial-ring-2 {
-    border: 1.5px solid rgba(31, 162, 255, 0.15);
-    border-radius: 50%;
-    animation: ring-pulse-2 5s ease-in-out infinite;
-  }
-
-  .radial-ring-3 {
-    border: 1px solid rgba(102, 212, 255, 0.1);
-    border-radius: 50%;
-    animation: ring-pulse-3 6s ease-in-out infinite;
-  }
-
-  @keyframes ring-pulse-1 {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.3);
-      opacity: 0.5;
-    }
-  }
-
-  @keyframes ring-pulse-2 {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.8;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.4);
-      opacity: 0.3;
-    }
-  }
-
-  @keyframes ring-pulse-3 {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.6;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.5);
-      opacity: 0.2;
-    }
-  }
-
-  /* Partículas de luz brillante */
-  @keyframes particle-float-1 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: translate(-15px, -20px) scale(1.5);
-      opacity: 0.6;
-    }
-  }
-
-  @keyframes particle-float-2 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.9;
-    }
-    50% {
-      transform: translate(20px, -15px) scale(1.8);
-      opacity: 0.5;
-    }
-  }
-
-  @keyframes particle-float-3 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: translate(-10px, 25px) scale(1.6);
-      opacity: 0.4;
-    }
-  }
-
-  .particle-glow-1 { animation: particle-float-1 3s ease-in-out infinite; }
-  .particle-glow-2 { animation: particle-float-2 3.5s ease-in-out infinite 0.5s; }
-  .particle-glow-3 { animation: particle-float-3 4s ease-in-out infinite 1s; }
-  .particle-glow-4 { animation: particle-float-1 3.2s ease-in-out infinite 1.5s; }
-  .particle-glow-5 { animation: particle-float-2 3.8s ease-in-out infinite 0.8s; }
-
-  /* Burst lines (líneas de explosión desde el centro) */
-  .burst-lines {
-    background-image: 
-      repeating-conic-gradient(
-        from 0deg at 50% 50%,
-        transparent 0deg,
-        transparent 8deg,
-        rgba(102, 212, 255, 0.08) 9deg,
-        transparent 10deg,
-        transparent 18deg
-      );
-    animation: burst-rotate 40s linear infinite;
-  }
-
-  @keyframes burst-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  /* Glow central pulsante */
-  .central-glow {
-    animation: central-pulse 6s ease-in-out infinite;
-  }
-
-  @keyframes central-pulse {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.6;
-      box-shadow: 0 0 80px 40px rgba(102, 212, 255, 0.4);
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.3);
-      opacity: 1;
-      box-shadow: 0 0 120px 60px rgba(102, 212, 255, 0.6);
-    }
+  /* Mobile Static Background - Optimizado sin animaciones */
+  .mobile-static-bg {
+    /* Sin animaciones pesadas */
   }
 
   /* Video background - Desktop Only */
@@ -698,7 +434,7 @@ const valuePoints = [
     filter: brightness(1.1) contrast(1.08);
   }
   
-  /* Orb animations mejoradas */
+  /* Orb animations - Solo Desktop */
   @keyframes float-solution-1 {
     0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
     50% { transform: translate3d(-40px, 40px, 0) scale(1.05); }
@@ -709,12 +445,16 @@ const valuePoints = [
     50% { transform: translate3d(40px, -40px, 0) scale(1.08); }
   }
 
-  .solution-orb-1 { animation: float-solution-1 18s ease-in-out infinite; }
-  .solution-orb-2 { animation: float-solution-2 22s ease-in-out infinite; }
+  @media (min-width: 768px) {
+    .solution-orb-1 { animation: float-solution-1 18s ease-in-out infinite; }
+    .solution-orb-2 { animation: float-solution-2 22s ease-in-out infinite; }
+  }
 
-  /* Title entrance premium */
-  .solution-title-wrapper {
-    animation: fade-scale-in 1s ease-out;
+  /* Title entrance - Solo Desktop */
+  @media (min-width: 768px) {
+    .solution-title-wrapper {
+      animation: fade-scale-in 1s ease-out;
+    }
   }
 
   @keyframes fade-scale-in {
@@ -722,12 +462,16 @@ const valuePoints = [
     to { opacity: 1; transform: scale(1) translateY(0); }
   }
 
-  /* Points section con hover refinado */
+  /* Points section - Sin animaciones en móvil */
   .solution-point-item {
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Removida transición de transform para móvil */
   }
 
-  @media (hover: hover) {
+  @media (min-width: 768px) and (hover: hover) {
+    .solution-point-item {
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
     .solution-point-item:hover {
       transform: translateY(-4px) scale(1.02);
     }
@@ -737,7 +481,7 @@ const valuePoints = [
   /* CTA CONVERSACIÓN ESTRATÉGICA */
   /* ============================================ */
 
-  /* Animación sutil para el emoji */
+  /* Animación sutil para el emoji - Solo Desktop */
   @keyframes bounce-subtle {
     0%, 100% {
       transform: translateY(0) scale(1);
@@ -747,11 +491,13 @@ const valuePoints = [
     }
   }
 
-  .animate-bounce-subtle {
-    animation: bounce-subtle 2s ease-in-out infinite;
+  @media (min-width: 768px) {
+    .animate-bounce-subtle {
+      animation: bounce-subtle 2s ease-in-out infinite;
+    }
   }
 
-  /* Animaciones de elementos flotantes */
+  /* Animaciones de elementos flotantes - Solo Desktop */
   @keyframes float-slow {
     0%, 100% {
       transform: translate3d(0, 0, 0) scale(1);
@@ -770,15 +516,17 @@ const valuePoints = [
     }
   }
 
-  .animate-float-slow {
-    animation: float-slow 8s ease-in-out infinite;
+  @media (min-width: 768px) {
+    .animate-float-slow {
+      animation: float-slow 8s ease-in-out infinite;
+    }
+
+    .animate-float-slower {
+      animation: float-slower 10s ease-in-out infinite;
+    }
   }
 
-  .animate-float-slower {
-    animation: float-slower 10s ease-in-out infinite;
-  }
-
-  /* Animación de esquinas del CTA */
+  /* Animación de esquinas del CTA - Solo Desktop */
   @keyframes cta-corner-glow {
     0%, 100% {
       opacity: 0.5;
@@ -790,34 +538,40 @@ const valuePoints = [
     }
   }
 
-  .cta-corner {
-    animation: cta-corner-glow 3s ease-in-out infinite;
+  @media (min-width: 768px) {
+    .cta-corner {
+      animation: cta-corner-glow 3s ease-in-out infinite;
+    }
   }
 
   /* ============================================ */
   /* DEVCRAFT COLLABORATION - DISEÑO EMPRESARIAL */
   /* ============================================ */
 
-  /* Tech grid optimizado */
+  /* Tech grid optimizado - Solo Desktop */
   @keyframes tech-grid-move {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(100px, 100px, 0); }
   }
 
-  /* Corner borders con glow */
+  /* Corner borders con glow - Solo Desktop */
   @keyframes corner-glow {
     0%, 100% { opacity: 0.4; box-shadow: 0 0 10px rgba(102, 212, 255, 0.3); }
     50% { opacity: 1; box-shadow: 0 0 20px rgba(102, 212, 255, 0.6); }
   }
 
-  .corner-border-tl { animation: corner-glow 3s ease-in-out infinite; }
-  .corner-border-tr { animation: corner-glow 3s ease-in-out 0.75s infinite; }
-  .corner-border-bl { animation: corner-glow 3s ease-in-out 1.5s infinite; }
-  .corner-border-br { animation: corner-glow 3s ease-in-out 2.25s infinite; }
+  @media (min-width: 768px) {
+    .corner-border-tl { animation: corner-glow 3s ease-in-out infinite; }
+    .corner-border-tr { animation: corner-glow 3s ease-in-out 0.75s infinite; }
+    .corner-border-bl { animation: corner-glow 3s ease-in-out 1.5s infinite; }
+    .corner-border-br { animation: corner-glow 3s ease-in-out 2.25s infinite; }
+  }
 
-  /* Logo showcase premium */
-  .logo-showcase {
-    animation: logo-entrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Logo showcase premium - Solo Desktop */
+  @media (min-width: 768px) {
+    .logo-showcase {
+      animation: logo-entrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 
   @keyframes logo-entrance {
@@ -831,7 +585,7 @@ const valuePoints = [
     }
   }
 
-  /* Orbital rings animados */
+  /* Orbital rings animados - Solo Desktop */
   @keyframes orbital-rotate-1 {
     from { transform: rotate(0deg) scale(1); }
     to { transform: rotate(360deg) scale(1.03); }
@@ -842,36 +596,48 @@ const valuePoints = [
     to { transform: rotate(0deg) scale(1.15); }
   }
 
-  .orbital-ring-1 { 
-    animation: orbital-rotate-1 25s linear infinite;
-  }
+  @media (min-width: 768px) {
+    .orbital-ring-1 { 
+      animation: orbital-rotate-1 25s linear infinite;
+    }
 
-  .orbital-ring-2 {
-    animation: orbital-rotate-2 30s linear infinite;
+    .orbital-ring-2 {
+      animation: orbital-rotate-2 30s linear infinite;
+    }
   }
 
   /* Logo container con efectos premium */
   .logo-container {
     filter: drop-shadow(0 0 25px rgba(102, 212, 255, 0.4));
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  
+  @media (min-width: 768px) {
+    .logo-container {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  .devcraft-showcase:hover .logo-container {
-    filter: drop-shadow(0 0 40px rgba(102, 212, 255, 0.7)) drop-shadow(0 0 60px rgba(31, 162, 255, 0.5));
-    transform: scale(1.08) translateY(-8px) rotate(2deg);
+    .devcraft-showcase:hover .logo-container {
+      filter: drop-shadow(0 0 40px rgba(102, 212, 255, 0.7)) drop-shadow(0 0 60px rgba(31, 162, 255, 0.5));
+      transform: scale(1.08) translateY(-8px) rotate(2deg);
+    }
   }
 
   /* Logo image con brillo */
   .logo-image {
     filter: brightness(1.05) contrast(1.1);
-    transition: all 0.6s ease;
+  }
+  
+  @media (min-width: 768px) {
+    .logo-image {
+      transition: all 0.6s ease;
+    }
+
+    .devcraft-showcase:hover .logo-image {
+      filter: brightness(1.25) contrast(1.25) drop-shadow(0 0 35px rgba(102, 212, 255, 0.9));
+    }
   }
 
-  .devcraft-showcase:hover .logo-image {
-    filter: brightness(1.25) contrast(1.25) drop-shadow(0 0 35px rgba(102, 212, 255, 0.9));
-  }
-
-  /* Corner accents pulsantes */
+  /* Corner accents pulsantes - Solo Desktop */
   @keyframes corner-accent-pulse {
     0%, 100% { 
       opacity: 0.5; 
@@ -885,28 +651,35 @@ const valuePoints = [
     }
   }
 
-  .corner-accent-tl { animation: corner-accent-pulse 2.5s ease-in-out infinite; }
-  .corner-accent-br { animation: corner-accent-pulse 2.5s ease-in-out 1.25s infinite; }
+  @media (min-width: 768px) {
+    .corner-accent-tl { animation: corner-accent-pulse 2.5s ease-in-out infinite; }
+    .corner-accent-br { animation: corner-accent-pulse 2.5s ease-in-out 1.25s infinite; }
+  }
 
-  /* Feature card con efecto shine */
+  /* Feature card con efecto shine - Solo Desktop */
   .feature-card {
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @media (min-width: 768px) {
+    .feature-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(102, 212, 255, 0.25), transparent);
+      transition: left 0.6s ease;
+    }
   }
 
-  .feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(102, 212, 255, 0.25), transparent);
-    transition: left 0.6s ease;
-  }
-
-  @media (hover: hover) {
+  @media (min-width: 768px) and (hover: hover) {
     .feature-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(102, 212, 255, 0.2);
@@ -917,9 +690,11 @@ const valuePoints = [
     }
   }
 
-  /* Showcase entrance cinematográfico */
-  .devcraft-showcase {
-    animation: showcase-entrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Showcase entrance cinematográfico - Solo Desktop */
+  @media (min-width: 768px) {
+    .devcraft-showcase {
+      animation: showcase-entrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 
   @keyframes showcase-entrance {
@@ -936,10 +711,15 @@ const valuePoints = [
   /* Hover state premium para showcase */
   .devcraft-showcase {
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @media (min-width: 768px) {
+    .devcraft-showcase {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 
-  @media (hover: hover) {
+  @media (min-width: 768px) and (hover: hover) {
     .devcraft-showcase:hover {
       box-shadow: 
         0 25px 70px rgba(102, 212, 255, 0.35),
@@ -953,12 +733,6 @@ const valuePoints = [
   @media (max-width: 1024px) {
     .logo-showcase {
       margin-bottom: 3rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .devcraft-showcase {
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     }
   }
 </style>
