@@ -223,7 +223,7 @@ export default function MobileMenu({ currentPath }) {
               }}
             >
               <a
-                href="/contacto"
+                href="https://calendly.com/virginia-vetealacima/30min"
                 onClick={closeMenu}
                 className="group relative block w-full py-4 px-6 bg-gradient-to-r from-azul-electrico to-celeste-tech text-white font-semibold text-center rounded-xl overflow-hidden shadow-xl shadow-azul-electrico/40 hover:shadow-2xl hover:shadow-azul-electrico/60 transition-all duration-300 hover:scale-[1.02]"
               >
@@ -232,7 +232,7 @@ export default function MobileMenu({ currentPath }) {
                   <div className="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-shine" />
                 </div>
                 
-                <span className="relative z-10">Agenda tu diagnóstico</span>
+                <span className="relative z-10">Agenda consulta</span>
               </a>
             </div>
 
