@@ -5,30 +5,10 @@ import BlogGrid from '../components/blog/BlogGrid.astro';
 import CategoryFilter from '../components/blog/CategoryFilter.astro';
 import { sanityClient, POSTS_QUERY, CATEGORIES_QUERY } from '../lib/sanity';
 import { BookOpen } from 'lucide-react';
-import { examplePosts } from '../data/examplePosts.js';
 
 // Obtener posts y categorías de Sanity
-let posts = [];
-let categories = [];
-
-try {
-  posts = await sanityClient.fetch(POSTS_QUERY);
-  categories = await sanityClient.fetch(CATEGORIES_QUERY);
-} catch (error) {
-  console.error('Error fetching blog data:', error);
-  // Si Sanity no está configurado aún, usar datos de ejemplo
-  posts = examplePosts.map(post => ({
-    ...post,
-    featured: post._id === '1' // Marcar el primero como destacado
-  }));
-  
-  categories = [
-    { _id: '1', title: 'Inteligencia Artificial', slug: { current: 'ia' }, color: 'azul-electrico' },
-    { _id: '2', title: 'Digitalización', slug: { current: 'digitalizacion' }, color: 'celeste-tech' },
-    { _id: '3', title: 'Marketing', slug: { current: 'marketing' }, color: 'gris-azulado' },
-    { _id: '4', title: 'Gestión', slug: { current: 'gestion' }, color: 'azul-profundo' }
-  ];
-}
+const posts = await sanityClient.fetch(POSTS_QUERY);
+const categories = await sanityClient.fetch(CATEGORIES_QUERY);
 ---
 
 <Layout 
