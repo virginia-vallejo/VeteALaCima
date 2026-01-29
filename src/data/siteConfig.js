@@ -15,6 +15,6 @@ export const siteConfig = {
   calendly: "https://calendly.com/vetealacima/diagnostico-gratuito",
   
   // Analytics & Tracking
-  googleAnalyticsId: "G-XXXXXXXXXX", // Reemplazar con tu ID real de Google Analytics
+  googleAnalyticsId: "G-XEX8HY3KHZ",
   metaPixelId: "XXXXXXXXXXXXXXXXX", // Reemplazar con tu ID real de Meta Pixel
 };
