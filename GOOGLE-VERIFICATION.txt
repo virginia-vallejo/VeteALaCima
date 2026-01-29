@@ -1,0 +1,12 @@
+# Google Search Console Verification
+# Visita: https://search.google.com/search-console
+# 
+# Para verificar tu sitio:
+# 1. Ve a Google Search Console
+# 2. Añade una propiedad (https://www.vetealacima.com)
+# 3. Elige el método de verificación "Etiqueta HTML"
+# 4. Copia el contenido del meta tag
+# 5. Agrega el meta tag en src/components/layout/BaseHead.astro
+#
+# Ejemplo:
+# <meta name="google-site-verification" content="TU_CODIGO_AQUI" />

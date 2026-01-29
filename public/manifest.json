@@ -1,0 +1,22 @@
+{
+  "name": "Vete a la Cima - Consultoría Veterinaria",
+  "short_name": "Vete a la Cima",
+  "description": "Consultoría estratégica para veterinarios. Transformá tu clínica veterinaria en un negocio rentable y escalable.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1929",
+  "theme_color": "#3e6680",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo/logo3d.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "education", "lifestyle"],
+  "lang": "es-AR",
+  "dir": "ltr",
+  "scope": "/"
+}

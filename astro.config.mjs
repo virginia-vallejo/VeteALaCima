@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://vete-a-la-cima.vercel.app',
+  site: 'https://www.vetealacima.com',
   integrations: [
     react({
       // Optimización de React para reducir bundle

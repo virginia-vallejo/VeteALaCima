@@ -1,0 +1,50 @@
+---
+// Componente de Breadcrumbs para SEO (Schema.org)
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+const baseUrl = Astro.site?.toString() || 'https://www.vetealacima.com';
+
+// Construir estructura de breadcrumbs para Schema.org
+const breadcrumbList = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": `${baseUrl}${item.url}`
+  }))
+};
+---
+
+<!-- Breadcrumb navigation visible -->
+<nav aria-label="Breadcrumb" class="container-custom px-4 md:px-8 py-4">
+  <ol class="flex items-center gap-2 text-sm text-white/70">
+    {items.map((item, index) => (
+      <li class="flex items-center gap-2">
+        {index > 0 && <span class="text-white/40">/</span>}
+        {index === items.length - 1 ? (
+          <span class="text-white font-medium" aria-current="page">{item.name}</span>
+        ) : (
+          <a 
+            href={item.url} 
+            class="hover:text-[#b4cfa6] transition-colors"
+          >
+            {item.name}
+          </a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />

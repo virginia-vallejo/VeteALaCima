@@ -40,9 +40,42 @@ const formattedDate = new Date(post.publishedAt).toLocaleDateString('es-ES', {
 
 const metaTitle = post.seo?.metaTitle || `${post.title} | Vete a la Cima`;
 const metaDescription = post.seo?.metaDescription || post.excerpt;
+
+// Schema.org para el artículo
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.title,
+  "description": post.excerpt,
+  "image": imageUrl,
+  "datePublished": post.publishedAt,
+  "dateModified": post._updatedAt || post.publishedAt,
+  "author": {
+    "@type": "Person",
+    "name": post.author.name,
+    "url": "https://www.vetealacima.com/sobre-mi"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vete a la Cima",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.vetealacima.com/images/logo/logo3d.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://www.vetealacima.com/blog/${slug}`
+  },
+  "articleBody": post.excerpt,
+  "keywords": post.categories?.map((c: any) => c.title).join(", ")
+};
 ---
 
 <Layout title={metaTitle} description={metaDescription}>
+  <!-- Schema.org Structured Data for Article -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  
   <article>
     <!-- Imagen Hero -->
     <section class="relative h-[400px] md:h-[500px] overflow-hidden mt-24">

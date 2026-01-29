@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vetealacima.com/sitemap.xml
+Sitemap: https://www.vetealacima.com/sitemap-index.xml

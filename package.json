@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "sanity": "sanity dev"
+    "sanity": "sanity dev",
+    "check": "astro check",
+    "build:production": "astro check && astro build"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",

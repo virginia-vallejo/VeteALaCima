@@ -34,9 +34,10 @@ const ogImage = image.startsWith('http') ? image : `${siteConfig.url}${image.sta
 <meta name="description" content={description} />
 <link rel="canonical" href={pageUrl} />
 <meta name="author" content={siteConfig.author} />
+<meta name="google-site-verification" content="viuc0VazxwGWK3lkOcTiVHlK5peOqsmyrFnHSchBukA" />
 
 <!-- Keywords para SEO -->
-<meta name="keywords" content="consultoría veterinaria, veterinaria coaching, gestión clínica veterinaria, marketing veterinario, crecimiento veterinaria, digitalización veterinaria, Virginia Vallejo, vete a la cima, consultoría estratégica veterinarios, aumentar facturación veterinaria, transformación digital veterinarias" />
+<meta name="keywords" content="consultoría veterinaria, veterinaria coaching, gestión clínica veterinaria, marketing veterinario, crecimiento veterinaria, digitalización veterinaria, Virginia Vallejo, vete a la cima, consultoría estratégica veterinarios, aumentar facturación veterinaria, transformación digital veterinarias, Mishmoshos, hotel para gatos, hoteles felinos, cuidado gatos, guardería gatos, Virginia Vallejo Mishmoshos" />
 
 <!-- Información geográfica -->
 <meta name="geo.region" content="AR" />
@@ -46,7 +47,7 @@ const ogImage = image.startsWith('http') ? image : `${siteConfig.url}${image.sta
 <!-- Robots -->
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-<!-- Open Graph / Facebook - Optimizado para WhatsApp y redes sociales -->
+<!-- Open Graph / WhatsApp - Optimizado para WhatsApp y redes sociales -->
 <meta property="og:type" content={type} />
 <meta property="og:url" content={pageUrl} />
 <meta property="og:title" content={fullTitle} />
@@ -74,13 +75,21 @@ const ogImage = image.startsWith('http') ? image : `${siteConfig.url}${image.sta
 <link rel="apple-touch-icon" sizes="180x180" href="/images/logo/logo3d.svg" />
 <link rel="shortcut icon" href="/images/logo/logo3d.svg" />
 
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json" />
+
 <!-- Theme Color -->
 <meta name="theme-color" content="#3e6680" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Vete a la Cima" />
+<meta name="mobile-web-app-capable" content="yes" />
 
 <!-- Resource Hints - Optimización de red -->
-<link rel="dns-prefetch" href="https://vercel.app" />
+<link rel="dns-prefetch" href="https://www.vetealacima.com" />
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<link rel="dns-prefetch" href="https://cdn.sanity.io" />
 
 <!-- Preload Critical Resources - OPTIMIZADO para LCP -->
 <link rel="preload" as="image" href="/images/logo/logo3d.svg" fetchpriority="high" />
@@ -113,7 +122,12 @@ const ogImage = image.startsWith('http') ? image : `${siteConfig.url}${image.sta
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Vete a la Cima - Consultoría Veterinaria",
-  "image": "${siteConfig.url}/images/about/vir1.webp",
+  "alternateName": "Vete a la Cima",
+  "image": [
+    "${siteConfig.url}/images/about/vir1.webp",
+    "${siteConfig.url}/images/about/vir8.webp",
+    "${siteConfig.url}/images/about/vir10.webp"
+  ],
   "@id": "${siteConfig.url}",
   "url": "${siteConfig.url}",
   "telephone": "${siteConfig.phone}",
@@ -121,7 +135,8 @@ const ogImage = image.startsWith('http') ? image : `${siteConfig.url}${image.sta
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "AR",
-    "addressRegion": "Argentina"
+    "addressRegion": "Argentina",
+    "addressLocality": "Argentina"
   },
   "geo": {
     "@type": "GeoCoordinates",
@@ -133,9 +148,83 @@ const ogImage = image.startsWith('http') ? image : `${siteConfig.url}${image.sta
     "@type": "Person",
     "name": "Virginia Vallejo",
     "jobTitle": "Veterinaria y Consultora Estratégica",
-    "image": "${siteConfig.url}/images/about/vir1.webp"
+    "image": "${siteConfig.url}/images/about/vir1.webp",
+    "url": "${siteConfig.url}/sobre-mi",
+    "sameAs": [
+      "${siteConfig.social.instagram}",
+      "${siteConfig.social.linkedin}"
+    ]
   },
-  "areaServed": ["AR", "ES", "MX", "CL", "CO", "PE"],
-  "serviceType": "Consultoría Estratégica Veterinaria"
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Argentina"
+    },
+    {
+      "@type": "Country", 
+      "name": "España"
+    },
+    {
+      "@type": "Country",
+      "name": "México"
+    },
+    {
+      "@type": "Country",
+      "name": "Chile"
+    },
+    {
+      "@type": "Country",
+      "name": "Colombia"
+    },
+    {
+      "@type": "Country",
+      "name": "Perú"
+    }
+  ],
+  "serviceType": ["Consultoría Estratégica Veterinaria", "Coaching Empresarial", "Marketing Digital", "Transformación Digital"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Consultoría",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Consultoría para Dueños de Negocios Veterinarios",
+          "description": "Consultoría estratégica para ordenar, profesionalizar y hacer crecer clínicas veterinarias. Incluye digitalización de procesos, estrategia de crecimiento y marketing, y acompañamiento en decisiones clave para salir del día a día operativo."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Acompañamiento para Nuevos Proyectos Veterinarios",
+          "description": "Trabajo con proyectos en etapa de diseño, validación o lanzamiento. Incluye validación de idea y oportunidad, definición de propuesta de valor, estrategia go-to-market y plan de comunicación para salir al mercado."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Posicionamiento como Key Opinion Leader (KOL)",
+          "description": "Acompañamiento para profesionales veterinarios que buscan posicionarse como referentes y construir marca personal sólida. Incluye posicionamiento estratégico, marca personal experta, presencia digital alineada y preparación para charlas y proyectos."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Advisory Estratégico para Empresas del Sector Pet",
+          "description": "Visión estratégica y toma de decisiones informadas para empresas pet y veterinarias. Incluye estudios de tendencias y mercado, análisis de oportunidades de innovación, advisory para equipos directivos y soporte para lanzamientos."
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "${siteConfig.social.instagram}",
+    "${siteConfig.social.linkedin}"
+  ],
+  "knowsAbout": ["Consultoría Veterinaria", "Gestión de Clínicas", "Marketing Veterinario", "Transformación Digital", "Hoteles para Gatos", "Pet Care", "Mishmoshos"]
+}
 }
 </script>
