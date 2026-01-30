@@ -74,7 +74,9 @@ const whatsappLink = formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsapp
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <!-- Calendly (prioridad 1) -->
         <a 
-          href="#calendly"
+          href={siteConfig.calendly}
+          target="_blank"
+          rel="noopener noreferrer"
           class="contact-card group"
         >
           <div class="relative z-10">
@@ -302,7 +304,9 @@ const whatsappLink = formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsapp
         
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
-            href="#calendly"
+            href={siteConfig.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
             class="cta-calendly group"
           >
             <Calendar size={24} className="relative z-10" />

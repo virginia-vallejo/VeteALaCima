@@ -12,7 +12,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/virginiavallejo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     
   },
-  calendly: "https://calendly.com/vetealacima/diagnostico-gratuito",
+  calendly: "https://calendly.com/virginia-vetealacima/30min",
   
   // Analytics & Tracking
   googleAnalyticsId: "G-XEX8HY3KHZ",
