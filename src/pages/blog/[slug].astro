@@ -30,6 +30,16 @@ const getImageUrl = (image: any) => {
   }
 };
 
+// Función específica para imagen del autor - sin crop, respeta proporciones
+const getAuthorImageUrl = (image: any) => {
+  if (!image) return '/images/placeholders/blog-placeholder.svg';
+  try {
+    return urlFor(image).width(600).fit('max').url();
+  } catch {
+    return '/images/placeholders/blog-placeholder.svg';
+  }
+};
+
 const imageUrl = getImageUrl(post.mainImage);
 
 const formattedDate = new Date(post.publishedAt).toLocaleDateString('es-ES', {
@@ -78,13 +88,13 @@ const articleSchema = {
   
   <article class="bg-gradient-to-b from-[#0a1929] via-[#0f1f33] to-[#0a1929]">
     <!-- Hero Section - Solo imagen y categorías -->
-    <section class="relative min-h-[50vh] md:min-h-[60vh] flex items-end overflow-hidden pt-20">
+    <section class="relative min-h-[50vh] md:min-h-[75vh] lg:min-h-[85vh] flex items-end overflow-hidden pt-20">
       <!-- Background Image con overlay mejorado -->
       <div class="absolute inset-0 z-0">
         <img 
           src={imageUrl} 
           alt={post.mainImage?.alt || post.title}
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover object-center"
         />
         <!-- Overlays graduales mejorados -->
         <div class="absolute inset-0 bg-gradient-to-t from-[#0a1929] via-[#0a1929]/60 to-transparent"></div>
@@ -206,9 +216,9 @@ const articleSchema = {
                   {post.author.image && (
                     <div class="flex-shrink-0">
                       <img 
-                        src={getImageUrl(post.author.image)} 
+                        src={getAuthorImageUrl(post.author.image)} 
                         alt={post.author.name}
-                        class="w-32 h-40 md:w-40 md:h-52 rounded-2xl object-contain bg-gradient-to-br from-[#0a1929]/5 to-[#3e6680]/5 shadow-lg ring-4 ring-[#b4cfa6]/20 p-2"
+                        class="w-32 h-auto md:w-48 lg:w-56 rounded-2xl object-contain"
                       />
                     </div>
                   )}
@@ -261,7 +271,7 @@ const articleSchema = {
                     rel="noopener noreferrer"
                     class="inline-flex items-center gap-3 bg-white text-[#0a1929] px-8 md:px-10 py-4 md:py-5 rounded-xl font-black text-lg md:text-xl hover:bg-[#b4cfa6] hover:shadow-2xl hover:shadow-[#b4cfa6]/50 transition-all duration-300 hover:scale-105 group/btn"
                   >
-                    <span>Agendar Consultoría</span>
+                    <span>Agendar Consulta</span>
                     <svg class="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
