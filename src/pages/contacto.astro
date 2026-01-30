@@ -17,18 +17,34 @@ const whatsappLink = formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsapp
   description="Contáctame para transformar tu veterinaria. Diagnóstico gratuito de 30 minutos sin compromiso. Agenda tu reunión con Virginia Vallejo, consultora especializada en crecimiento veterinario. WhatsApp, email o videollamada."
 >
   <!-- Hero Section -->
-  <section class="relative min-h-[80vh] md:min-h-[90vh] lg:min-h-[95vh] flex items-end overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28 lg:pb-32">
+  <section class="relative min-h-[80vh] md:min-h-[90vh] lg:min-h-[95vh] flex items-end overflow-hidden pt-32 md:pt-40 pb-32 md:pb-28 lg:pb-32">
     <!-- Background con Video -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#0a1929] via-[#0f1f33] to-[#0a1929] z-0"></div>
     
-    <!-- Video de fondo -->
+    <!-- Video de fondo MOBILE -->
     <video 
       autoplay 
       loop 
       muted 
       playsinline
       preload="auto"
-      class="absolute inset-0 w-full h-full object-cover opacity-90 z-[1]"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-90 z-[1] md:hidden"
+      style="object-position: center center;"
+      webkit-playsinline
+      x5-playsinline
+    >
+      <source src="/video/hero1.mp4" type="video/mp4" />
+    </video>
+    
+    <!-- Video de fondo DESKTOP -->
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline
+      preload="auto"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-90 z-[1] hidden md:block"
+      style="object-position: center center;"
       webkit-playsinline
       x5-playsinline
     >

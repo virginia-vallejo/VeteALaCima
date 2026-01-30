@@ -8,13 +8,15 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  preloadHeroImages?: boolean; // Nueva prop para controlar preload de imágenes del hero
 }
 
 const {
   title = siteConfig.name,
   description = siteConfig.description,
   image = `${siteConfig.url}/images/about/vir1.webp`,
-  type = 'website'
+  type = 'website',
+  preloadHeroImages = false // Por defecto false, solo true en home
 } = Astro.props;
 
 const fullTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
@@ -93,9 +95,13 @@ const ogImage = image.startsWith('http') ? image : `${siteConfig.url}${image.sta
 
 <!-- Preload Critical Resources - OPTIMIZADO para LCP -->
 <link rel="preload" as="image" href="/images/logo/logo3d.svg" fetchpriority="high" />
-<!-- Precargar imagen hero crítica para LCP -->
-<link rel="preload" as="image" href="/images/about/vir8.webp" fetchpriority="high" media="(max-width: 767px)" />
-<link rel="preload" as="image" href="/images/about/vir10.webp" fetchpriority="high" media="(min-width: 768px)" />
+<!-- Precargar imagen hero crítica para LCP - SOLO EN HOME -->
+{preloadHeroImages && (
+  <>
+    <link rel="preload" as="image" href="/images/about/vir8.webp" fetchpriority="high" media="(max-width: 767px)" />
+    <link rel="preload" as="image" href="/images/about/vir10.webp" fetchpriority="high" media="(min-width: 768px)" />
+  </>
+)}
 <!-- Preconnect y DNS Prefetch para Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

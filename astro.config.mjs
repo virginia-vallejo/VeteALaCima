@@ -71,8 +71,10 @@ export default defineConfig({
       dedupe: ['react', 'react-dom']
     },
     optimizeDeps: {
-      include: ['react', 'react-dom', 'react/jsx-runtime'],
-      exclude: ['lucide-react']
+      include: ['react', 'react-dom', 'react/jsx-runtime', 'lucide-react'],
+      esbuildOptions: {
+        target: 'es2020'
+      }
     }
   },
   build: {

@@ -66,18 +66,34 @@ const { title, description, image, type } = Astro.props;
           originalError.apply(console, args);
         };
         
-        // Filtrar console.warn para advertencias de sandbox de iframes de extensiones
+        // Filtrar console.warn para advertencias de sandbox de iframes
         const originalWarn = console.warn;
         console.warn = function(...args) {
           const message = args.join(' ');
-          // Ignorar advertencias de sandbox de iframes externos (extensiones, Meta Pixel, etc.)
+          // Ignorar advertencias de sandbox de iframes externos
           if (message.includes('iframe') && 
               message.includes('sandbox') && 
-              (message.includes('allow-scripts') || message.includes('allow-same-origin'))) {
+              (message.includes('allow-scripts') || message.includes('allow-same-origin') || message.includes('escape'))) {
             return;
           }
           originalWarn.apply(console, args);
         };
+        
+        // Suprimir advertencias de iframe sandbox a nivel de Window
+        if (typeof window !== 'undefined') {
+          const originalWindowError = window.onerror;
+          window.onerror = function(message, source, lineno, colno, error) {
+            if (typeof message === 'string' && 
+                message.includes('iframe') && 
+                message.includes('sandbox')) {
+              return true; // Prevenir que se muestre el error
+            }
+            if (originalWindowError) {
+              return originalWindowError.call(this, message, source, lineno, colno, error);
+            }
+            return false;
+          };
+        }
       })();
     </script>
   </head>
