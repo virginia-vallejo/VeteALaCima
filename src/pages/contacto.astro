@@ -17,15 +17,32 @@ const whatsappLink = formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsapp
   description="Contáctame para transformar tu veterinaria. Diagnóstico gratuito de 30 minutos sin compromiso. Agenda tu reunión con Virginia Vallejo, consultora especializada en crecimiento veterinario. WhatsApp, email o videollamada."
 >
   <!-- Hero Section -->
-  <section class="relative min-h-[50vh] flex items-center overflow-hidden pt-32 md:pt-40 pb-16 md:pb-20">
-    <!-- Background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0a1929] via-[#0f1f33] to-[#0a1929]"></div>
+  <section class="relative min-h-[80vh] md:min-h-[90vh] lg:min-h-[95vh] flex items-end overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28 lg:pb-32">
+    <!-- Background con Video -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a1929] via-[#0f1f33] to-[#0a1929] z-0"></div>
+    
+    <!-- Video de fondo -->
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline
+      preload="auto"
+      class="absolute inset-0 w-full h-full object-cover opacity-90 z-[1]"
+      webkit-playsinline
+      x5-playsinline
+    >
+      <source src="/video/hero5.mp4" type="video/mp4" />
+    </video>
+    
+    <!-- Overlay oscuro para legibilidad -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a1929]/40 via-[#0f1f33]/30 to-[#0a1929]/70 z-[2]"></div>
     
     <!-- Grid pattern sutil -->
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 48px 48px;"></div>
+    <div class="absolute inset-0 opacity-[0.02] z-[3]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 48px 48px;"></div>
     
     <!-- Acentos de color sutiles -->
-    <div class="absolute inset-0">
+    <div class="absolute inset-0 z-[4]">
       <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[#b4cfa6]/8 rounded-full blur-[120px]"></div>
       <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#3e6680]/8 rounded-full blur-[120px]"></div>
     </div>

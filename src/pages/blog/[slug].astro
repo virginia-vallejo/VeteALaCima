@@ -76,121 +76,201 @@ const articleSchema = {
   <!-- Schema.org Structured Data for Article -->
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   
-  <article>
-    <!-- Imagen Hero -->
-    <section class="relative h-[400px] md:h-[500px] overflow-hidden mt-24">
-      <img 
-        src={imageUrl} 
-        alt={post.mainImage?.alt || post.title}
-        class="w-full h-full object-cover"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#294a5f]/80 to-transparent"></div>
+  <article class="bg-gradient-to-b from-[#0a1929] via-[#0f1f33] to-[#0a1929]">
+    <!-- Hero Section - Solo imagen y categorías -->
+    <section class="relative min-h-[50vh] md:min-h-[60vh] flex items-end overflow-hidden pt-20">
+      <!-- Background Image con overlay mejorado -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src={imageUrl} 
+          alt={post.mainImage?.alt || post.title}
+          class="w-full h-full object-cover"
+        />
+        <!-- Overlays graduales mejorados -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1929] via-[#0a1929]/60 to-transparent"></div>
+        <div class="absolute inset-0 bg-[#0a1929]/30"></div>
+      </div>
+
+      <!-- Grid pattern sutil -->
+      <div class="absolute inset-0 opacity-[0.03] z-[1]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
       
-      <!-- Botón Volver arriba a la izquierda -->
-      <a 
-        href="/blog" 
-        class="absolute top-6 left-6 inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-[#3e6680] hover:bg-white hover:text-[#b4cfa6] transition-all px-4 py-2 rounded-full font-medium shadow-lg"
-      >
-        <ArrowLeft className="w-5 h-5" />
-        <span>Volver al blog</span>
-      </a>
-      
-      <!-- Categorías abajo a la izquierda -->
+      <!-- Categorías - Parte inferior izquierda mejoradas -->
       {post.categories && post.categories.length > 0 && (
-        <div class="absolute bottom-6 left-6 flex flex-wrap gap-2">
-          {post.categories.map((category: any) => (
-            <span
-              class="bg-[#b4cfa6] text-[#294a5f] px-4 py-2 rounded-full text-sm font-medium shadow-lg"
-            >
-              {category.title}
-            </span>
-          ))}
+        <div class="absolute bottom-6 left-4 md:bottom-8 md:left-8 lg:bottom-10 lg:left-12 z-10">
+          <div class="flex flex-wrap gap-2 md:gap-3">
+            {post.categories.map((category: any) => (
+              <span class="inline-flex items-center px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-[#b4cfa6] via-[#a5c096] to-[#b4cfa6] text-[#0a1929] rounded-xl md:rounded-2xl text-sm md:text-base lg:text-lg font-black uppercase tracking-wide shadow-2xl hover:shadow-[#b4cfa6]/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm border-2 border-white/30">
+                {category.title}
+              </span>
+            ))}
+          </div>
         </div>
       )}
     </section>
 
-    <!-- Contenido del Artículo -->
-    <section class="py-12 bg-white">
-      <div class="container mx-auto px-6 lg:px-8">
+    <!-- Contenido del Artículo - Diseño Empresarial Moderno -->
+    <section class="py-12 md:py-16 relative">
+      <!-- Decorative background elements -->
+      <div class="absolute top-40 right-10 w-96 h-96 bg-[#66D4FF]/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-40 left-10 w-96 h-96 bg-[#b4cfa6]/5 rounded-full blur-3xl"></div>
+      
+      <div class="container-custom px-4 md:px-8 relative z-10">
         <div class="max-w-4xl mx-auto">
-          <!-- Título -->
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-['Poppins'] text-[#0A1B2E] mb-6">
-            {post.title}
-          </h1>
-
-          <!-- Meta información -->
-          <div class="flex flex-wrap items-center gap-6 pb-6 mb-8 border-b border-[#F5F7FA]">
-            <div class="flex items-center gap-2 text-[#A3B7C9]">
-              <Calendar className="w-5 h-5" />
-              <span>{formattedDate}</span>
-            </div>
-            {post.readingTime && (
-              <div class="flex items-center gap-2 text-[#A3B7C9]">
-                <Clock className="w-5 h-5" />
-                <span>{post.readingTime} min de lectura</span>
-              </div>
-            )}
-            <div class="flex items-center gap-2">
-              <User className="w-5 h-5 text-[#1FA2FF]" />
-              <span class="text-[#0A1B2E] font-medium">{post.author.name}</span>
-            </div>
-            <button 
-              class="ml-auto flex items-center gap-2 text-[#1FA2FF] hover:text-[#66D4FF] transition-colors"
-              onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : alert('Copia este link: ' + window.location.href)"
+          
+          <!-- Botón Volver - Fuera del hero, a la izquierda -->
+          <div class="mb-8">
+            <a 
+              href="/blog" 
+              class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white hover:text-[#0a1929] transition-all duration-300 px-5 py-3 rounded-xl font-semibold shadow-lg hover:shadow-2xl group"
             >
-              <Share2 className="w-5 h-5" />
-              <span>Compartir</span>
-            </button>
+              <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+              <span>Volver al blog</span>
+            </a>
           </div>
 
-          <!-- Extracto -->
-          <div class="text-xl text-[#406780] mb-12 italic border-l-4 border-[#3e6680] pl-6">
-            {post.excerpt}
+          <!-- Card contenedor del artículo -->
+          <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/20">
+            <div class="p-8 md:p-12 lg:p-16">
+              
+              <!-- Header Minimalista con Título, Meta y Extracto -->
+              <div class="max-w-3xl mx-auto mb-12">
+                
+                <!-- Título del artículo -->
+                <h1 class="font-heading font-black text-3xl md:text-4xl lg:text-5xl text-[#0a1929] mb-6 leading-tight">
+                  {post.title}
+                </h1>
+
+                <!-- Meta información minimalista -->
+                <div class="flex flex-wrap items-center gap-3 text-sm text-[#0a1929]/60 mb-8">
+                  <span>{formattedDate}</span>
+                  {post.readingTime && (
+                    <>
+                      <span class="text-[#0a1929]/30">•</span>
+                      <span>{post.readingTime} min de lectura</span>
+                    </>
+                  )}
+                  <span class="text-[#0a1929]/30">•</span>
+                  <span class="font-medium text-[#3e6680]">{post.author.name}</span>
+                </div>
+
+                <!-- Extracto minimalista y elegante -->
+                <div class="relative">
+                  <div class="text-xl md:text-2xl text-[#0a1929]/70 leading-relaxed font-light border-l-2 border-[#b4cfa6] pl-6 italic">
+                    {post.excerpt}
+                  </div>
+                </div>
+
+                <!-- Línea decorativa sutil -->
+                <div class="mt-8 flex items-center justify-center gap-2">
+                  <div class="h-px w-12 bg-gradient-to-r from-transparent to-[#0a1929]/20"></div>
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#b4cfa6]"></div>
+                  <div class="h-px w-12 bg-gradient-to-l from-transparent to-[#0a1929]/20"></div>
+                </div>
+              </div>
+
+              <!-- Cuerpo del artículo con estilos mejorados -->
+              <div class="article-content prose prose-lg md:prose-xl max-w-none
+                prose-headings:font-heading prose-headings:font-bold prose-headings:text-[#0a1929]
+                prose-h2:text-3xl prose-h2:md:text-4xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b-2 prose-h2:border-[#b4cfa6]/30
+                prose-h3:text-2xl prose-h3:md:text-3xl prose-h3:mt-10 prose-h3:mb-4
+                prose-p:text-[#0a1929]/80 prose-p:leading-relaxed prose-p:mb-6
+                prose-a:text-[#3e6680] prose-a:font-semibold prose-a:no-underline hover:prose-a:text-[#b4cfa6] prose-a:transition-colors
+                prose-strong:text-[#0a1929] prose-strong:font-bold
+                prose-ul:my-6 prose-ul:space-y-2
+                prose-li:text-[#0a1929]/80 prose-li:leading-relaxed
+                prose-blockquote:border-l-4 prose-blockquote:border-[#3e6680] prose-blockquote:bg-[#0a1929]/5 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-xl
+                prose-img:rounded-2xl prose-img:shadow-xl prose-img:my-8
+                prose-code:bg-[#0a1929]/10 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-[#3e6680] prose-code:font-mono prose-code:text-sm
+              ">
+                <PortableTextRenderer value={post.body} client:load />
+              </div>
+
+              <!-- Botón compartir mejorado -->
+              <div class="mt-12 pt-8 border-t border-[#0a1929]/10 flex justify-center">
+                <button 
+                  class="inline-flex items-center gap-3 bg-gradient-to-r from-[#3e6680] to-[#b4cfa6] text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-[#b4cfa6]/30 transition-all duration-300 hover:scale-105 group"
+                  onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : alert('Copia este link: ' + window.location.href)"
+                >
+                  <Share2 className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                  <span>Compartir artículo</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          <!-- Cuerpo del artículo -->
-          <div class="prose prose-lg max-w-none">
-            <PortableTextRenderer value={post.body} client:load />
-          </div>
-
-          <!-- Información del autor -->
+          <!-- Información del autor - Rediseñada -->
           {post.author.bio && (
-            <div class="mt-16 pt-8 border-t border-[#F5F7FA]">
-              <div class="bg-[#F5F7FA] rounded-2xl p-8 flex flex-col md:flex-row gap-6">
-                {post.author.image && (
-                  <img 
-                    src={getImageUrl(post.author.image)} 
-                    alt={post.author.name}
-                    class="w-24 h-24 rounded-xl object-cover shadow-md"
-                  />
-                )}
-                <div class="flex-1">
-                  <h3 class="text-xl font-bold text-[#294a5f] mb-2">
-                    Sobre {post.author.name}
-                  </h3>
-                  <div class="text-[#406780]">
-                    <PortableTextRenderer value={post.author.bio} client:load />
+            <div class="mt-12">
+              <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/20 p-8 md:p-10">
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                  {post.author.image && (
+                    <div class="flex-shrink-0">
+                      <img 
+                        src={getImageUrl(post.author.image)} 
+                        alt={post.author.name}
+                        class="w-32 h-40 md:w-40 md:h-52 rounded-2xl object-contain bg-gradient-to-br from-[#0a1929]/5 to-[#3e6680]/5 shadow-lg ring-4 ring-[#b4cfa6]/20 p-2"
+                      />
+                    </div>
+                  )}
+                  <div class="flex-1">
+                    <div class="inline-block bg-gradient-to-r from-[#3e6680]/10 to-[#b4cfa6]/10 px-4 py-1 rounded-full mb-3">
+                      <span class="text-[#3e6680] font-bold text-sm uppercase tracking-wider">Sobre el autor</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-heading font-black text-[#0a1929] mb-3">
+                      {post.author.name}
+                    </h3>
+                    <div class="prose prose-lg text-[#0a1929]/80 leading-relaxed">
+                      <PortableTextRenderer value={post.author.bio} client:load />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           )}
 
-          <!-- CTA al final del artículo -->
-          <div class="mt-16 bg-gradient-to-r from-[#3e6680] to-[#b4cfa6] rounded-3xl p-8 md:p-12 text-center text-white">
-            <h3 class="text-2xl md:text-3xl font-bold font-['Poppins'] mb-4">
-              ¿Listo para llevar tu clínica al siguiente nivel?
-            </h3>
-            <p class="text-lg mb-6 text-white/90">
-              Agenda una consultoría gratuita y descubre cómo podemos ayudarte.
-            </p>
-            <a 
-              href="/contacto"
-              class="inline-block bg-white text-[#3e6680] px-8 py-4 rounded-full font-['Montserrat'] font-semibold hover:bg-[#F5F7FA] transition-colors"
-            >
-              Agendar Consultoría Gratuita
-            </a>
+          <!-- CTA Final - Rediseñado -->
+          <div class="mt-16">
+            <div class="relative group">
+              <!-- Glow effect -->
+              <div class="absolute inset-0 bg-gradient-to-r from-[#3e6680]/20 to-[#b4cfa6]/20 rounded-3xl blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div class="relative bg-gradient-to-br from-[#0a1929] via-[#3e6680] to-[#0a1929] rounded-3xl p-10 md:p-14 text-center overflow-hidden border border-white/10">
+                <!-- Pattern decoration -->
+                <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+                
+                <!-- Decorative orbs -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-[#b4cfa6]/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-[#66D4FF]/10 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10">
+                  <div class="inline-block bg-white/10 backdrop-blur-sm px-5 py-2 rounded-full mb-6 border border-white/20">
+                    <span class="text-white font-bold text-sm uppercase tracking-wider">Da el siguiente paso</span>
+                  </div>
+                  
+                  <h3 class="font-heading font-black text-3xl md:text-4xl lg:text-5xl text-white mb-4 leading-tight">
+                    ¿Listo para transformar tu clínica?
+                  </h3>
+                  
+                  <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Agenda una conversación estratégica y descubre cómo podemos ayudarte a alcanzar tus objetivos.
+                  </p>
+                  
+                  <a 
+                    href="https://calendly.com/virginia-vetealacima/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-3 bg-white text-[#0a1929] px-8 md:px-10 py-4 md:py-5 rounded-xl font-black text-lg md:text-xl hover:bg-[#b4cfa6] hover:shadow-2xl hover:shadow-[#b4cfa6]/50 transition-all duration-300 hover:scale-105 group/btn"
+                  >
+                    <span>Agendar Consultoría</span>
+                    <svg class="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
