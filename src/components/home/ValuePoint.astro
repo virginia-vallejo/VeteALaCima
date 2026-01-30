@@ -18,7 +18,10 @@ const iconMap: Record<string, string> = {
 };
 ---
 
-<div class={`value-point-card flex items-start gap-6 p-6 md:p-8 rounded-2xl relative overflow-hidden group ${isDark ? 'bg-white/10 backdrop-blur-md border border-white/20' : 'bg-white/50 backdrop-blur-sm'}`}>
+<a 
+  href="/servicios" 
+  class={`value-point-card flex items-start gap-6 p-6 md:p-8 rounded-2xl relative overflow-hidden group ${isDark ? 'bg-white/10 backdrop-blur-md border border-white/20' : 'bg-white/50 backdrop-blur-sm'} cursor-pointer transition-all duration-400`}
+>
   <!-- Hover background glow -->
   <div class="absolute inset-0 bg-gradient-to-r from-azul-electrico/10 to-celeste-tech/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
   
@@ -71,7 +74,7 @@ const iconMap: Record<string, string> = {
   <div class="absolute bottom-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
     <div class={`absolute bottom-0 right-0 w-full h-full border-r-2 border-b-2 ${isDark ? 'border-celeste-tech/30' : 'border-celeste-tech/20'} rounded-br-2xl`}></div>
   </div>
-</div>
+</a>
 
 <style>
   /* Card hover effects */

@@ -82,20 +82,21 @@ const problems = [
           <span class="inline-block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Los </span>
           
           <!-- COMPONENTE MEJORADO -->
-          <span class="inline-block relative">
-            <!-- Fondo sólido blanco con opacidad para contraste -->
-            <span class="absolute inset-0 bg-white/10 backdrop-blur-md rounded-2xl -m-2 md:-m-3 border border-white/20"></span>
-            
-            <!-- Glow intenso detrás -->
-            <span class="absolute inset-0 blur-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 opacity-60 scale-110"></span>
-            
-            <!-- Stroke/borde oscuro para definición -->
-            <span class="relative z-10 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black
-              text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-blue-500
-              drop-shadow-[0_0_20px_rgba(31,162,255,0.9)]
-              [text-shadow:_-1px_-1px_0_rgba(0,0,0,0.8),_1px_-1px_0_rgba(0,0,0,0.8),_-1px_1px_0_rgba(0,0,0,0.8),_1px_1px_0_rgba(0,0,0,0.8)]">
-              5 desafíos
-            </span>
+         <span class="inline-block relative px-8 py-3 my-2">
+  <!-- Fondo con bordes definidos -->
+  <span class="absolute inset-0 bg-white/90 backdrop-blur-xl rounded-2xl 
+    shadow-[0_8px_32px_rgba(0,0,0,0.12)] 
+    border-l-4 border-azul-electrico"></span>
+  
+  <!-- Detalle superior -->
+  <span class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-azul-electrico/50 to-transparent"></span>
+  
+  <!-- Texto limpio y profesional -->
+  <span class="relative z-10 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold
+    text-azul-profundo">
+    5 desafíos
+  </span>
+</span>
           </span>
           
           <br class="block md:hidden" />
